@@ -1,4 +1,5 @@
-import lightsSvgUrl from "@/assets/lights.svg?url";
+import lightsImageUrl from "@/assets/lights.png";
+import Particles from "@/components/particles";
 import Footer from "@/layouts/footer";
 import Navbar from "@/layouts/navbar";
 import ProjectsSection from "@/layouts/projects-section";
@@ -9,21 +10,20 @@ export default function Home() {
     <main className="relative z-0 flex min-h-screen w-full flex-col items-center justify-between bg-background">
       <Navbar />
 
-      {/* stars ===================== */}
-      <div className="absolute z-[1] left-1/2 top-0 -translate-x-1/2 w-full h-[400px]">
-        <Image
-          src="/stars.png"
-          alt="stars"
-          width={800}
-          height={800}
-          className="w-full h-full object-cover"
+      <div className="absolute w-full h-[500px]">
+        <Particles
+          className="absolute inset-0"
+          quantity={150}
+          ease={60}
+          color={"#ffffff"}
+          refresh
         />
       </div>
 
       {/* lights ============================= */}
       <div className="absolute z-[2] left-1/2 -translate-x-1/2 top-0 w-full h-[600px]">
         <Image
-          src={lightsSvgUrl}
+          src={lightsImageUrl}
           alt="lights"
           width={800}
           height={800}

@@ -3,7 +3,7 @@ import React from "react";
 import Badge from "./badge";
 import Button from "./button";
 import { ArrowRightIcon } from "@/assets";
-import lightsSvgUrl from "@/assets/lights.svg?url";
+import lightsImageUrl from "@/assets/lights.png";
 
 function ProjectsCard() {
   return (
@@ -46,8 +46,8 @@ function ProjectsCard() {
           <p className="text-md  text-textSecondary w-full lg:w-3/4">
             RSSI stands as a beacon of hope, dedicated to revitalising the Osho
             movement, restoring its sanctity, and paving the way for a future
-            where {`Osho's`} transformative wisdom illuminates the hearts and souls
-            of seekers around the globe.
+            where {`Osho's`} transformative wisdom illuminates the hearts and
+            souls of seekers around the globe.
           </p>
 
           {/* Build with us and live view button ================================= */}
@@ -80,9 +80,9 @@ function ProjectsCard() {
       </div>
 
       {/* Lights displayed when hovered ======================================= */}
-      <div className="opacity-0 group-hover:opacity-100 absolute transition-opacity duration-300 ease-in-out left-1/3 top-0 w-[900px] h-[600px]">
+      <div className="opacity-0  absolute transition-all duration-300 ease-in-out left-1/3 top-0 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 w-full h-[200px]">
         <Image
-          src={lightsSvgUrl}
+          src={lightsImageUrl}
           alt="lights"
           width={800}
           height={800}
