@@ -14,8 +14,8 @@ export default function Home() {
       <div className="hidden md:block absolute w-full h-[500px]">
         <Particles
           className="absolute inset-0 opacity-60"
-          quantity={150}
-          ease={60}
+          quantity={140}
+          ease={50}
           color={"#ffffff"}
           refresh
         />
