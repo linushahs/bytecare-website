@@ -9,6 +9,10 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      screens: {
+        "2xl": "1700px"
+      },
+
       fontSize: {
         sm: "var(--text-sm)",
         md: "var(--text-md)",
