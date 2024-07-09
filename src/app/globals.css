@@ -2,32 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background: #000212;
+    --background-default: #101722;
+    --background-tertiary: #1a212c;
+    --background-surface: rgba(255, 255, 255, 0.1);
+    --background-surface-secondary: rgba(255, 255, 255, 0.03);
+
+    --border-soft: rgba(255, 255, 255, 0.1);
+    --border-light: rgba(255, 255, 255, 0.05);
+
+    --gradient-primary: linear-gradient(180deg, #39b98d 0%, #106648 100%);
+    --gradient-card-bg: linear-gradient(180deg, #101722 0%, #050717 100%);
+    --gradient-fill-card: linear-gradient(180deg, #101722 100%, #050717 100%);
+
+    --text-primary: #ffffff;
+    --text-secondary: #b9b9b9;
+    --text-gradient-default: radial-gradient(
+      70% 40% at 50% 0%,
+      rgba(255, 255, 255, 0.6) 0%,
+      #fff 100%
+    );
+
+    /* Font sizes ----------------------------> */
+    --text-sm: 11px;
+    --text-md: 13px;
+    --text-lg: 16px;
+    --text-2xl: 24px;
+    --text-5xl: 32px;
+    --text-6xl: 64px;
+  }
+
+  @screen sm {
+    :root {
+      --text-md: 14px;
+      --text-sm: 11px;
+      --text-2xl: 26px;
+      --text-5xl: 54px;
+    }
+  }
+
+  @screen lg {
+    :root {
+      --text-sm: 12px;
+      --text-md: 16px;
+      --text-lg: 18px;
+      --text-2xl: 32px;
+      --text-5xl: 64px;
+      --text-6xl: 72px;
+    }
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
+  .container {
+    @apply w-[90%] sm:w-[95%] xl:w-[85%] mx-auto;
   }
 }
