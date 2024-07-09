@@ -72,7 +72,7 @@ export default function Navbar() {
   );
 }
 
-const MobileMenu = memo(function () {
+function MobileMenu() {
   const [isMenuOpen, openMenu] = useState(false);
 
   useEffect(() => {
@@ -127,12 +127,7 @@ const MobileMenu = memo(function () {
             </a>
           )
         )}
-
-        {/* <Button variant="default" color="primary">
-          Schedule a call
-          <ArrowRightIcon className="size-6" />
-        </Button> */}
       </div>
     </div>
   );
-});
+}

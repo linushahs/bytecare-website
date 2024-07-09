@@ -32,19 +32,16 @@ function Footer() {
           </p>
 
           <ul className="mt-2 flex gap-3">
-            {[
-              <TwitterIcon />,
-              <GithubIcon />,
-              <SlackIcon />,
-              <YoutubeIcon />,
-            ].map((icon, i) => (
-              <li
-                key={i}
-                className="p-2 cursor-pointer rounded-full bg-surface-secondary text-textSecondary [&>svg]:size-5"
-              >
-                {icon}
-              </li>
-            ))}
+            {[TwitterIcon, GithubIcon, SlackIcon, YoutubeIcon].map(
+              (Icon, i) => (
+                <li
+                  key={i}
+                  className="p-2 cursor-pointer rounded-full bg-surface-secondary text-textSecondary [&>svg]:size-5"
+                >
+                  <Icon />
+                </li>
+              )
+            )}
           </ul>
         </div>
 

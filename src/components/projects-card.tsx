@@ -46,7 +46,7 @@ function ProjectsCard() {
           <p className="text-md  text-textSecondary w-full lg:w-3/4">
             RSSI stands as a beacon of hope, dedicated to revitalising the Osho
             movement, restoring its sanctity, and paving the way for a future
-            where Osho's transformative wisdom illuminates the hearts and souls
+            where {`Osho's`} transformative wisdom illuminates the hearts and souls
             of seekers around the globe.
           </p>
 
