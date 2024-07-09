@@ -12,7 +12,7 @@ import React from "react";
 
 function Footer() {
   return (
-    <footer className="bg-surface-secondary border-t border-borderSoft pt-14 pb-8">
+    <footer className="bg-surface-secondary border-t border-borderSoft pt-14 pb-4 md:pb-8">
       <div className="container flex flex-col gap-10 md:gap-0 md:flex-row md:justify-between">
         {/* Logo, title and description ============================== */}
         <div className="flex flex-1 flex-col gap-4">
@@ -93,7 +93,7 @@ function Footer() {
       </div>
 
       {/* Copy right ======================== */}
-      <p className="text-textSecondary text-center text-md mt-16">
+      <p className="container text-textSecondary text-left text-md mt-10 md:mt-16">
         Copyright © 2024. All right reserved to Bytecare Technology
       </p>
     </footer>

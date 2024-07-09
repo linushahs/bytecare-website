@@ -51,10 +51,10 @@ function ProjectsCard() {
           </p>
 
           {/* Build with us and live view button ================================= */}
-          <div className="mt-6 sm:mt-auto mb-6 flex flex-col [&>button]:w-fit sm:flex-row gap-4">
-            <Button variant="default" color="primary">
+          <div className="mt-4 mb-3 sm:mt-auto sm:mb-6 flex [&>button]:w-fit  gap-4">
+            <Button variant="default" color="primary" className="px-3 sm:px-6">
               Build With Us
-              <ArrowRightIcon className="size-6" />
+              <ArrowRightIcon className="size-5 sm:size-6 " />
             </Button>
 
             <Button

@@ -10,9 +10,10 @@ export default function Home() {
     <main className="relative z-0 flex min-h-screen w-full flex-col items-center justify-between bg-background">
       <Navbar />
 
-      <div className="absolute w-full h-[500px]">
+      {/* Particles for (Table and desktop sizes) ============================= */}
+      <div className="hidden md:block absolute w-full h-[500px]">
         <Particles
-          className="absolute inset-0"
+          className="absolute inset-0 opacity-60"
           quantity={150}
           ease={60}
           color={"#ffffff"}
@@ -20,7 +21,18 @@ export default function Home() {
         />
       </div>
 
-      {/* lights ============================= */}
+      {/* Particles for (Mobile sizes) ============================= */}
+      <div className="md:hidden absolute w-full h-[550px]">
+        <Particles
+          className="absolute inset-0 opacity-50"
+          quantity={80}
+          ease={80}
+          color={"#ffffff"}
+          refresh
+        />
+      </div>
+
+      {/* Lights =================================================== */}
       <div className="absolute z-[2] left-1/2 -translate-x-1/2 top-0 w-full h-[600px]">
         <Image
           src={lightsImageUrl}

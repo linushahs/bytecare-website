@@ -21,10 +21,10 @@ const Button: FC<ButtonProps> = ({
   };
 
   const buttonColors = {
-    primary: "bg-primaryBtnGradient ",
+    primary: "bg-primaryBtnGradient hover:bg-primaryGradientHover",
     fill: "border-borderLight bg-fill",
-    surface: "bg-surface border-borderSoft",
-    transparent: "bg-transparent border-borderSoft",
+    surface: "bg-surface border-borderSoft  hover:contrast-75",
+    transparent: "bg-transparent border-borderSoft ",
   };
 
   return (

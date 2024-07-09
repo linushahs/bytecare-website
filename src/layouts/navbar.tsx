@@ -28,8 +28,8 @@ export default function Navbar() {
   return (
     <nav
       className={twMerge(
-        " w-full sticky top-0 left-0 z-[100] transition-all duration-300 ease-in-out",
-        isScrolled && "bg-surface backdrop-blur-lg"
+        " w-full sm:sticky top-0 left-0 z-[100] transition-all duration-300 ease-in-out",
+        isScrolled && "sm:bg-surface sm:backdrop-blur-lg"
       )}
     >
       <div className="container relative flex items-center justify-between h-[70px] md:h-[85px]">
@@ -102,15 +102,15 @@ function MobileMenu() {
       <div
         onClick={() => openMenu(false)}
         className={twMerge(
-          "fixed top-[70px] left-0 opacity-0 pointer-events-none transition-opacity duration-300 ease-in w-full h-screen bg-black/80",
+          "fixed top-[70px] left-0 opacity-0 pointer-events-none transition-opacity duration-300 ease-in w-full h-screen",
           isMenuOpen && "opacity-100 pointer-events-auto"
         )}
       ></div>
 
       <div
         className={twMerge(
-          "absolute top-full left-0 w-full h-[350px]  bg-surface rounded-base border border-borderSoft opacity-0 flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in",
-          isMenuOpen && "opacity-100  backdrop-blur-[15px]"
+          "absolute top-full left-0 w-full h-[350px] z-[299]  bg-surface rounded-base border border-borderSoft opacity-0 backdrop-blur-[19px] flex flex-col items-center justify-center gap-8 transition-all duration-300 ease-in pointer-events-none",
+          isMenuOpen && "opacity-100  pointer-events-auto"
         )}
       >
         {["home", "about", "projects", "blogs", "schedule a call"].map(
