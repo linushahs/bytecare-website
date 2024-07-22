@@ -8,3 +8,7 @@ export { default as YoutubeIcon } from "./youtube.svg";
 export { default as SlackIcon } from "./slack.svg";
 export { default as CrossIcon } from "./cross.svg";
 export { default as BarIcon } from "./hamburger.svg"
+export { default as ProductDevIcon } from "./product-dev.svg"
+export { default as DesignIcon } from "./design.svg"
+export { default as TeamIcon } from "./team.svg"
+export { default as PlayButtonIcon } from "./play-button.svg"

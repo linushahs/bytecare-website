@@ -7,6 +7,7 @@
     --background: #000212;
     --background-default: #101722;
     --background-tertiary: #1a212c;
+    --background-secondary: #151c27;
     --background-surface: rgba(255, 255, 255, 0.1);
     --background-surface-secondary: rgba(255, 255, 255, 0.03);
 
@@ -16,6 +17,13 @@
     --gradient-primary: linear-gradient(180deg, #39b98d 0%, #106648 100%);
     --gradient-card-bg: linear-gradient(180deg, #101722 0%, #050717 100%);
     --gradient-fill-card: linear-gradient(180deg, #101722 100%, #050717 100%);
+    --gradient-heading: linear-gradient(180deg, #f6f6f7 40%, #7e808f 100%);
+
+    --radial-gradient: radial-gradient(
+      100% 100% at 50% -40%,
+      rgba(120, 119, 198, 0.4) 0%,
+      rgba(255, 255, 255, 0) 100%
+    );
 
     --text-primary: #ffffff;
     --text-secondary: #b9b9b9;
@@ -29,9 +37,15 @@
     --text-sm: 11px;
     --text-md: 13px;
     --text-lg: 16px;
+    --text-xl: 18px;
     --text-2xl: 24px;
+    --text-3xl: 26px;
     --text-5xl: 32px;
     --text-6xl: 64px;
+
+    /* Navbar height 
+     ---------------------------> */
+    --navbar-height: 70px;
   }
 
   @screen sm {
@@ -48,9 +62,13 @@
       --text-sm: 12px;
       --text-md: 16px;
       --text-lg: 18px;
+      --text-xl: 24px;
       --text-2xl: 32px;
+      --text-3xl: 48px;
       --text-5xl: 64px;
       --text-6xl: 72px;
+
+      --navbar-height: 85px;
     }
   }
 

@@ -5,8 +5,12 @@ import React, { memo, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import Button from "../components/button";
 import { ArrowRightIcon, BarIcon, CrossIcon } from "@/assets";
+import Link from "next/link";
+import { navMenuItems } from "@/utils/constants";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
+  const pathName = usePathname();
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
@@ -32,7 +36,7 @@ export default function Navbar() {
         isScrolled && "sm:bg-surface sm:backdrop-blur-lg"
       )}
     >
-      <div className="container relative flex items-center justify-between h-[70px] md:h-[85px]">
+      <div className="container relative flex items-center justify-between h-[var(--navbar-height)]">
         <Image
           src="/logo.png"
           alt="logo"
@@ -42,15 +46,15 @@ export default function Navbar() {
         />
 
         <ul className="hidden lg:flex gap-12 items-center text-lg text-textSecondary">
-          {["home", "about", "projects", "blogs"].map((menu) => (
+          {navMenuItems.map((menu) => (
             <li
-              key={menu}
+              key={menu.title}
               className={twMerge(
                 "capitalize cursor-pointer hover:text-textPrimary transition-colors duration-300 ease-in-out",
-                menu === "projects" && "text-textPrimary font-semibold"
+                menu.path === pathName && "text-textPrimary font-semibold"
               )}
             >
-              <a href="#home">{menu}</a>
+              <Link href={menu.path}>{menu.title}</Link>
             </li>
           ))}
         </ul>

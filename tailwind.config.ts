@@ -17,7 +17,9 @@ const config: Config = {
         sm: "var(--text-sm)",
         md: "var(--text-md)",
         lg: "var(--text-lg)",
+        xl: "var(--text-xl)",
         "2xl": "var(--text-2xl)",
+        "3xl": "var(--text-3xl)",
         "5xl": "var(--text-5xl)",
         "6xl": "var(--text-6xl)",
       },
@@ -26,7 +28,8 @@ const config: Config = {
         sm: "6px",
         md: "10px",
         base: "12px",
-        lg: "24px",
+        lg: "18px",
+        xl: "24px",
         "2xl": "48px",
       },
 
@@ -34,6 +37,7 @@ const config: Config = {
         background: "var(--background)",
         fill: {
           DEFAULT: "var(--background-default)",
+          secondary: "var(--background-secondary)",
           tertiary: "var(--background-tertiary)"
         },
         surface: {
@@ -55,6 +59,9 @@ const config: Config = {
         gradientFillCard: "var(--gradient-fill-card)",
 
         textGradientDefault: "var(--text-gradient-default)",
+        radialGradient: "var(--radial-gradient)",
+
+        gradientHeading: "var(--gradient-heading)",
       },
 
       backdropBlur: {

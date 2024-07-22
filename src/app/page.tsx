@@ -1,65 +1,187 @@
-import lightsImageUrl from "@/assets/lights.png";
-import Particles from "@/components/particles";
+import { ArrowRightIcon } from "@/assets";
+import Button from "@/components/button";
+import {
+  HeroContent,
+  HeroFooter,
+  HeroHeading,
+  HeroParagraph,
+  HeroWrapper,
+} from "@/components/hero-content";
+import ProjectsCard from "@/components/projects-card";
+import ServiceCard from "@/components/service-card";
+import ClientFeedback from "@/components/testimonials/client-feedback";
+import ClientVideo from "@/components/testimonials/client-video";
 import Footer from "@/layouts/footer";
-import Navbar from "@/layouts/navbar";
-import ProjectsSection from "@/layouts/projects-section";
+import { services } from "@/utils/constants";
 import Image from "next/image";
 
-export default function Home() {
+export default function Homepage() {
   return (
-    <main className="relative z-0 flex min-h-screen w-full flex-col items-center justify-between bg-background">
-      <Navbar />
+    <section className="">
+      <HeroWrapper>
+        <HeroContent className="relative mt-24">
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+            <div className="w-[85%] h-[85%] relative">
+              <Image
+                alt="hero-content-backdrop-grid"
+                fill
+                className="object-cover opacity-80"
+                priority
+                src={"/grid.png"}
+              />
+            </div>
+          </div>
+          <div className="relative flex flex-col items-center">
+            <HeroHeading className="pb-8">
+              We help you build quality digital product
+            </HeroHeading>
+            <HeroParagraph className="mb-12">
+              Schedule a call today to explore how our expertise can transform
+              your vision into reality. Let&apos;s create success together.
+            </HeroParagraph>
+            <HeroFooter className="flex flex-col justify-center md:flex-row gap-x-6 gap-y-3 md:items-center">
+              <Button className="group" color="primary">
+                Schedule A Call
+                <span className="group-hover:translate-x-1.5 transition-all duration-300">
+                  <ArrowRightIcon className="size-6" />
+                </span>
+              </Button>
+              <Button color="fillSecondary">View our portfolio</Button>
+            </HeroFooter>
+          </div>
+        </HeroContent>
+      </HeroWrapper>
 
-      {/* Particles for (Table and desktop sizes) ============================= */}
-      <div className="hidden md:block absolute w-full h-[500px]">
-        <Particles
-          className="absolute inset-0 opacity-60"
-          quantity={140}
-          ease={50}
-          color={"#ffffff"}
-          refresh
-        />
+      {/* Trusted by leading organizations ================ */}
+      <div className="mt-40 w-full flex flex-col items-center">
+        <div className="flex flex-col gap-14 items-center w-[900px]">
+          <p className="text-textPrimary text-lg">
+            Trusted by the leading organizations
+          </p>
+
+          <ul className="flex gap-4 justify-between w-full">
+            {["/logo1.png", "/logo2.png", "/logo3.png", "/logo4.png"].map(
+              (logo, index) => (
+                <li key={index}>
+                  <Image
+                    src={logo}
+                    alt="company-logo"
+                    width={300}
+                    height={150}
+                    className="w-[140px] "
+                  />
+                </li>
+              )
+            )}
+          </ul>
+        </div>
       </div>
 
-      {/* Particles for (Mobile sizes) ============================= */}
-      <div className="md:hidden absolute w-full h-[550px]">
-        <Particles
-          className="absolute inset-0 opacity-50"
-          quantity={80}
-          ease={80}
-          color={"#ffffff"}
-          refresh
-        />
+      {/* Here's what we provide section ======================= */}
+      <div className="container flex flex-col items-center justify-center gap-4 pt-14 h-[calc(100vh-var(--navbar-height))]">
+        <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
+          Here's what we provide
+        </p>
+
+        <p className="text-lg text-textSecondary">
+          Discover how we can help you build & grow your business
+        </p>
+
+        <div className="flex gap-12 mt-10">
+          {services.map(({ title, description, icon }) => (
+            <ServiceCard
+              key={title}
+              title={title}
+              description={description}
+              icon={icon}
+            />
+          ))}
+        </div>
       </div>
 
-      {/* Lights =================================================== */}
-      <div className="absolute z-[2] left-1/2 -translate-x-1/2 top-0 w-full h-[600px]">
-        <Image
-          src={lightsImageUrl}
-          alt="lights"
-          width={800}
-          height={800}
-          className="w-full h-full object-cover"
-        />
-      </div>
+      {/* Featured services section ======================= */}
+      <div className="container flex flex-col items-center mt-24 gap-4">
+        <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
+          Featured Services
+        </p>
 
-      <div className="flex flex-col items-center gap-4 mt-16">
-        {/* heading title, subtitle ================================ */}
-        <h1 className="text-5xl capitalize text-textPrimary font-bold mt-8">
-          Browse our projects
-        </h1>
-
-        <p className="text-textSecondary text-lg w-[90%] sm:w-3/4 text-center">
+        <p className="text-lg text-textSecondary">
           We have helped several startups & enterprises to successfully build &
           launch their products.
         </p>
+
+        <div className="flex flex-col gap-12 mt-10">
+          <ProjectsCard />
+          <ProjectsCard />
+          <ProjectsCard />
+        </div>
+
+        <Button color="fill" className="mt-10">
+          View More Projects <ArrowRightIcon className="size-6" />
+        </Button>
       </div>
 
-      <div className="container flex flex-col gap-10 my-12 relative z-[3]">
-        <ProjectsSection />
+      {/* Client success stories ===================================== */}
+      <div className="container flex flex-col items-center mt-24 gap-4">
+        <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
+          Client Success Stories
+        </p>
+
+        <p className="text-lg text-textSecondary">
+          See what our clients have to say about their experience working with
+          us.
+        </p>
+
+        <div className="grid grid-cols-3 gap-6 my-10">
+          <ClientVideo />
+
+          <ClientFeedback
+            description="Working with ByteCare Technology has been a game-changer for our business. Their team of experts delivered a customized software solution that perfectly met our needs, improving our efficiency and productivity. The level of professionalism and attention to detail displayed by ByteCare was exceptional. We highly recommend their services to anyone looking for top-notch software development."
+            companyLogoUrl="/jiggle-logo.png"
+            clientName="Rajesh Karki"
+            clientPosition="Founder of Jiggle"
+            clientPictureUrl="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+            className=" col-span-2"
+          />
+
+          <ClientFeedback
+            description="ByteCare Technology delivered a custom software solution that improved our efficiency. Their professionalism and attention to detail were exceptional. Highly recommend!"
+            companyLogoUrl="/resecurb.png"
+            clientName="Rajesh Karki"
+            clientPosition="Founder of Resecurb"
+            clientPictureUrl="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+          />
+          <ClientFeedback
+            description="ByteCare Technology delivered a custom software solution that improved our efficiency. Their professionalism and attention to detail were exceptional. Highly recommend!"
+            companyLogoUrl="/symtric.png"
+            clientName="Rajesh Karki"
+            clientPosition="Founder of Jiggle"
+            clientPictureUrl="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+          />
+
+          <ClientVideo />
+
+          <ClientFeedback
+            description="ByteCare Technology delivered a custom software solution that improved our efficiency. Their professionalism and attention to detail were exceptional. Highly recommend!"
+            companyLogoUrl="/symtric.png"
+            clientName="Rajesh Karki"
+            clientPosition="Founder of Jiggle"
+            clientPictureUrl="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+          />
+          <ClientVideo />
+          <ClientFeedback
+            description="ByteCare Technology delivered a custom software solution that improved our efficiency. Their professionalism and attention to detail were exceptional. Highly recommend!"
+            companyLogoUrl="/symtric.png"
+            clientName="Rajesh Karki"
+            clientPosition="Founder of Jiggle"
+            clientPictureUrl="https://t3.ftcdn.net/jpg/02/43/12/34/360_F_243123463_zTooub557xEWABDLk0jJklDyLSGl2jrr.jpg"
+          />
+        </div>
       </div>
+
+      Company stats 
 
       <Footer />
-    </main>
+    </section>
   );
 }

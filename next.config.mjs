@@ -27,6 +27,18 @@ const nextConfig = {
 
     return config;
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "t3.ftcdn.net",
+      },
+      {
+        protocol: "https",
+        hostname: "www.shutterstock.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
