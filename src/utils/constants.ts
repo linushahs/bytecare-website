@@ -42,3 +42,20 @@ export const services: Service[] = [{
     description: "Turn your product vision into life with thoughtful & compelling UI/UX designs from wireframes to prototypes."
 }
 ]
+
+export const companyStats = [{
+    title: "Projects Delivered",
+    count: 30,
+},
+{
+    title: "Satisfied Clients",
+    count: 25
+}, {
+    title: "Team Members",
+    count: 22
+},
+{
+    title: "Years in Industry",
+    count: 4
+}
+]

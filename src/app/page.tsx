@@ -11,8 +11,11 @@ import ProjectsCard from "@/components/projects-card";
 import ServiceCard from "@/components/service-card";
 import ClientFeedback from "@/components/testimonials/client-feedback";
 import ClientVideo from "@/components/testimonials/client-video";
+import { HEADING_TYPES, headingVariants } from "@/components/ui/heading";
 import Footer from "@/layouts/footer";
-import { services } from "@/utils/constants";
+import { cn } from "@/utils";
+import { companyStats, services } from "@/utils/constants";
+import lightsImageUrl from "@/assets/lights.png";
 import Image from "next/image";
 
 export default function Homepage() {
@@ -40,13 +43,15 @@ export default function Homepage() {
               your vision into reality. Let&apos;s create success together.
             </HeroParagraph>
             <HeroFooter className="flex flex-col justify-center md:flex-row gap-x-6 gap-y-3 md:items-center">
-              <Button className="group" color="primary">
+              <Button className="group py-3" color="primary">
                 Schedule A Call
                 <span className="group-hover:translate-x-1.5 transition-all duration-300">
                   <ArrowRightIcon className="size-6" />
                 </span>
               </Button>
-              <Button color="fillSecondary">View our portfolio</Button>
+              <Button color="fillSecondary" className="py-3">
+                View our portfolio
+              </Button>
             </HeroFooter>
           </div>
         </HeroContent>
@@ -179,7 +184,68 @@ export default function Homepage() {
         </div>
       </div>
 
-      Company stats 
+      {/* Company stats ===================================== */}
+      <div className="grid grid-cols-4 gap-10 container mb-16 mt-14">
+        {companyStats.map((stats) => (
+          <div className="bg-borderLight rounded-lg p-8 flex flex-col justify-between gap-6">
+            <p className="text-3xl leading-[120%] font-bold text-textPrimary">
+              {stats.count}+
+            </p>
+            <p className="text-textSecondary text-md tracking-wide">
+              {stats.title}
+            </p>
+          </div>
+        ))}
+      </div>
+
+      {/* Work with us banner =================================== */}
+      <div className="container mb-16">
+        <div className="relative flex flex-col items-center gap-8 bg-gradientFillDefault rounded-xl py-20 overflow-hidden">
+          <Image
+            src="/logo-short.png"
+            alt="Logo Small"
+            width={80}
+            height={80}
+            className="size-[80px]"
+          />
+
+          {/* Stars ================================== */}
+          <div className="absolute transition-opacity duration-300 pointer-events-none ease-in-out top-0 size-full">
+            <Image
+              src="/stars.png"
+              alt="stars"
+              width={800}
+              height={800}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Lights ======================================= */}
+          <div className="absolute transition-all duration-300 ease-in-out inset-0 w-full h-full">
+            <Image
+              src={lightsImageUrl}
+              alt="lights"
+              width={800}
+              height={800}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          <p
+            className={cn(
+              headingVariants({ variant: HEADING_TYPES.headline03 }),
+              "w-1/2 text-center bg-textRadialGradient bg-clip-text text-transparent"
+            )}
+          >
+            Excited to turn your ideas into reality?
+          </p>
+
+          <Button className="mt-4 py-3 text-md">
+            Work with us
+            <ArrowRightIcon className="size-5" />
+          </Button>
+        </div>
+      </div>
 
       <Footer />
     </section>

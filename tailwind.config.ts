@@ -57,8 +57,10 @@ const config: Config = {
 
         gradientCardBg: "var(--gradient-card-bg)",
         gradientFillCard: "var(--gradient-fill-card)",
+        gradientFillDefault: "var(--gradient-fill-default)",
 
         textGradientDefault: "var(--text-gradient-default)",
+        textRadialGradient: "var(--text-radial-gradient)",
         radialGradient: "var(--radial-gradient)",
 
         gradientHeading: "var(--gradient-heading)",
