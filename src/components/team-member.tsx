@@ -4,7 +4,7 @@ import React from "react";
 export default function TeamMember({ id }: { id: number }) {
   return (
     <li className="flex flex-col items-center py-6 text-center md:px-6 gap-y-4">
-      <figure className="relative w-20 overflow-hidden bg-gray-900 rounded-full md:w-48 aspect-square border-[8px] border-fill-tertiary">
+      <figure className="relative w-20 overflow-hidden bg-fill rounded-full md:w-48 aspect-square border-[8px] border-fill-tertiary">
         <Image
           className="object-cover"
           fill

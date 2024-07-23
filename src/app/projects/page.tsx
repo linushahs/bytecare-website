@@ -11,11 +11,11 @@ export default function ProjectsPage() {
   return (
     <section className="flex flex-col items-center">
       <HeroWrapper>
-        <HeroContent className="flex flex-col items-center gap-4 mt-16">
+        <HeroContent className="flex flex-col items-center gap-6 mt-16">
           {/* heading title, subtitle ================================ */}
           <HeroHeading className="mt-8">Browse our projects</HeroHeading>
 
-          <HeroParagraph className="">
+          <HeroParagraph className="!w-[70%]">
             We have helped several startups & enterprises to successfully build
             & launch their products.
           </HeroParagraph>

@@ -29,6 +29,7 @@ import { cn } from "@/utils";
 import TeamList from "@/components/team-list";
 import TeamMember from "@/components/team-member";
 import Footer from "@/layouts/footer";
+import Link from "next/link";
 
 function AboutPage() {
   return (
@@ -62,6 +63,7 @@ function AboutPage() {
           </figure>
         </Container>
       </section>
+
       <section className="pt-24 pb-14">
         <Container>
           <div className="max-w-3xl">
@@ -89,10 +91,11 @@ function AboutPage() {
           </ul>
         </Container>
       </section>
+
       <section className="py-14">
         <Container>
-          <div className="space-y-16">
-            <Heading as="h2" variant={HEADING_TYPES.headline04}>
+          <div className="space-y-20">
+            <Heading as="h2" variant={HEADING_TYPES.heading}>
               Our Core Values
             </Heading>
             <PlainCardList>
@@ -139,7 +142,7 @@ function AboutPage() {
                       Founded
                     </span>
                   )}
-                  <Heading as="h3" variant={HEADING_TYPES.headline04}>
+                  <Heading as="h3" variant={HEADING_TYPES.heading}>
                     {title}
                   </Heading>
                   <p
@@ -180,12 +183,14 @@ function AboutPage() {
               </div>
             </div>
 
-            <Button className="mx-auto group mt-14" color="surface">
-              <span>Meet Our Entire Team</span>
-              <span className="group-hover:translate-x-1.5 transition-all duration-300">
-                <ArrowRightIcon className="size-5" />
-              </span>
-            </Button>
+            <Link href="/about/team">
+              <Button className="mx-auto group mt-14" color="surface">
+                <span>Meet Our Entire Team</span>
+                <span className="group-hover:translate-x-1.5 transition-all duration-300">
+                  <ArrowRightIcon className="size-5" />
+                </span>
+              </Button>
+            </Link>
           </div>
         </Container>
       </section>

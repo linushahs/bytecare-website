@@ -1,5 +1,6 @@
 import { ArrowRightIcon } from "@/assets";
 import Button from "@/components/button";
+import CtaCard from "@/components/cta-card";
 import {
   HeroContent,
   HeroFooter,
@@ -15,7 +16,6 @@ import { HEADING_TYPES, headingVariants } from "@/components/ui/heading";
 import Footer from "@/layouts/footer";
 import { cn } from "@/utils";
 import { companyStats, services } from "@/utils/constants";
-import lightsImageUrl from "@/assets/lights.png";
 import Image from "next/image";
 
 export default function Homepage() {
@@ -35,12 +35,13 @@ export default function Homepage() {
             </div>
           </div>
           <div className="relative flex flex-col items-center">
-            <HeroHeading className="pb-8">
+            <HeroHeading className="pb-10">
               We help you build quality digital product
             </HeroHeading>
             <HeroParagraph className="mb-12">
-              Schedule a call today to explore how our expertise can transform
-              your vision into reality. Let&apos;s create success together.
+              {`Whether you're embarking on a startup journey or leading an
+              enterprise towards growth, we're here to support your goals every
+              step of the way.`}
             </HeroParagraph>
             <HeroFooter className="flex flex-col justify-center md:flex-row gap-x-6 gap-y-3 md:items-center">
               <Button className="group py-3" color="primary">
@@ -199,53 +200,21 @@ export default function Homepage() {
       </div>
 
       {/* Work with us banner =================================== */}
-      <div className="container mb-16">
-        <div className="relative flex flex-col items-center gap-8 bg-gradientFillDefault rounded-xl py-20 overflow-hidden">
-          <Image
-            src="/logo-short.png"
-            alt="Logo Small"
-            width={80}
-            height={80}
-            className="size-[80px]"
-          />
+      <CtaCard>
+        <p
+          className={cn(
+            headingVariants({ variant: HEADING_TYPES.headline03 }),
+            "w-1/2 text-center bg-textRadialGradient bg-clip-text text-transparent"
+          )}
+        >
+          Excited to turn your ideas into reality?
+        </p>
 
-          {/* Stars ================================== */}
-          <div className="absolute transition-opacity duration-300 pointer-events-none ease-in-out top-0 size-full">
-            <Image
-              src="/stars.png"
-              alt="stars"
-              width={800}
-              height={800}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          {/* Lights ======================================= */}
-          <div className="absolute transition-all duration-300 ease-in-out inset-0 w-full h-full">
-            <Image
-              src={lightsImageUrl}
-              alt="lights"
-              width={800}
-              height={800}
-              className="w-full h-full object-cover"
-            />
-          </div>
-
-          <p
-            className={cn(
-              headingVariants({ variant: HEADING_TYPES.headline03 }),
-              "w-1/2 text-center bg-textRadialGradient bg-clip-text text-transparent"
-            )}
-          >
-            Excited to turn your ideas into reality?
-          </p>
-
-          <Button className="mt-4 py-3 text-md">
-            Work with us
-            <ArrowRightIcon className="size-5" />
-          </Button>
-        </div>
-      </div>
+        <Button className="mt-4 py-3 text-md">
+          Work with us
+          <ArrowRightIcon className="size-5" />
+        </Button>
+      </CtaCard>
 
       <Footer />
     </section>
