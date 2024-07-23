@@ -12,3 +12,14 @@ export { default as ProductDevIcon } from "./product-dev.svg"
 export { default as DesignIcon } from "./design.svg"
 export { default as TeamIcon } from "./team.svg"
 export { default as PlayButtonIcon } from "./play-button.svg"
+export { default as BulbIcon } from "./bulb.svg";
+export { default as RocketIcon } from "./rocket.svg"
+export { default as BookIcon } from "./book.svg";
+export { default as CustomerCentricIcon } from "./customer-centric.svg";
+export { default as QualityIcon } from "./quality.svg";
+export { default as SelfStarterIcon } from "./self-starter.svg";
+export { default as StarGritIcon } from "./star-grit.svg";
+export { default as TeamPlayerIcon } from "./team-player.svg";
+export { default as RocketSmallIcon } from "./rocket-small.svg"
+export { default as ArrowRightSmallIcon } from "./arrow-right-small"
+export { default as SuitcaseIcon } from "./suitcase.svg"

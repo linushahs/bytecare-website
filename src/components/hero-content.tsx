@@ -14,15 +14,15 @@ export function HeroWrapper({ children, className }: HeroElementProps) {
     <div className={cn("flex flex-col items-center", className)}>
       {/* Particles for (Table and desktop sizes) ============================= */}
       <Particles
-        className="hidden md:block absolute inset-0 opacity-60 h-[500px] w-screen"
+        className="hidden md:block absolute inset-0 opacity-60 h-[500px] w-screen pointer-events-none"
         quantity={140}
-        ease={50}
+        ease={80}
         color={"#ffffff"}
         refresh
       />
 
       {/* Particles for (Mobile sizes) ============================= */}
-      <div className="md:hidden absolute w-full h-[550px]">
+      <div className="md:hidden absolute w-full h-[550px] pointer-events-none">
         <Particles
           className="absolute inset-0 opacity-50"
           quantity={80}
@@ -46,9 +46,9 @@ export function HeroContent({ children, className }: HeroElementProps) {
 export function HeroHeading({ children, className }: HeroElementProps) {
   return (
     <Heading
-      variant={HEADING_TYPES.headline02}
+      variant={HEADING_TYPES.headline03}
       className={cn(
-        "text-transparent text-center bg-gradientHeading bg-clip-text",
+        "text-transparent text-center bg-textRadialGradient bg-clip-text",
         className
       )}
     >
@@ -61,7 +61,7 @@ export function HeroParagraph({ children, className }: HeroElementProps) {
   return (
     <p
       className={cn(
-        "text-textSecondary text-lg w-[90%] sm:w-3/4 text-center",
+        "text-textSecondary text-lg w-[90%] sm:w-[60%] text-center",
         className
       )}
     >

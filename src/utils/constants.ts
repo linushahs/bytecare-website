@@ -1,7 +1,7 @@
 import { DesignIcon, ProductDevIcon, TeamIcon } from "@/assets";
 import { FC, SVGProps } from "react";
 
-export const navMenuItems = [
+const navMenuItems = [
     {
         title: "Home",
         path: "/",
@@ -27,7 +27,7 @@ interface Service {
     description: string;
 }
 
-export const services: Service[] = [{
+const services: Service[] = [{
     title: "Product Development",
     icon: ProductDevIcon,
     description: "From concept to launch, we turn ideas into reality with customized product development services, ensuring quality at every stage."
@@ -43,7 +43,7 @@ export const services: Service[] = [{
 }
 ]
 
-export const companyStats = [{
+const companyStats = [{
     title: "Projects Delivered",
     count: 30,
 },
@@ -59,3 +59,7 @@ export const companyStats = [{
     count: 4
 }
 ]
+
+
+export { companyStats, navMenuItems, services };
+

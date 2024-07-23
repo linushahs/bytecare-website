@@ -3,7 +3,13 @@ import { twMerge } from "tailwind-merge";
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "default" | "outline";
-  color?: "fill" | "primary" | "surface" | "transparent" | "fillSecondary";
+  color?:
+    | "fill"
+    | "primary"
+    | "surface"
+    | "transparent"
+    | "fillSecondary"
+    | "white";
   onClick?: () => void;
   className?: string;
 }
@@ -26,6 +32,7 @@ const Button: FC<ButtonProps> = ({
     fillSecondary: "bg-fill-secondary",
     surface: "bg-surface border-borderSoft  hover:contrast-75",
     transparent: "bg-transparent border-borderSoft ",
+    white: "bg-white",
   };
 
   return (

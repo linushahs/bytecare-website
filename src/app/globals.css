@@ -34,7 +34,7 @@
       #fff 100%
     );
     --text-radial-gradient: radial-gradient(
-      70% 60% at 50% 0%,
+      70% 40% at 50% 0%,
       rgba(255, 255, 255, 0.6) 0%,
       #fff 100%
     );
@@ -88,7 +88,7 @@
 
 @layer utilities {
   .container {
-    @apply w-[90%] sm:w-[95%] xl:w-[85%] mx-auto;
+    @apply w-[90%] sm:w-[95%] xl:w-[80%] 2xl:w-[85%] mx-auto;
   }
 }
 
