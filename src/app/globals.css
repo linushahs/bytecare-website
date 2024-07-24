@@ -4,6 +4,8 @@
 
 @layer base {
   :root {
+    --brand: #39b98d;
+
     --background: #000212;
     --background-default: #101722;
     --background-tertiary: #1a212c;
@@ -52,6 +54,8 @@
     /* Navbar height 
      ---------------------------> */
     --navbar-height: 70px;
+
+    --card-top-padding: calc(var(--navbar-height) + 20px);
   }
 
   @screen sm {
@@ -88,7 +92,7 @@
 
 @layer utilities {
   .container {
-    @apply w-[90%] sm:w-[95%] xl:w-[80%] 2xl:w-[85%] mx-auto;
+    @apply w-[90%] sm:w-[95%] xl:w-[80%] mx-auto;
   }
 }
 

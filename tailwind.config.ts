@@ -34,6 +34,7 @@ const config: Config = {
       },
 
       colors: {
+        brand: "var(--brand)",
         background: "var(--background)",
         fill: {
           DEFAULT: "var(--background-default)",

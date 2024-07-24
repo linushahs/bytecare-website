@@ -1,5 +1,7 @@
 import { ArrowRightIcon } from "@/assets";
+import AchievementSection from "@/components/achievement-section";
 import Button from "@/components/button";
+import Container from "@/components/container";
 import CtaCard from "@/components/cta-card";
 import {
   HeroContent,
@@ -28,7 +30,7 @@ export default function Homepage() {
               <Image
                 alt="hero-content-backdrop-grid"
                 fill
-                className="object-cover opacity-80"
+                className="object-cover opacity-65"
                 priority
                 src={"/grid.png"}
               />
@@ -84,48 +86,61 @@ export default function Homepage() {
       </div>
 
       {/* Here's what we provide section ======================= */}
-      <div className="container flex flex-col items-center justify-center gap-4 pt-14 h-[calc(100vh-var(--navbar-height))]">
-        <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
-          Here's what we provide
-        </p>
+      <section className=" pt-32 h-[calc(100vh-var(--navbar-height))]">
+        <Container>
+          <div className="flex flex-col items-center justify-center gap-4">
+            <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
+              Here's what we provide
+            </p>
 
-        <p className="text-lg text-textSecondary">
-          Discover how we can help you build & grow your business
-        </p>
+            <p className="text-lg text-textSecondary">
+              Discover how we can help you build & grow your business
+            </p>
 
-        <div className="flex gap-12 mt-10">
-          {services.map(({ title, description, icon }) => (
-            <ServiceCard
-              key={title}
-              title={title}
-              description={description}
-              icon={icon}
-            />
-          ))}
-        </div>
-      </div>
+            <div className="flex gap-12 mt-10">
+              {services.map(({ title, description, icon }) => (
+                <ServiceCard
+                  key={title}
+                  title={title}
+                  description={description}
+                  icon={icon}
+                />
+              ))}
+            </div>
+          </div>
+        </Container>
+      </section>
+
+      {/* Our workflow section ================================== */}
+      <section className="relative mt-6">
+        <AchievementSection />
+      </section>
 
       {/* Featured services section ======================= */}
-      <div className="container flex flex-col items-center mt-24 gap-4">
-        <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
-          Featured Services
-        </p>
+      <section>
+        <Container>
+          <div className="flex flex-col items-center mt-24 gap-4">
+            <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
+              Featured Services
+            </p>
 
-        <p className="text-lg text-textSecondary">
-          We have helped several startups & enterprises to successfully build &
-          launch their products.
-        </p>
+            <p className="text-lg text-textSecondary">
+              We have helped several startups & enterprises to successfully
+              build & launch their products.
+            </p>
 
-        <div className="flex flex-col gap-12 mt-10">
-          <ProjectsCard />
-          <ProjectsCard />
-          <ProjectsCard />
-        </div>
+            <div className="flex flex-col gap-12 mt-10">
+              <ProjectsCard />
+              <ProjectsCard />
+              <ProjectsCard />
+            </div>
 
-        <Button color="fill" className="mt-10">
-          View More Projects <ArrowRightIcon className="size-6" />
-        </Button>
-      </div>
+            <Button color="fill" className="mt-10">
+              View More Projects <ArrowRightIcon className="size-6" />
+            </Button>
+          </div>
+        </Container>
+      </section>
 
       {/* Client success stories ===================================== */}
       <div className="container flex flex-col items-center mt-24 gap-4">
