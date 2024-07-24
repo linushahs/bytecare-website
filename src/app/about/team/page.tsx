@@ -1,6 +1,6 @@
 import { ArrowRightIcon } from "@/assets";
-import Button from "@/components/button";
-import Container from "@/components/container";
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import CtaCard from "@/components/cta-card";
 import {
   HeroContent,

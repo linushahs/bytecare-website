@@ -2,7 +2,7 @@
 
 import { cn } from "@/utils";
 import Image from "next/image";
-import Container from "./container";
+import Container from "./ui/container";
 import useMediaQuery from "@/hooks/use-media-query";
 import Marquee from "react-fast-marquee";
 

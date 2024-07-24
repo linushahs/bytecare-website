@@ -1,7 +1,7 @@
 import React from "react";
 import { cn } from "@/utils";
 import { HEADING_TYPES, Heading } from "./ui/heading";
-import Lights from "./lights";
+import Lights from "./ui/lights";
 import Particles from "./particles";
 
 interface HeroElementProps {

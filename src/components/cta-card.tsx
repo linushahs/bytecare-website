@@ -1,7 +1,7 @@
 import lightsImageUrl from "@/assets/lights.png";
 import Image from "next/image";
 import React from "react";
-import Container from "./container";
+import Container from "./ui/container";
 
 function CtaCard({ children }: { children: React.ReactNode }) {
   return (

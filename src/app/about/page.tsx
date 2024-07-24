@@ -5,7 +5,7 @@ import {
   HeroWrapper,
 } from "@/components/hero-content";
 import Image from "next/image";
-import Container from "@/components/container";
+import Container from "@/components/ui/container";
 import { Heading, HEADING_TYPES } from "@/components/ui/heading";
 import PlainCardList from "@/components/plain-card-list";
 import { PlainCard } from "@/components/plain-card";
@@ -24,7 +24,7 @@ import {
   TeamPlayerIcon,
 } from "@/assets";
 import BlurryBlob from "@/components/blurry-blob";
-import Button from "@/components/button";
+import Button from "@/components/ui/button";
 import { cn } from "@/utils";
 import TeamList from "@/components/team-list";
 import TeamMember from "@/components/team-member";

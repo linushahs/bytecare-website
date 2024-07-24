@@ -1,7 +1,6 @@
 import { cn } from "@/utils";
-import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
+import { motion, MotionValue, useTransform } from "framer-motion";
 import Image from "next/image";
-import React, { useRef } from "react";
 
 interface Achievement {
   title: string;
@@ -31,8 +30,8 @@ function WorkflowCard({
 
   return (
     <motion.div
-      className="sticky flex gap-4 items-center rounded-xl border border-borderSoft bg-gradientCardBg p-12 h-[520px]"
-      style={{ scale, top: `calc(35vh + ${id * 35}px)` }}
+      className="sticky flex gap-4 items-center rounded-xl border border-borderSoft bg-gradientCardBg p-12 h-[560px]"
+      style={{ scale, top: `calc(16vh + ${id * 35}px)` }}
     >
       <div className="flex-1 flex justify-center overflow-hidden">
         <Image

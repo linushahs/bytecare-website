@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React, { memo, useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
-import Button from "../components/button";
+import Button from "../components/ui/button";
 import { ArrowRightIcon, BarIcon, CrossIcon } from "@/assets";
 import Link from "next/link";
 import { navMenuItems } from "@/utils/constants";

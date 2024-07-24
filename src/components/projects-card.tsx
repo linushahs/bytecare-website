@@ -1,7 +1,7 @@
 import Image from "next/image";
 import React from "react";
-import Badge from "./badge";
-import Button from "./button";
+import Badge from "./ui/badge";
+import Button from "./ui/button";
 import { ArrowRightIcon } from "@/assets";
 import lightsImageUrl from "@/assets/lights.png";
 

@@ -1,7 +1,7 @@
 import { ArrowRightIcon } from "@/assets";
 import AchievementSection from "@/components/achievement-section";
-import Button from "@/components/button";
-import Container from "@/components/container";
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import CtaCard from "@/components/cta-card";
 import {
   HeroContent,
@@ -14,6 +14,7 @@ import ProjectsCard from "@/components/projects-card";
 import ServiceCard from "@/components/service-card";
 import ClientFeedback from "@/components/testimonials/client-feedback";
 import ClientVideo from "@/components/testimonials/client-video";
+import ToolsAndTechnologySection from "@/components/tools-technology-section";
 import { HEADING_TYPES, headingVariants } from "@/components/ui/heading";
 import Footer from "@/layouts/footer";
 import { cn } from "@/utils";
@@ -140,6 +141,11 @@ export default function Homepage() {
             </Button>
           </div>
         </Container>
+      </section>
+
+      {/* Tools and technologies section ========================== */}
+      <section className="pt-24">
+        <ToolsAndTechnologySection />
       </section>
 
       {/* Client success stories ===================================== */}
