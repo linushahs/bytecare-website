@@ -16,10 +16,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={aeonik.className}>
-        <main className="relative z-0 flex min-h-screen w-full flex-col bg-background">
-          <Navbar />
-          {children}
-        </main>
+        <Navbar />
+        {children}
       </body>
     </html>
   );

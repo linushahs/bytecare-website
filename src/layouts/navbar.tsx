@@ -1,13 +1,14 @@
 "use client";
 
+import { ArrowRightIcon, BarIcon, CrossIcon } from "@/assets";
+import { cn } from "@/utils";
+import { navMenuItems } from "@/utils/constants";
 import Image from "next/image";
-import React, { memo, useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { twMerge } from "tailwind-merge";
 import Button from "../components/ui/button";
-import { ArrowRightIcon, BarIcon, CrossIcon } from "@/assets";
-import Link from "next/link";
-import { navMenuItems } from "@/utils/constants";
-import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const pathName = usePathname();
@@ -30,13 +31,14 @@ export default function Navbar() {
   }, []);
 
   return (
-    <nav
-      className={twMerge(
-        " w-full sm:sticky top-0 left-0 z-[100] transition-all duration-300 ease-in-out",
-        isScrolled && "sm:bg-surface sm:backdrop-blur-lg"
-      )}
-    >
-      <div className="container relative flex items-center justify-between h-[var(--navbar-height)]">
+    <nav className={cn(" w-full sm:sticky top-0 left-0 z-[100]")}>
+      <div
+        className={cn(
+          "container rounded-lg transition-all duration-300 ease-in-out  relative flex items-center justify-between h-[var(--navbar-height)] border-none ",
+          isScrolled &&
+            "translate-y-6 outline-0 border border-solid border-borderSoft pr-4 pl-6 !bg-surface backdrop-blur-[21.5px] !w-[1000px] h-[var(--navbar-height-scrolled)]"
+        )}
+      >
         <Image
           src="/logo.png"
           alt="logo"
@@ -45,7 +47,7 @@ export default function Navbar() {
           className="w-[120px] md:w-[160px]"
         />
 
-        <ul className="hidden lg:flex gap-12 items-center text-lg text-textSecondary">
+        <ul className="hidden lg:flex gap-14 items-center text-lg text-textSecondary">
           {navMenuItems.map((menu) => (
             <li
               key={menu.title}

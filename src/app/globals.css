@@ -52,9 +52,10 @@
     --text-5xl: 32px;
     --text-6xl: 64px;
 
-    /* Navbar height 
+    /* Navbar variables 
      ---------------------------> */
-    --navbar-height: 70px;
+    --navbar-height: 65px;
+    --navbar-background: rgba(41, 48, 59, 0.5);
 
     --card-top-padding: calc(var(--navbar-height) + 20px);
   }
@@ -70,30 +71,49 @@
 
   @screen lg {
     :root {
-      --text-sm: 12px;
-      --text-md: 16px;
-      --text-lg: 18px;
-      --text-xl: 24px;
-      --text-2xl: 32px;
-      --text-3xl: 48px;
-      --text-5xl: 64px;
-      --text-6xl: 72px;
+      --text-sm: 0.75rem;
+      --text-md: 1rem;
+      --text-lg: 1.125rem;
+      --text-xl: 1.5rem;
+      --text-2xl: 2rem;
+      --text-3xl: 3rem;
+      --text-5xl: 4.4rem;
+      --text-6xl: 4.5rem;
 
       --navbar-height: 85px;
+      --navbar-height-scrolled: 75px;
     }
   }
 
   @screen 2xl {
     :root {
-      --text-md: 18px;
+      --text-md: 1.125rem;
       --text-lg: 20px;
+      --text-xl: 1.75rem;
+      --text-6xl: 4.8rem;
     }
+  }
+
+  @screen tall {
+    :root {
+      --text-5xl: 4.8rem;
+      --text-md: 1.32rem;
+      --text-lg: 1.35rem;
+    }
+  }
+
+  body {
+    background-color: var(--background);
   }
 }
 
 @layer utilities {
   .container {
     @apply w-[90%] sm:w-[95%] xl:w-[80%] mx-auto;
+  }
+
+  .hero-content {
+    @apply h-[45vh] min-h-[360px] tall:h-[56vh] tall:min-h-[500px] 2xl:min-h-[420px] 2xl:h-[50vh] 3xl:min-h-[500px] 3xl:h-[55vh];
   }
 }
 

@@ -4,14 +4,15 @@ import {
   HeroParagraph,
   HeroWrapper,
 } from "@/components/hero-content";
+import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
 import ProjectsSection from "@/layouts/projects-section";
 
 export default function ProjectsPage() {
   return (
-    <section className="flex flex-col items-center">
+    <>
       <HeroWrapper>
-        <HeroContent className="flex flex-col items-center gap-6 mt-16">
+        <HeroContent className="gap-8 mt-16">
           {/* heading title, subtitle ================================ */}
           <HeroHeading className="mt-8">Browse our projects</HeroHeading>
 
@@ -22,11 +23,15 @@ export default function ProjectsPage() {
         </HeroContent>
       </HeroWrapper>
 
-      <div className="container flex flex-col gap-10 my-12 relative z-[3]">
-        <ProjectsSection />
-      </div>
+      <section>
+        <Container>
+          <div className="flex flex-col gap-10 my-12 relative z-[3]">
+            <ProjectsSection />
+          </div>
+        </Container>
+      </section>
 
       <Footer />
-    </section>
+    </>
   );
 }

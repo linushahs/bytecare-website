@@ -10,7 +10,9 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        "2xl": "1700px"
+        "2xl": "1700px",
+        "3xl": "1920px",
+        'tall': { 'raw': '(min-height: 900px)' }
       },
 
       fontSize: {
@@ -51,6 +53,8 @@ const config: Config = {
 
         textPrimary: "var(--text-primary)",
         textSecondary: "var(--text-secondary)",
+
+        navBackground: "var(--nav-background)",
       },
 
       backgroundImage: {

@@ -11,7 +11,7 @@ interface HeroElementProps {
 
 export function HeroWrapper({ children, className }: HeroElementProps) {
   return (
-    <div className={cn("flex flex-col items-center", className)}>
+    <section className={cn("flex flex-col items-center", className)}>
       {/* Particles for (Table and desktop sizes) ============================= */}
       <Particles
         className="hidden md:block absolute inset-0 opacity-60 h-[500px] w-screen pointer-events-none"
@@ -35,12 +35,21 @@ export function HeroWrapper({ children, className }: HeroElementProps) {
       <Lights />
 
       {children}
-    </div>
+    </section>
   );
 }
 
 export function HeroContent({ children, className }: HeroElementProps) {
-  return <div className={cn(" max-w-[900px]", className)}>{children}</div>;
+  return (
+    <div
+      className={cn(
+        "flex flex-col justify-center items-center max-w-[900px]",
+        className
+      )}
+    >
+      {children}
+    </div>
+  );
 }
 
 export function HeroHeading({ children, className }: HeroElementProps) {

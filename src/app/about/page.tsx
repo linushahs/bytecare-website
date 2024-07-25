@@ -37,15 +37,15 @@ function AboutPage() {
       <section className="flex flex-col items-center">
         <Container>
           <HeroWrapper>
-            <HeroContent className="flex flex-col items-center gap-4 mt-16">
+            <HeroContent className="gap-4 mt-16">
               {/* heading title, subtitle ================================ */}
               <HeroHeading className="mt-8">
                 We are your dedicated technology partners
               </HeroHeading>
 
               <HeroParagraph className="mt-6">
-                Whether {`you're`} launching a startup or running an enterprise, we
-                are here to support you every step of the way.
+                Whether {`you're`} launching a startup or running an enterprise,
+                we are here to support you every step of the way.
               </HeroParagraph>
             </HeroContent>
           </HeroWrapper>
@@ -120,8 +120,8 @@ function AboutPage() {
 
             <p className="mt-6 text-md text-textSecondary w-[95%]">
               We had a humble beginning, driven by a passion for building
-              things. Since then, {`we've`} steadily grown, overcoming challenges
-              and achieving significant milestones.
+              things. Since then, {`we've`} steadily grown, overcoming
+              challenges and achieving significant milestones.
             </p>
           </div>
           <div className="relative">
