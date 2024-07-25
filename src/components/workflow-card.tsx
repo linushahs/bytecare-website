@@ -39,6 +39,7 @@ function WorkflowCard({
           alt={title}
           width={400}
           height={400}
+          priority
           className={cn("w-[70%]", (id === 2 || id === 3) && "w-[90%]")}
         />
       </div>
