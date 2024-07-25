@@ -36,6 +36,7 @@ function AchievementSection() {
 
             return (
               <WorkflowCard
+                key={idx}
                 id={idx}
                 achievement={achievement}
                 progress={scrollYProgress}

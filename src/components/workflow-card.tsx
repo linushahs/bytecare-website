@@ -39,7 +39,7 @@ function WorkflowCard({
           alt={title}
           width={400}
           height={400}
-          className={cn("w-[70%]", id === 2 && "w-[90%]")}
+          className={cn("w-[70%]", (id === 2 || id === 3) && "w-[90%]")}
         />
       </div>
 

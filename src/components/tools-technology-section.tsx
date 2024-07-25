@@ -2,7 +2,8 @@ import { ToolsDots } from "@/assets";
 import BlurryBlob from "./blurry-blob";
 import Container from "./ui/container";
 import React from "react";
-import AnimatedBeam from "./animated-beam-tools";
+import ToolsAnimatedBeam from "./animated-beam-tools";
+import { cn } from "@/utils";
 
 function ToolsAndTechnologySection() {
   return (
@@ -17,17 +18,28 @@ function ToolsAndTechnologySection() {
         </p>
 
         <div className="flex justify-center w-full">
-          <AnimatedBeam />
+          <ToolsAnimatedBeam />
         </div>
       </div>
     </Container>
   );
 }
 
-function TechCard({ icon: Icon }: { icon: React.ElementType }) {
+interface TechCardProps {
+  icon: React.ElementType;
+  className?: string;
+  iconClassName?: string;
+}
+
+function TechCard({ icon: Icon, className, iconClassName }: TechCardProps) {
   return (
-    <span className="bg-fill border border-borderSoft grid place-items-center rounded-[12px] p-5">
-      <Icon className="size-10" />
+    <span
+      className={cn(
+        "bg-fill border border-borderSoft grid place-items-center rounded-[12px] p-5",
+        className
+      )}
+    >
+      <Icon className={cn("size-10", iconClassName)} />
     </span>
   );
 }

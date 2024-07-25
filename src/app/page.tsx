@@ -91,7 +91,7 @@ export default function Homepage() {
         <Container>
           <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
-              Here's what we provide
+              {`Here's`} what we provide
             </p>
 
             <p className="text-lg text-textSecondary">
@@ -144,7 +144,7 @@ export default function Homepage() {
       </section>
 
       {/* Tools and technologies section ========================== */}
-      <section className="pt-24">
+      <section className="pt-24 pb-16">
         <ToolsAndTechnologySection />
       </section>
 
@@ -209,7 +209,7 @@ export default function Homepage() {
       {/* Company stats ===================================== */}
       <div className="grid grid-cols-4 gap-10 container mb-16 mt-14">
         {companyStats.map((stats) => (
-          <div className="bg-borderLight rounded-lg p-8 flex flex-col justify-between gap-6">
+          <div key={stats.title} className="bg-borderLight rounded-lg p-8 flex flex-col justify-between gap-6">
             <p className="text-3xl leading-[120%] font-bold text-textPrimary">
               {stats.count}+
             </p>

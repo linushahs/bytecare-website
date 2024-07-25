@@ -60,7 +60,7 @@ function TeamPage() {
             Want to Join Bytecare?
           </Heading>
           <p className="text-center text-textSecondary text-md w-[40%]">
-            We're always seeking passionate and talented individuals to join our
+            {`We're`} always seeking passionate and talented individuals to join our
             dynamic and innovative team. Click below to explore career
             opportunities and become part of our exciting journey!
           </p>

@@ -5,6 +5,7 @@
 @layer base {
   :root {
     --brand: #39b98d;
+    --brand-transparent: rgba(57, 185, 141, 0.2);
 
     --background: #000212;
     --background-default: #101722;

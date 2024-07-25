@@ -2,7 +2,7 @@ import React from "react";
 import { cn } from "@/utils";
 import { HEADING_TYPES, Heading } from "./ui/heading";
 import Lights from "./ui/lights";
-import Particles from "./particles";
+import Particles from "./ui/particles";
 
 interface HeroElementProps {
   children: React.ReactNode;
