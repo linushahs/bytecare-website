@@ -20,8 +20,8 @@ export default function Pagination() {
         </Button>
       }
       renderOnZeroPageCount={null}
-      pageClassName="md:block hidden"
-      breakLinkClassName="md:block hidden"
+      pageClassName="md:block hidden text-md"
+      breakLinkClassName="md:block hidden "
       pageLinkClassName="w-[38px] aspect-square rounded-full mx-2 inline-flex items-center justify-center hover:bg-surface"
       activeLinkClassName="bg-surface"
       containerClassName="flex items-center  text-white justify-center md:justify-normal gap-x-2"

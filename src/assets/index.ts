@@ -1,11 +1,6 @@
 export { default as ArrowRightIcon } from "./arrow-right.svg";
-export { default as GithubIcon } from "./github.svg";
 export { default as LocationIcon } from "./location.svg";
-export { default as MailIcon } from "./mail.svg";
 export { default as PhoneIcon } from "./phone.svg";
-export { default as TwitterIcon } from "./twitter.svg";
-export { default as YoutubeIcon } from "./youtube.svg";
-export { default as SlackIcon } from "./slack.svg";
 export { default as CrossIcon } from "./cross.svg";
 export { default as BarIcon } from "./hamburger.svg"
 export { default as ProductDevIcon } from "./product-dev.svg"

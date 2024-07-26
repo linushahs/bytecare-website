@@ -45,6 +45,20 @@ function AchievementSection() {
               />
             );
           })}
+
+          <WorkflowCard
+            id={achievements.length}
+            achievement={{
+              title: "",
+              description: "",
+              thumbnail: "",
+              tag: " ",
+            }}
+            progress={scrollYProgress}
+            range={[4 * 0.25, 1]}
+            targetScale={1 - achievements.length * 0.05}
+            className="w-full opacity-0"
+          />
         </div>
       </div>
     </Container>

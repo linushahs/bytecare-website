@@ -16,7 +16,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
+      if (window.scrollY > 100) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -36,7 +36,7 @@ export default function Navbar() {
         className={cn(
           "container rounded-lg transition-all duration-300 ease-in-out  relative flex items-center justify-between h-[var(--navbar-height)] border-none ",
           isScrolled &&
-            "translate-y-6 outline-0 border border-solid border-borderSoft pr-4 pl-6 !bg-surface backdrop-blur-[21.5px] !w-[1000px] h-[var(--navbar-height-scrolled)]"
+            "translate-y-6 outline-0 border border-solid border-borderSoft pr-4 pl-6 !bg-surface backdrop-blur-[21.5px] lg:!w-[1000px] h-[var(--navbar-height-scrolled)]"
         )}
       >
         <Image

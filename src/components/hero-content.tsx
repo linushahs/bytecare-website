@@ -52,10 +52,18 @@ export function HeroContent({ children, className }: HeroElementProps) {
   );
 }
 
-export function HeroHeading({ children, className }: HeroElementProps) {
+type HeroHeadingProps = HeroElementProps & {
+  variant?: string;
+};
+
+export function HeroHeading({
+  children,
+  className,
+  variant = HEADING_TYPES.headline03,
+}: HeroHeadingProps) {
   return (
     <Heading
-      variant={HEADING_TYPES.headline03}
+      variant={variant}
       className={cn(
         "text-transparent text-center bg-textRadialGradient bg-clip-text",
         className

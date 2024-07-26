@@ -20,6 +20,7 @@ import Footer from "@/layouts/footer";
 import { cn } from "@/utils";
 import { companyStats, services } from "@/utils/constants";
 import Image from "next/image";
+import { ThreeColumnLayout } from "@/components/ui/column-layout";
 
 export default function Homepage() {
   return (
@@ -87,7 +88,7 @@ export default function Homepage() {
       </section>
 
       {/* Here's what we provide section ======================= */}
-      <section className=" pt-32 h-[calc(100vh-var(--navbar-height))]">
+      <section className=" pt-32 ">
         <Container>
           <div className="flex flex-col items-center justify-center gap-4">
             <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
@@ -99,21 +100,23 @@ export default function Homepage() {
             </p>
 
             <div className="flex gap-12 mt-10">
-              {services.map(({ title, description, icon }) => (
-                <ServiceCard
-                  key={title}
-                  title={title}
-                  description={description}
-                  icon={icon}
-                />
-              ))}
+              <ThreeColumnLayout>
+                {services.map(({ title, description, icon }) => (
+                  <ServiceCard
+                    key={title}
+                    title={title}
+                    description={description}
+                    icon={icon}
+                  />
+                ))}
+              </ThreeColumnLayout>
             </div>
           </div>
         </Container>
       </section>
 
       {/* Our workflow section ================================== */}
-      <section className="relative mt-6">
+      <section className="relative mt-24">
         <AchievementSection />
       </section>
 

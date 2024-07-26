@@ -9,6 +9,29 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "var(--foreground-secondary)",
+            "--tw-prose-headings": "#fff",
+            "--tw-prose-lead": "#fff",
+            "--tw-prose-links": "var(--brand)",
+            "--tw-prose-bold": "#fff",
+            "--tw-prose-counters": "#fff",
+            "--tw-prose-bullets": "#fff",
+            "--tw-prose-hr": "rgba(255, 255, 255, 0.10)",
+            "--tw-prose-quotes": "var(--foreground-secondary)",
+            "--tw-prose-quote-borders": "var(--brand)",
+            "--tw-prose-captions": "var(--foreground-secondary)",
+            "--tw-prose-code": "yellow",
+            "--tw-prose-pre-code": "green",
+            "--tw-prose-pre-bg": "purple",
+            "--tw-prose-th-borders": "orange",
+            "--tw-prose-td-borders": "orange",
+          },
+        },
+      },
+
       screens: {
         "2xl": "1700px",
         "3xl": "1920px",
@@ -76,7 +99,9 @@ const config: Config = {
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require("@tailwindcss/typography"),
+  ],
   corePlugins: {
     container: false
   }

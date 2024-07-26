@@ -1,12 +1,11 @@
+import { LocationIcon, PhoneIcon } from "@/assets";
 import {
   GithubIcon,
-  LocationIcon,
   MailIcon,
-  PhoneIcon,
   SlackIcon,
   TwitterIcon,
   YoutubeIcon,
-} from "@/assets";
+} from "@/assets/social-media";
 import Image from "next/image";
 import React from "react";
 

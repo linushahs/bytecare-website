@@ -15,6 +15,7 @@ interface WorkflowCardProps {
   progress: MotionValue<number>;
   range: [number, number];
   targetScale: number;
+  className?: string;
 }
 
 function WorkflowCard({
@@ -23,6 +24,7 @@ function WorkflowCard({
   progress,
   range,
   targetScale,
+  className,
 }: WorkflowCardProps) {
   const { title, description, tag, thumbnail } = achievement;
 
@@ -30,18 +32,23 @@ function WorkflowCard({
 
   return (
     <motion.div
-      className="sticky flex gap-4 items-center rounded-xl border border-borderSoft bg-gradientCardBg p-12 h-[560px]"
+      className={cn(
+        "sticky flex gap-4 items-center rounded-xl border border-borderSoft bg-gradientCardBg p-12 h-[560px]",
+        className
+      )}
       style={{ scale, top: `calc(16vh + ${id * 35}px)` }}
     >
       <div className="flex-1 flex justify-center overflow-hidden">
-        <Image
-          src={thumbnail}
-          alt={title}
-          width={400}
-          height={400}
-          priority
-          className={cn("w-[70%]", (id === 2 || id === 3) && "w-[90%]")}
-        />
+        {thumbnail && (
+          <Image
+            src={thumbnail}
+            alt={title}
+            width={400}
+            height={400}
+            priority
+            className={cn("w-[70%]", (id === 2 || id === 3) && "w-[90%]")}
+          />
+        )}
       </div>
 
       <div className="flex-1 ">

@@ -12,7 +12,7 @@ interface BlogCardProps {
 export default function BlogCard({ slug, sizes }: BlogCardProps) {
   return (
     <article className="group">
-      <Link href={`/blog/${slug}`} className="space-y-6">
+      <Link href={`/blogs/${slug}`} className="space-y-6">
         <figure className="relative w-full h-[310px] overflow-hidden bg-gray-900 rounded-lg aspect-video">
           <Image
             alt="blog-card-cover"
