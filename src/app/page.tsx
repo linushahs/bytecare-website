@@ -8,7 +8,6 @@ import {
   HeroFooter,
   HeroHeading,
   HeroParagraph,
-  HeroWrapper,
 } from "@/components/hero-content";
 import ProjectsCard from "@/components/projects-card";
 import ServiceCard from "@/components/service-card";
@@ -21,11 +20,12 @@ import { cn } from "@/utils";
 import { companyStats, services } from "@/utils/constants";
 import Image from "next/image";
 import { ThreeColumnLayout } from "@/components/ui/column-layout";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 
 export default function Homepage() {
   return (
     <>
-      <HeroWrapper>
+      <LightsParticleWrapper>
         <HeroContent className="relative mt-24 hero-content">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[85%] h-[85%] relative">
@@ -60,7 +60,7 @@ export default function Homepage() {
             </HeroFooter>
           </div>
         </HeroContent>
-      </HeroWrapper>
+      </LightsParticleWrapper>
 
       {/* Trusted by leading organizations ================ */}
       <section className="mt-40 w-full flex flex-col items-center">

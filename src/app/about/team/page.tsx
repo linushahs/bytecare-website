@@ -6,7 +6,6 @@ import {
   HeroContent,
   HeroHeading,
   HeroParagraph,
-  HeroWrapper,
 } from "@/components/hero-content";
 import TeamList from "@/components/team-list";
 import TeamMarquee from "@/components/team-marquee";
@@ -14,13 +13,14 @@ import TeamMember from "@/components/team-member";
 import { Heading, HEADING_TYPES } from "@/components/ui/heading";
 import Footer from "@/layouts/footer";
 import React from "react";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 
 function TeamPage() {
   return (
     <>
       <section className="flex flex-col items-center">
         <Container>
-          <HeroWrapper>
+          <LightsParticleWrapper>
             <HeroContent className="flex flex-col items-center gap-4 mt-16 mb-20">
               {/* heading title, subtitle ================================ */}
               <HeroHeading className="mt-8">Meet Our Team</HeroHeading>
@@ -30,7 +30,7 @@ function TeamPage() {
                 to driving innovation and excellence.
               </HeroParagraph>
             </HeroContent>
-          </HeroWrapper>
+          </LightsParticleWrapper>
         </Container>
 
         <TeamMarquee />
@@ -60,8 +60,8 @@ function TeamPage() {
             Want to Join Bytecare?
           </Heading>
           <p className="text-center text-textSecondary text-md w-[40%]">
-            {`We're`} always seeking passionate and talented individuals to join our
-            dynamic and innovative team. Click below to explore career
+            {`We're`} always seeking passionate and talented individuals to join
+            our dynamic and innovative team. Click below to explore career
             opportunities and become part of our exciting journey!
           </p>
 

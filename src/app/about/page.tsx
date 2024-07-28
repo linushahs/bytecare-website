@@ -2,7 +2,6 @@ import {
   HeroContent,
   HeroHeading,
   HeroParagraph,
-  HeroWrapper,
 } from "@/components/hero-content";
 import Image from "next/image";
 import Container from "@/components/ui/container";
@@ -30,13 +29,14 @@ import TeamList from "@/components/team-list";
 import TeamMember from "@/components/team-member";
 import Footer from "@/layouts/footer";
 import Link from "next/link";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 
 function AboutPage() {
   return (
     <>
       <section className="flex flex-col items-center">
         <Container>
-          <HeroWrapper>
+          <LightsParticleWrapper>
             <HeroContent className="gap-4 mt-16">
               {/* heading title, subtitle ================================ */}
               <HeroHeading className="mt-8">
@@ -48,7 +48,7 @@ function AboutPage() {
                 we are here to support you every step of the way.
               </HeroParagraph>
             </HeroContent>
-          </HeroWrapper>
+          </LightsParticleWrapper>
 
           {/* Picture of teams working together ========================= */}
           <figure className="mt-20 rounded-lg overflow-hidden">

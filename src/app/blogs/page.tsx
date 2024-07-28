@@ -5,8 +5,8 @@ import {
   HeroContent,
   HeroHeading,
   HeroParagraph,
-  HeroWrapper,
 } from "@/components/hero-content";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import Button from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import React, { useState } from "react";
@@ -16,7 +16,7 @@ function BlogsPage() {
 
   return (
     <>
-      <HeroWrapper>
+      <LightsParticleWrapper>
         <HeroContent className="gap-8 mt-16">
           {/* heading title, subtitle ================================ */}
           <HeroHeading className="mt-8">Blogs & Articles</HeroHeading>
@@ -25,7 +25,7 @@ function BlogsPage() {
             Discover trends & insights on tech
           </HeroParagraph>
         </HeroContent>
-      </HeroWrapper>
+      </LightsParticleWrapper>
 
       <section>
         <Container>

@@ -4,8 +4,8 @@ import {
   HeroContent,
   HeroFooter,
   HeroHeading,
-  HeroWrapper,
 } from "@/components/hero-content";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import ShareOnSocialMedia from "@/components/share-on-social-media";
 import Button from "@/components/ui/button";
 import Container from "@/components/ui/container";
@@ -42,7 +42,7 @@ function BlogDescriptionPage({ params }: { params: { slug: string } }) {
   return (
     <>
       <section>
-        <HeroWrapper>
+        <LightsParticleWrapper>
           <HeroContent className="gap-5 mt-16">
             <p className="mt-8 flex gap-3 text-md items-center text-textSecondary">
               Design{" "}
@@ -74,7 +74,7 @@ function BlogDescriptionPage({ params }: { params: { slug: string } }) {
               ))}
             </HeroFooter>
           </HeroContent>
-        </HeroWrapper>
+        </LightsParticleWrapper>
       </section>
 
       <section>

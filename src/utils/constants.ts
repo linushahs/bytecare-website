@@ -18,7 +18,10 @@ const navMenuItems = [
         title: "Blogs",
         path: "/blogs",
     },
-
+    {
+        title: "Contact Us",
+        path: "/contact-us",
+    },
 ];
 
 interface Service {

@@ -34,9 +34,9 @@ export default function Navbar() {
     <nav className={cn(" w-full sm:sticky top-0 left-0 z-[100]")}>
       <div
         className={cn(
-          "container rounded-lg transition-all duration-300 ease-in-out  relative flex items-center justify-between h-[var(--navbar-height)] border-none ",
+          "container rounded-lg transition-all border border-transparent duration-300 ease-in-out  relative flex items-center justify-between h-[var(--navbar-height)] ",
           isScrolled &&
-            "translate-y-6 outline-0 border border-solid border-borderSoft pr-4 pl-6 !bg-surface backdrop-blur-[21.5px] lg:!w-[1000px] h-[var(--navbar-height-scrolled)]"
+            "translate-y-6 outline-0 border-borderSoft py-3 pr-3 pl-6 !bg-fill lg:!w-[1100px] !h-auto"
         )}
       >
         <Image
@@ -44,7 +44,10 @@ export default function Navbar() {
           alt="logo"
           width={200}
           height={200}
-          className="w-[120px] md:w-[160px]"
+          className={cn(
+            "w-[120px] md:w-[160px] transition-all duration-500 ease-in-out",
+            isScrolled && "!w-[140px] 2xl:w-[145px]"
+          )}
         />
 
         <ul className="hidden lg:flex gap-14 items-center text-lg text-textSecondary">

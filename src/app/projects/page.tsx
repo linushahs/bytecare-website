@@ -2,8 +2,8 @@ import {
   HeroContent,
   HeroHeading,
   HeroParagraph,
-  HeroWrapper,
 } from "@/components/hero-content";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
 import ProjectsSection from "@/layouts/projects-section";
@@ -11,7 +11,7 @@ import ProjectsSection from "@/layouts/projects-section";
 export default function ProjectsPage() {
   return (
     <>
-      <HeroWrapper>
+      <LightsParticleWrapper>
         <HeroContent className="gap-8 mt-16">
           {/* heading title, subtitle ================================ */}
           <HeroHeading className="mt-8">Browse our projects</HeroHeading>
@@ -21,7 +21,7 @@ export default function ProjectsPage() {
             & launch their products.
           </HeroParagraph>
         </HeroContent>
-      </HeroWrapper>
+      </LightsParticleWrapper>
 
       <section>
         <Container>
