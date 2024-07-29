@@ -15,7 +15,7 @@ export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
         ref={ref}
         placeholder={placeholder}
         className={cn(
-          "p-3 text-white text-md min-h-[8rem] resize-none rounded-md border border-borderLight focus-within:border-brand  outline-none bg-transparent placeholder:text-surface-border leading-6",
+          "p-3 text-white text-md min-h-[8rem] resize-none rounded-md border border-borderSoft focus-within:border-brand  outline-none bg-transparent placeholder:text-surface-border leading-6",
           error && "border-accent-red focus-within:border-accent-red",
           className
         )}

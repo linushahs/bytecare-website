@@ -34,9 +34,13 @@ export default function ContactUsForm() {
     console.log(values);
   };
 
+  const onError = (err: any) => {
+    console.log(err);
+  };
+
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, onError)}
       className="flex flex-col p-4 gap-y-8 md:p-8 bg-surface rounded-xl"
     >
       <FormGroup>
@@ -117,7 +121,10 @@ export default function ContactUsForm() {
                 aria-describedby="errorWork"
                 error={errors.work}
               >
-                <SelectValue className="!text-textSecondary" placeholder="Choose one" />
+                <SelectValue
+                  className="!text-textSecondary"
+                  placeholder="Choose one"
+                />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="newProject">
@@ -131,6 +138,12 @@ export default function ContactUsForm() {
             </Select>
           )}
         />
+
+        {errors.work && (
+          <span id="errorWork" className="text-red-400 text-base">
+            {errors.work.message}
+          </span>
+        )}
       </FormGroup>
       <FormGroup>
         <Label htmlFor="projectDetail">Tell us more about your project</Label>

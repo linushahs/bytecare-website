@@ -50,7 +50,8 @@ const config: Config = {
       },
 
       borderRadius: {
-        sm: "6px",
+        xs: "6px",
+        sm: "8px",
         md: "10px",
         base: "12px",
         lg: "18px",
