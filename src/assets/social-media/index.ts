@@ -5,3 +5,5 @@ export { default as YoutubeIcon } from "./youtube.svg";
 export { default as SlackIcon } from "./slack.svg";
 export { default as FacebookIcon } from "./facebook.svg";
 export { default as LinkedInIcon } from "./linkedin.svg"
+export { default as GoogleMeetIcon } from "./meet.svg";
+export { default as InstagramIcon } from "./instagram.svg"

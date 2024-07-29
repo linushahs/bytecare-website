@@ -10,10 +10,7 @@ export function Label({ htmlFor, className, ...props }: LabelProps) {
   return (
     <label
       htmlFor={htmlFor}
-      className={cn(
-        "text-white font-medium text-base leading-6 font-sans",
-        className
-      )}
+      className={cn("text-white font-medium text-md leading-6", className)}
       {...props}
     />
   );

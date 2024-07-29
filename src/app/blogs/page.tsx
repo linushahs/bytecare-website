@@ -9,6 +9,7 @@ import {
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import Button from "@/components/ui/button";
 import Container from "@/components/ui/container";
+import Footer from "@/layouts/footer";
 import React, { useState } from "react";
 
 function BlogsPage() {
@@ -27,7 +28,7 @@ function BlogsPage() {
         </HeroContent>
       </LightsParticleWrapper>
 
-      <section>
+      <section className="pb-12">
         <Container>
           {/* Blog filters ====================================== */}
           <div className="flex flex-col gap-10 mt-16 relative z-[3]">
@@ -59,6 +60,8 @@ function BlogsPage() {
           <BlogList />
         </Container>
       </section>
+
+      <Footer />
     </>
   );
 }

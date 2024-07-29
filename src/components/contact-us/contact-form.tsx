@@ -37,7 +37,7 @@ export default function ContactUsForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="flex flex-col p-4 gap-y-6 md:p-8 bg-surface rounded-xl"
+      className="flex flex-col p-4 gap-y-8 md:p-8 bg-surface rounded-xl"
     >
       <FormGroup>
         <Label htmlFor="fullName">
@@ -98,7 +98,7 @@ export default function ContactUsForm() {
 
       {/* :TODO: find a good solution for this */}
       <FormGroup as="label">
-        <p className="font-sans text-base font-medium leading-6 text-white">
+        <p className=" text-md font-medium leading-6 text-white">
           How do you want to work with us?
           <span aria-hidden="true">*</span>
         </p>
@@ -117,7 +117,7 @@ export default function ContactUsForm() {
                 aria-describedby="errorWork"
                 error={errors.work}
               >
-                <SelectValue placeholder="Choose one" />
+                <SelectValue className="!text-textSecondary" placeholder="Choose one" />
               </SelectTrigger>
               <SelectContent>
                 <SelectItem value="newProject">
@@ -136,7 +136,7 @@ export default function ContactUsForm() {
         <Label htmlFor="projectDetail">Tell us more about your project</Label>
         <TextArea placeholder="Message/Project Details" id="projectDetail" />
       </FormGroup>
-      <Button>Submit Inquiry</Button>
+      <Button className="w-fit">Submit Inquiry</Button>
     </form>
   );
 }

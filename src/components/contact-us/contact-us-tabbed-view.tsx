@@ -10,7 +10,7 @@ export function ContactUsTabbedView() {
   const [tab, setTab] = useState(tabOptions[0]);
 
   return (
-    <div className="mt-14 mb-16 max-w-[43rem] mx-auto space-y-12">
+    <div className="mt-14 mb-16 max-w-[50rem] mx-auto space-y-16">
       <div className="flex items-center justify-center">
         <div className="overflow-hidden bg-surface rounded-md">
           {tabOptions.map((tabTitle) => {
@@ -18,7 +18,7 @@ export function ContactUsTabbedView() {
               <button
                 key={tabTitle}
                 onClick={() => setTab(tabTitle)}
-                className="relative px-4 py-4 text-base font-medium text-white md:text-lg md:px-8"
+                className="relative px-4 py-4 text-md font-medium text-white md:px-8"
               >
                 {tab === tabTitle && (
                   <motion.div

@@ -39,16 +39,18 @@ export default function Navbar() {
             "translate-y-6 outline-0 border-borderSoft py-3 pr-3 pl-6 !bg-fill lg:!w-[1100px] !h-auto"
         )}
       >
-        <Image
-          src="/logo.png"
-          alt="logo"
-          width={200}
-          height={200}
-          className={cn(
-            "w-[120px] md:w-[160px] transition-all duration-500 ease-in-out",
-            isScrolled && "!w-[140px] 2xl:w-[145px]"
-          )}
-        />
+        <Link href="/">
+          <Image
+            src="/logo.png"
+            alt="logo"
+            width={200}
+            height={200}
+            className={cn(
+              "w-[120px] md:w-[160px] transition-all duration-500 ease-in-out",
+              isScrolled && "!w-[140px] 2xl:w-[145px]"
+            )}
+          />
+        </Link>
 
         <ul className="hidden lg:flex gap-14 items-center text-lg text-textSecondary">
           {navMenuItems.map((menu) => (

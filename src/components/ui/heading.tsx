@@ -20,7 +20,7 @@ const headingVariants = cva("font-heading", {
       [HEADING_TYPES.headline04]:
         "text-xl md:text-2xl lg:text-3xl !leading-[135%] font-bold text-white",
       [HEADING_TYPES.heading]:
-        "md:text-[38px] text-xl font-bold   !leading-[120%] text-white",
+        "md:text-2xl text-xl font-bold !leading-[120%] text-white",
       [HEADING_TYPES.subtitle01]: "text-lg leading-7 font-medium text-white",
     },
   },
