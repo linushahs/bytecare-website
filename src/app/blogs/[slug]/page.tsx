@@ -202,11 +202,13 @@ function ContentFromCMS() {
         AI. Armed with a rich background in design and a sharp eye for industry
         trends, Romina brings a unique and informed perspective to the table.
       </p>
-      <img
+      <Image
         alt="Figma Cover"
         src={
           "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         }
+        width={800}
+        height={800}
       />
       <h2>Heading 3</h2>
       <ol>
@@ -248,11 +250,13 @@ function ContentFromCMS() {
       </p>
       <div>
         <h2>Tweet of the week</h2>
-        <img
+        <Image
           alt="Profile"
           src={
             "https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?q=80&w=1476&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           }
+          width={1000}
+          height={800}
         />
       </div>
 

@@ -1,3 +1,4 @@
+import { ArrowRightIcon } from "@/assets";
 import React, { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -9,9 +10,11 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
     | "surface"
     | "transparent"
     | "fillSecondary"
+    | "fillTertiary"
     | "white";
-  onClick?: () => void;
   className?: string;
+  showRightArrowIcon?: boolean;
+  isLoading?: boolean;
 }
 
 const Button: FC<ButtonProps> = ({
@@ -20,6 +23,8 @@ const Button: FC<ButtonProps> = ({
   color = "primary",
   onClick,
   children,
+  showRightArrowIcon,
+  isLoading,
 }) => {
   const buttonVariants = {
     default: "text-textPrimary font-medium",
@@ -30,6 +35,7 @@ const Button: FC<ButtonProps> = ({
     primary: "bg-primaryBtnGradient hover:bg-primaryGradientHover",
     fill: "border-borderLight bg-fill",
     fillSecondary: "bg-fill-secondary",
+    fillTertiary: "bg-fill-tertiary",
     surface: "bg-surface border-borderSoft  hover:contrast-75",
     transparent: "bg-transparent border-borderSoft ",
     white: "bg-white",
@@ -38,7 +44,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "py-2.5 px-6 rounded-md text-md flex items-center gap-2 cursor-pointer",
+        "group py-3 px-6 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in-out",
         buttonVariants[variant],
         buttonColors[color],
         className
@@ -46,6 +52,12 @@ const Button: FC<ButtonProps> = ({
       onClick={onClick}
     >
       {children}
+
+      {showRightArrowIcon && (
+        <span className="group-hover:translate-x-1.5 transition-all duration-300">
+          <ArrowRightIcon className="size-6" />
+        </span>
+      )}
     </button>
   );
 };

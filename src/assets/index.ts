@@ -1,7 +1,6 @@
 export { default as ArrowRightIcon } from "./arrow-right.svg";
 export { default as LocationIcon } from "./location.svg";
 export { default as PhoneIcon } from "./phone.svg";
-export { default as CrossIcon } from "./cross.svg";
 export { default as BarIcon } from "./hamburger.svg"
 export { default as ProductDevIcon } from "./product-dev.svg"
 export { default as DesignIcon } from "./design.svg"
@@ -23,3 +22,7 @@ export { default as Logo } from "./logo.svg"
 export { default as ChevronDownIcon } from "./chevron-down.svg"
 export { default as CheckIcon } from "./check.svg"
 export { default as ClockIcon } from "./clock.svg"
+export { default as CrossIcon } from "./cross.svg"
+export { default as UploadIcon } from "./upload.svg"
+export { default as DocumentIcon } from "./document.svg"
+export { default as DeleteIcon } from "./delete.svg"

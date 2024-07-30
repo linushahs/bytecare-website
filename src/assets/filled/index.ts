@@ -1,3 +1,11 @@
 export { default as LocationIcon } from "./location.svg"
 export { default as MailIcon } from "./mail.svg"
 export { default as FacebookIcon } from "./facebook.svg"
+export { default as HomeIcon } from "./home.svg"
+export { default as FinancingIcon } from "./financing.svg"
+export { default as CelebrationIcon } from "./celebration.svg";
+export { default as InvestmentIcon } from "./investment.svg";
+export { default as HeartIcon } from "./love.svg"
+export { default as LunchIcon } from "./lunch.svg";
+export { default as SalaryIcon } from "./salary.svg";
+export { default as SickLeaveIcon } from "./sick_leave.svg"

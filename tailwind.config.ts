@@ -40,6 +40,7 @@ const config: Config = {
 
       fontSize: {
         sm: "var(--text-sm)",
+        base: "var(--text-base)",
         md: "var(--text-md)",
         lg: "var(--text-lg)",
         xl: "var(--text-xl)",

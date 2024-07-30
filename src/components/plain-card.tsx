@@ -12,7 +12,7 @@ export function PlainCard({ Icon, title, description }: PlainCardProps) {
       <Icon />
       <div className="space-y-3">
         <h3 className="text-xl font-semibold text-white">{title}</h3>
-        <p className="text-textSecondary text-base">{description}</p>
+        <p className="text-textSecondary text-md">{description}</p>
       </div>
     </li>
   );

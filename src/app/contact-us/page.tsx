@@ -31,7 +31,7 @@ function ContactUsPage() {
                 Ready to launch your <br /> next project?
               </HeroHeading>
               <HeroParagraph className="!w-[80%]">
-                We'd love to hear about your project and make it happen
+                {`We'd`} love to hear about your project and make it happen
                 together.
               </HeroParagraph>
             </HeroContent>
@@ -81,8 +81,8 @@ function ContactUsPage() {
                 </h2>
 
                 <div className="flex gap-12 mt-8">
-                  {socialLinks.map(({ icon: Icon, url }) => (
-                    <a href={url}>
+                  {socialLinks.map(({ icon: Icon, url }, idx) => (
+                    <a key={idx} href={url}>
                       <Icon className="size-7" />
                     </a>
                   ))}
