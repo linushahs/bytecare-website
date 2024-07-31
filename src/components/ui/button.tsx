@@ -37,7 +37,7 @@ const Button: FC<ButtonProps> = ({
     fillSecondary: "bg-fill-secondary",
     fillTertiary: "bg-fill-tertiary",
     surface: "bg-surface border-borderSoft  hover:contrast-75",
-    transparent: "bg-transparent border-borderSoft ",
+    transparent: "bg-transparent border-borderSoft hover:bg-fill-tertiary",
     white: "bg-white",
   };
 

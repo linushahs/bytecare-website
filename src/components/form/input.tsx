@@ -8,8 +8,6 @@ interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
 
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ placeholder, type = "text", id, className, error, ...props }, ref) => {
-    console.log(error);
-
     return (
       <>
         <input

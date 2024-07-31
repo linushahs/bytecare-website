@@ -1,20 +1,23 @@
-import React from "react";
-import Button from "../ui/button";
-
+import { MessageSentIcon } from "@/assets/filled";
+import { useModal } from "@/hooks/use-modal";
+import Link from "next/link";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import FormGroup from "../form/form-group";
+import { Input } from "../form/input";
+import { Label } from "../form/label";
 import {
   Select,
-  SelectTrigger,
-  SelectItem,
   SelectContent,
+  SelectItem,
+  SelectTrigger,
   SelectValue,
 } from "../form/select";
-import FormGroup from "../form/form-group";
-import { Label } from "../form/label";
-import { Input } from "../form/input";
 import { TextArea } from "../form/textarea";
+import Button from "../ui/button";
 
 export default function ContactUsForm() {
+  const { openModal } = useModal();
+
   const {
     handleSubmit,
     register,
@@ -22,16 +25,18 @@ export default function ContactUsForm() {
     formState: { errors },
   } = useForm({
     defaultValues: {
-      fullName: "",
-      phoneNumber: "",
-      email: "",
-      projectDetail: "",
-      work: "",
+      fullName: "Sunil Shah",
+      phoneNumber: "9811008987",
+      email: "sunil12@gmail.com",
+      projectDetail: "asdsad",
+      work: "erwer",
     },
   });
 
   const onSubmit: SubmitHandler<any> = (values) => {
-    console.log(values);
+    openModal({
+      view: <MessageSentModal />,
+    });
   };
 
   const onError = (err: any) => {
@@ -60,7 +65,6 @@ export default function ContactUsForm() {
           })}
         />
       </FormGroup>
-
       <FormGroup>
         <Label htmlFor="phoneNumber">
           Your Phone Number
@@ -80,7 +84,6 @@ export default function ContactUsForm() {
           })}
         />
       </FormGroup>
-
       <FormGroup>
         <Label htmlFor="email">
           Your Email Address
@@ -99,7 +102,6 @@ export default function ContactUsForm() {
           })}
         />
       </FormGroup>
-
       {/* :TODO: find a good solution for this */}
       <FormGroup as="label">
         <p className=" text-md font-medium leading-6 text-white">
@@ -149,7 +151,34 @@ export default function ContactUsForm() {
         <Label htmlFor="projectDetail">Tell us more about your project</Label>
         <TextArea placeholder="Message/Project Details" id="projectDetail" />
       </FormGroup>
-      <Button className="w-fit">Submit Inquiry</Button>
+
+      <Button type="submit" className="w-fit">
+        Submit Inquiry
+      </Button>
     </form>
+  );
+}
+
+function MessageSentModal() {
+  return (
+    <div className="py-16">
+      <MessageSentIcon className="size-36" />
+      <p className="text-xl font-semibold mt-2">Message sent successfully 🌟</p>
+
+      <p className="text-center text-textSecondary">
+        Thanks for reaching out to bytecare! 🚀 <br /> {`We've`} received your
+        message and will get back to you shortly.
+      </p>
+
+      <Link href="/">
+        <Button
+          variant="outline"
+          color="transparent"
+          className="py-2.5 mt-4 text-base"
+        >
+          Back to Home
+        </Button>
+      </Link>
+    </div>
   );
 }

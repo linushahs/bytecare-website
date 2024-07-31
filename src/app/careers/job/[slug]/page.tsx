@@ -1,9 +1,8 @@
-import { JobApplyModal } from "@/components/job-apply-modal";
+import { ApplyNowButton } from "@/components/job-apply-modal";
 import Container from "@/components/ui/container";
 import { HEADING_TYPES, headingVariants } from "@/components/ui/heading";
 import Lights from "@/components/ui/lights";
 import Footer from "@/layouts/footer";
-import React from "react";
 
 function JobDescriptionPage() {
   return (
@@ -167,7 +166,7 @@ function JobDescriptionPage() {
             </article>
           </div>
 
-          <JobApplyModal />
+          <ApplyNowButton />
         </Container>
       </section>
 

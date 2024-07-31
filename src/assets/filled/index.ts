@@ -9,3 +9,5 @@ export { default as HeartIcon } from "./love.svg"
 export { default as LunchIcon } from "./lunch.svg";
 export { default as SalaryIcon } from "./salary.svg";
 export { default as SickLeaveIcon } from "./sick_leave.svg"
+export { default as ApplicationSubmittedIcon } from "./application_submitted.svg"
+export { default as MessageSentIcon } from "./message-sent.svg";

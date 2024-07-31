@@ -1,51 +1,43 @@
 "use client";
 
-import { CrossIcon, DeleteIcon, DocumentIcon, UploadIcon } from "@/assets";
-import { DialogTitle } from "@radix-ui/react-dialog";
-import { forwardRef, useRef } from "react";
+import { DeleteIcon, DocumentIcon, UploadIcon } from "@/assets";
+import { ApplicationSubmittedIcon } from "@/assets/filled";
+import { useModal } from "@/hooks/use-modal";
+import Link from "next/link";
+import { forwardRef, Fragment, useRef } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import FormGroup from "./form/form-group";
 import { Input } from "./form/input";
 import { Label } from "./form/label";
 import Button from "./ui/button";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogHeader,
-  DialogOverlay,
-  DialogTrigger,
-} from "./ui/dialog";
+
+function ApplyNowButton() {
+  const { openModal } = useModal();
+
+  return (
+    <Button
+      onClick={() => openModal({ view: <JobApplyModal /> })}
+      showRightArrowIcon
+      className="mx-auto group"
+      variant="default"
+    >
+      <span>Apply Now</span>
+    </Button>
+  );
+}
 
 function JobApplyModal() {
   return (
-    <Dialog>
-      <DialogTrigger asChild>
-        <Button showRightArrowIcon className="mx-auto group" variant="default">
-          <span>Apply Now</span>
-        </Button>
-      </DialogTrigger>
-      <DialogOverlay />
-
-      <DialogContent title="Apply for this job" className="p-8">
-        <DialogHeader>
-          <DialogTitle>
-            <p className="text-xl font-bold ">Apply for this position</p>
-          </DialogTitle>
-
-          <DialogClose className="rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none">
-            <CrossIcon className="size-7" />
-            <span className="sr-only">Close</span>
-          </DialogClose>
-        </DialogHeader>
-
-        <JobApplyForm />
-      </DialogContent>
-    </Dialog>
+    <div className="pt-7 pb-8 px-9 flex flex-col">
+      <p className="text-xl font-bold ">Apply for this position</p>
+      <JobApplyForm />
+    </div>
   );
 }
 
 function JobApplyForm() {
+  const { openModal } = useModal();
+
   const uploadRef = useRef<HTMLInputElement>(null);
   const {
     handleSubmit,
@@ -63,10 +55,12 @@ function JobApplyForm() {
 
   const onSubmit: SubmitHandler<any> = (data) => {
     console.log(data);
+
+    openModal({ view: <ApplicationSubmittedModal /> });
   };
 
   return (
-    <form className="space-y-8 mt-4" onSubmit={handleSubmit(onSubmit)}>
+    <form className="space-y-8 mt-6" onSubmit={handleSubmit(onSubmit)}>
       <FormGroup>
         <Label className="text-base" htmlFor="fullName">
           Full Name
@@ -118,6 +112,11 @@ function JobApplyForm() {
           aria-describedby="phoneError"
           {...register("phone", {
             required: "Please enter your phone number",
+            validate: {
+              phone: (value: string) => {
+                return value.length === 10 ? true : "Invalid phone number";
+              },
+            },
           })}
         />
       </FormGroup>
@@ -125,14 +124,36 @@ function JobApplyForm() {
       <div className="bg-fill-secondary rounded-lg flex justify-between items-center px-5 py-4">
         <div className="w-[55%]">
           <p className="text-lg font-medium mb-1.5">Resume*</p>
-          <p className="text-base text-textSecondary">
+          <p className="text-base text-textSecondary mb-2.5">
             Please make sure to include your latest portfolio & experience.
           </p>
+
+          {errors.resume && (
+            <span className="text-base text-red-400">
+              {errors.resume?.message}
+            </span>
+          )}
         </div>
 
         <Controller
           name="resume"
           control={control}
+          rules={{
+            validate: {
+              resume: (value: File | null) => {
+                if (!value) return "Please upload your resume";
+                const validTypes = [
+                  "application/pdf",
+                  "application/msword",
+                  "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
+                ];
+                return (
+                  validTypes.includes(value.type) ||
+                  "Only .pdf, .doc, .docx files are accepted"
+                );
+              },
+            },
+          }}
           render={({ field: { onChange, value } }) => (
             <UploadResumeButton
               ref={uploadRef}
@@ -221,4 +242,29 @@ const UploadResumeButton = forwardRef<
 
 UploadResumeButton.displayName = "UploadResumeButton";
 
-export { JobApplyModal };
+function ApplicationSubmittedModal() {
+  return (
+    <div className="py-16 flex flex-col gap-5 items-center">
+      <ApplicationSubmittedIcon className="size-36" />
+      <p className="text-xl font-semibold mt-2">Application submitted! 🚀</p>
+
+      <p className="text-center text-textSecondary w-2/3">
+        Your application for UI UX Designer at Bytecare Technology has been
+        submitted. Thank you for considering a career with us. {`We'll`} review your
+        application and be in touch soon.
+      </p>
+
+      <Link href="/">
+        <Button
+          variant="outline"
+          color="transparent"
+          className="py-2.5 mt-4 text-base"
+        >
+          Back to Home
+        </Button>
+      </Link>
+    </div>
+  );
+}
+
+export { ApplyNowButton };

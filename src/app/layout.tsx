@@ -1,9 +1,8 @@
+import GlobalModal from "@/components/ui/modal";
+import Navbar from "@/layouts/navbar";
+import { aeonik } from "@/utils/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
-import { aeonik } from "@/utils/fonts";
-import Navbar from "@/layouts/navbar";
-import Lights from "@/components/ui/lights";
-import Particles from "@/components/ui/particles";
 
 export const metadata: Metadata = {
   title: "ByteCare",
@@ -20,6 +19,8 @@ export default function RootLayout({
       <body className={aeonik.className + " relative"}>
         <Navbar />
         {children}
+
+        <GlobalModal />
       </body>
     </html>
   );
