@@ -75,13 +75,13 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
         setSvgDimensions({ width: svgWidth, height: svgHeight });
 
         const startX =
-          rectA.left - containerRect.left + rectA.width / 2 + startXOffset;
+          rectA.left - containerRect.left + rectA.width + startXOffset;
         const startY =
-          rectA.top - containerRect.top + rectA.height / 2 + startYOffset;
+          rectA.top - containerRect.top + rectA.height + startYOffset;
         const endX =
-          rectB.left - containerRect.left + rectB.width / 2 + endXOffset;
+          rectB.left - containerRect.left + rectB.width + endXOffset;
         const endY =
-          rectB.top - containerRect.top + rectB.height / 2 + endYOffset;
+          rectB.top - containerRect.top + rectB.height + endYOffset;
 
         const controlY = startY - curvature;
         const d = `M ${startX},${startY} Q ${

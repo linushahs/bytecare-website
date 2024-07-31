@@ -62,6 +62,7 @@ const config: Config = {
 
       colors: {
         brand: "var(--brand)",
+        brandTransparent: "var(--brand-transparent)",
         background: "var(--background)",
         fill: {
           DEFAULT: "var(--background-default)",
@@ -98,6 +99,10 @@ const config: Config = {
 
       backdropBlur: {
         lg: "30px"
+      },
+
+      boxShadow: {
+        techCardShadow: "0px 1px 1px 0px rgba(255, 255, 255, 0.25)"
       }
     },
   },

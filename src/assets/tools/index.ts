@@ -1,0 +1,1 @@
+export { default as LeftLinesSVG } from "./left-lines.svg";

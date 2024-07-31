@@ -1,83 +1,105 @@
 "use client";
 
-import React, { useRef } from "react";
-import { TechCard } from "./tools-technology-section";
+import { Logo } from "@/assets";
 import {
   AwsIcon,
+  CodeIcon,
   DartIcon,
   DjangoIcon,
+  FigmaIcon,
   FirebaseIcon,
   FlutterIcon,
   GithubIcon,
   NextJsIcon,
+  PostgresIcon,
   PythonIcon,
   ReactIcon,
   TailwindIcon,
   VercelIcon,
   VueIcon,
 } from "@/assets/tech-stack";
-import { AnimatedBeam } from "./ui/animated-beam";
-import { Logo } from "@/assets";
+import { LeftLinesSVG } from "@/assets/tools";
+import { useRef } from "react";
+import { TechCard } from "./tools-technology-section";
 
 function ToolsAnimatedBeam() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const div1Ref = useRef<HTMLDivElement>(null);
-  const div2Ref = useRef<HTMLDivElement>(null);
-  const div3Ref = useRef<HTMLDivElement>(null);
-  const div4Ref = useRef<HTMLDivElement>(null);
-  const div5Ref = useRef<HTMLDivElement>(null);
-  const div6Ref = useRef<HTMLDivElement>(null);
-  const div7Ref = useRef<HTMLDivElement>(null);
-  const div8Ref = useRef<HTMLDivElement>(null);
-  const div9Ref = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={containerRef} className="w-2/3 relative flex flex-col gap-8">
+    <div ref={containerRef} className="w-[924px] relative flex flex-col gap-8">
       <div className="flex justify-between">
-        <div ref={div1Ref} className="flex gap-8">
+        <div className="relative flex gap-8">
           <TechCard icon={TailwindIcon} />
           <TechCard icon={ReactIcon} />
+
+          <LeftLinesSVG
+            style={{
+              left: "50%",
+              top: "45%",
+              height: "350px",
+              width: "400px",
+            }}
+            className="absolute z-0 opacity-15"
+          />
         </div>
-        <div ref={div2Ref} className="flex gap-8">
+        <div className="relative flex gap-8">
           <TechCard icon={PythonIcon} />
           <TechCard icon={AwsIcon} />
+
+          <LeftLinesSVG
+            style={{
+              right: "50%",
+              top: "45%",
+              height: "350px",
+              width: "400px",
+            }}
+            className="absolute z-0 opacity-15 -rotate-180"
+          />
         </div>
       </div>
 
       <div className="flex justify-between">
-        <div ref={div3Ref} className="flex gap-8">
+        <div className="flex gap-8">
           <TechCard icon={NextJsIcon} />
           <TechCard icon={FlutterIcon} />
         </div>
-        <div ref={div7Ref} className="flex gap-8">
+        <div className="flex gap-8">
           <TechCard icon={DjangoIcon} />
           <TechCard icon={DartIcon} />
         </div>
       </div>
 
       <div className="flex justify-between">
-        <div ref={div5Ref} className="flex gap-8">
+        <div className="flex gap-8">
           <TechCard icon={GithubIcon} />
           <TechCard icon={VueIcon} />
         </div>
-        <div ref={div6Ref} className="flex gap-8">
+        <div className="flex gap-8">
           <TechCard icon={FirebaseIcon} />
           <TechCard icon={VercelIcon} />
         </div>
       </div>
 
-      <div
-        ref={div4Ref}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[50]"
-      >
+      <div className="flex justify-between">
+        <div className="flex gap-8">
+          <TechCard icon={CodeIcon} />
+          <TechCard icon={FigmaIcon} />
+        </div>
+        <div className="flex gap-8">
+          <TechCard icon={PostgresIcon} />
+          <TechCard icon={AwsIcon} />
+        </div>
+      </div>
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[50]">
         <TechCard
           icon={Logo}
-          className="size-32 rounded-xl border-0"
+          className="size-32 bg-[var(--brand-transparent)] rounded-xl border-0"
           iconClassName="size-16"
         />
       </div>
 
-      <AnimatedBeam
+      {/* <AnimatedBeam
         containerRef={containerRef}
         fromRef={div1Ref}
         toRef={div4Ref}
@@ -106,7 +128,7 @@ function ToolsAnimatedBeam() {
       />
       <AnimatedBeam
         containerRef={containerRef}
-        fromRef={div6Ref}
+        fro
         toRef={div4Ref}
         reverse
       />
@@ -117,7 +139,7 @@ function ToolsAnimatedBeam() {
         curvature={75}
         endYOffset={10}
         reverse
-      />
+      /> */}
     </div>
   );
 }
