@@ -21,11 +21,13 @@ function TeamPage() {
       <section className="flex flex-col items-center">
         <Container>
           <LightsParticleWrapper>
-            <HeroContent className="flex flex-col items-center gap-4 mt-16 mb-20">
+            <HeroContent className="flex flex-col items-center gap-4 mt-10 sm:mt-16 mb-20">
               {/* heading title, subtitle ================================ */}
-              <HeroHeading className="mt-8">Meet Our Team</HeroHeading>
+              <HeroHeading className="mt-8">
+                Meet <span className="block sm:inline">Our Team</span>
+              </HeroHeading>
 
-              <HeroParagraph className="mt-6">
+              <HeroParagraph className="sm:mt-6">
                 We are a dynamic team of young, talented individuals committed
                 to driving innovation and excellence.
               </HeroParagraph>
@@ -46,7 +48,7 @@ function TeamPage() {
             <div className="w-full">
               <TeamList>
                 {new Array(12).fill(0).map((id) => (
-                  <TeamMember key={id} id={id} />
+                  <TeamMember id={id} />
                 ))}
               </TeamList>
             </div>
@@ -56,10 +58,14 @@ function TeamPage() {
 
       <section className="pt-24 pb-6">
         <CtaCard>
-          <Heading as="h2" variant={HEADING_TYPES.headline04}>
+          <Heading
+            as="h2"
+            variant={HEADING_TYPES.headline04}
+            className="text-center"
+          >
             Want to Join Bytecare?
           </Heading>
-          <p className="text-center text-textSecondary text-md w-[40%]">
+          <p className="text-center text-textSecondary text-md w-[90%] sm:w-[40%]">
             {`We're`} always seeking passionate and talented individuals to join
             our dynamic and innovative team. Click below to explore career
             opportunities and become part of our exciting journey!

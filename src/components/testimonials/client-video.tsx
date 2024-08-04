@@ -4,7 +4,7 @@ import React from "react";
 
 function ClientVideo() {
   return (
-    <div className="relative rounded-lg overflow-hidden bg-fill size-full grid place-items-center">
+    <div className="relative rounded-lg overflow-hidden bg-fill size-full grid place-items-center h-[260px] sm:h-auto">
       <div className="bg-black/40 absolute inset-0 size-full z-20"></div>
       <Image
         src="https://www.shutterstock.com/image-photo/young-handsome-man-beard-wearing-600nw-1768126784.jpg"

@@ -33,8 +33,11 @@ const config: Config = {
       },
 
       screens: {
-        "2xl": "1700px",
+        md: "840px",
+        lg: "1080px",
+        "2xl": "1600px",
         "3xl": "1920px",
+        "short": { 'raw': '(max-height: 760px)' },
         'tall': { 'raw': '(min-height: 900px)' }
       },
 
@@ -46,8 +49,8 @@ const config: Config = {
         xl: "var(--text-xl)",
         "2xl": "var(--text-2xl)",
         "3xl": "var(--text-3xl)",
+        "4xl": "var(--text-4xl)",
         "5xl": "var(--text-5xl)",
-        "6xl": "var(--text-6xl)",
       },
 
       borderRadius: {
@@ -102,7 +105,7 @@ const config: Config = {
       },
 
       boxShadow: {
-        techCardShadow: "0px 1px 1px 0px rgba(255, 255, 255, 0.25)"
+        techCardShadow: "0px 1px 1px 0px rgba(255, 255, 255, 0.10)"
       }
     },
   },

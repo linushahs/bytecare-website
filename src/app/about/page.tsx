@@ -37,9 +37,14 @@ function AboutPage() {
       <section className="flex flex-col items-center">
         <Container>
           <LightsParticleWrapper>
-            <HeroContent className="gap-4 mt-16">
+            <HeroContent className="gap-4 mt-8 sm:mt-16">
               {/* heading title, subtitle ================================ */}
-              <HeroHeading className="mt-8">
+              <HeroHeading className="mt-8 hidden sm:block ">
+                We are your dedicated <br /> technology partners
+              </HeroHeading>
+
+              {/* Heading title for mobile size ============================ */}
+              <HeroHeading className="mt-8 sm:hidden">
                 We are your dedicated technology partners
               </HeroHeading>
 
@@ -51,14 +56,14 @@ function AboutPage() {
           </LightsParticleWrapper>
 
           {/* Picture of teams working together ========================= */}
-          <figure className="mt-20 rounded-lg overflow-hidden">
+          <figure className="mt-14 sm:mt-20 rounded-lg overflow-hidden">
             <Image
               src={"/team-members.jpg"}
               alt="Teams working together"
               width={1920}
               height={1080}
               priority
-              className="w-full bg-fill h-[600px] object-cover"
+              className="w-full bg-fill md:h-[600px] aspect-[16/9] md:aspect-auto object-cover"
             />
           </figure>
         </Container>
@@ -67,7 +72,11 @@ function AboutPage() {
       <section className="pt-24 pb-14">
         <Container>
           <div className="max-w-3xl">
-            <Heading as="h2" variant={HEADING_TYPES.headline04}>
+            <Heading
+              as="h2"
+              variant={HEADING_TYPES.headline04}
+              className="sm:w-2/3 md:w-full"
+            >
               Passion and Expertise at the Heart of Everything We Do
             </Heading>
             <p className="mt-6 text-base text-textSecondary leading-relaxed mb-14 lg:text-md">
@@ -78,14 +87,17 @@ function AboutPage() {
               into seamless solutions that empower businesses worldwide.
             </p>
           </div>
-          <ul className="grid grid-cols-1 gap-4 md:gap-12 md:grid-cols-2">
+          <ul className="grid grid-cols-1 gap-6 md:gap-12 md:grid-cols-2">
             {aims.map(({ title, description, Icon }) => (
-              <li key={title} className="p-6 md:p-9 bg-fill rounded-lg">
+              <li
+                key={title}
+                className="py-7 px-6 sm:p-6 md:p-9 bg-fill rounded-lg"
+              >
                 <Icon />
-                <h3 className="mt-8 mb-5 text-lg font-bold leading-8 text-white md:text-xl">
+                <h3 className="mt-6 sm:mt-8 mb-5 font-bold leading-8 text-white text-xl">
                   {title}
                 </h3>
-                <p className="text-base text-textSecondary">{description}</p>
+                <p className="text-md text-textSecondary">{description}</p>
               </li>
             ))}
           </ul>
@@ -94,8 +106,12 @@ function AboutPage() {
 
       <section className="py-14">
         <Container>
-          <div className="space-y-20">
-            <Heading as="h2" variant={HEADING_TYPES.heading}>
+          <div className="space-y-16 sm:space-y-20 px-2">
+            <Heading
+              as="h2"
+              variant={HEADING_TYPES.heading}
+              className="text-center"
+            >
               Our Core Values
             </Heading>
             <PlainCardList>
@@ -111,26 +127,27 @@ function AboutPage() {
           </div>
         </Container>
       </section>
+
       <section className="pt-14">
         <Container>
-          <div className="flex flex-col items-center max-w-xl mx-auto text-center py-14">
-            <Heading as="h2" variant={HEADING_TYPES.headline04}>
+          <div className="flex flex-col items-center max-w-xl mx-auto text-center py-6  sm:py-14">
+            <Heading as="h2" variant={HEADING_TYPES.heading}>
               Our Journey
             </Heading>
 
-            <p className="mt-6 text-md text-textSecondary w-[95%]">
+            <p className="mt-6 text-md text-textSecondary sm:w-[95%]">
               We had a humble beginning, driven by a passion for building
               things. Since then, {`we've`} steadily grown, overcoming
               challenges and achieving significant milestones.
             </p>
           </div>
-          <div className="relative">
-            <ul className="relative flex flex-wrap justify-center max-w-4xl mx-auto py-14 gap-7 md:gap-14">
+          <div className="relative px-4 sm:px-0">
+            <ul className="relative flex flex-wrap justify-center max-w-4xl mx-auto py-10 md:py-14 gap-10 md:gap-14">
               {companyStats.map(({ title, description, founded }, index) => (
                 <li
                   key={title}
                   className={cn(
-                    "shadow-inner w-full max-w-sm p-8  rounded-xl",
+                    "shadow-inner w-full max-w-sm p-6 sm:p-8  rounded-xl",
                     founded
                       ? "bg-primaryBtnGradient -rotate-3 scale-105"
                       : "bg-fill",
@@ -142,12 +159,12 @@ function AboutPage() {
                       Founded
                     </span>
                   )}
-                  <Heading as="h3" variant={HEADING_TYPES.heading}>
+                  <Heading as="h3" variant={HEADING_TYPES.headline04}>
                     {title}
                   </Heading>
                   <p
                     className={cn(
-                      "text-textSecondary text-base mt-4",
+                      "text-textSecondary text-md mt-4",
                       founded && "text-white"
                     )}
                   >
@@ -164,20 +181,20 @@ function AboutPage() {
           <div className="relative space-y-14">
             <BlurryBlob className="w-1/2  -translate-x-1/2 blur-[150px] top-1/2 -translate-y-1/2 left-1/2 aspect-square" />
             <div className="relative flex flex-col items-center">
-              <div className="flex flex-col items-center max-w-3xl space-y-6 text-center mb-14">
+              <div className="flex flex-col items-center max-w-3xl space-y-6 text-center mb-10 sm:mb-14">
                 <Heading as="h2" variant={HEADING_TYPES.headline04}>
                   Meet Our Team
                 </Heading>
-                <p className="text-md text-textSecondary w-[60%]">
+                <p className="text-md text-textSecondary sm:w-[60%]">
                   We are a dynamic team of young, talented individuals committed
                   to driving innovation and excellence.
                 </p>
               </div>
 
-              <div className="w-full ">
+              <div className="w-full">
                 <TeamList>
                   {new Array(4).fill(0).map((id) => (
-                    <TeamMember key={id} id={id} />
+                    <TeamMember id={id} />
                   ))}
                 </TeamList>
               </div>
@@ -194,11 +211,11 @@ function AboutPage() {
           </div>
         </Container>
       </section>
-      <section className="pt-14 pb-20">
+      <section className="pt-16 pb-20">
         <Container>
-          <div className="flex gap-14">
+          <div className="flex flex-col md:flex-row gap-14">
             {/* have a project? banner ================================= */}
-            <div className="flex-1 rounded-xl p-14 flex flex-col items-start gap-4 bg-primaryBtnGradient">
+            <div className="flex-1 rounded-xl p-8 sm:p-10 2xl:p-12 flex flex-col items-start gap-4 bg-primaryBtnGradient">
               <span className="p-4 rounded-full bg-white w-fit mb-2">
                 <RocketSmallIcon className="size-6" />
               </span>
@@ -207,7 +224,7 @@ function AboutPage() {
                 Have a Project?
               </p>
 
-              <p className="text-white text-base w-2/3">
+              <p className="text-white text-base sm:w-[90%] 2xl:w-4/5">
                 {`We're`} here to turn your ideas into reality. We would love to
                 learn more about your project and make it happen together.
               </p>
@@ -221,7 +238,7 @@ function AboutPage() {
             </div>
 
             {/* want to join banner ============================= */}
-            <div className="flex-1 rounded-xl p-14 flex flex-col items-start gap-4 bg-white">
+            <div className="flex-1 rounded-xl p-8 sm:p-10 2xl:p-12 flex flex-col items-start gap-4 bg-white">
               <span className="p-4 rounded-full bg-black text-white w-fit mb-2">
                 <SuitcaseIcon className="size-6" />
               </span>
@@ -230,7 +247,7 @@ function AboutPage() {
                 Want to Join?
               </p>
 
-              <p className="text-fill-tertiary text-base w-2/3">
+              <p className="text-fill-tertiary text-base sm:w-[90%] 2xl:w-4/5">
                 We foster a collaborative culture and are always seeking
                 passionate, talented individuals to join our dynamic team.
               </p>
@@ -329,12 +346,12 @@ const companyStats = [
   },
 
   {
-    title: "18",
+    title: "18+",
     description:
       "Members who bring passion, expertise, and a shared commitment to driving the company's vision forward.",
   },
   {
-    title: "3",
+    title: "3+",
     description:
       "In-house projects, each a testament to our dedication to innovation, creativity, and excellence.",
   },

@@ -7,7 +7,7 @@ function Lights({ className }: { className?: string }) {
   return (
     <div
       className={cn(
-        "absolute z-[20] left-1/2 -translate-x-1/2 top-0 w-screen h-[400px] pointer-events-none",
+        "absolute z-[20] left-1/2 -translate-x-1/2 top-0 w-full h-[400px] pointer-events-none",
         className
       )}
     >

@@ -33,12 +33,12 @@ function WorkflowCard({
   return (
     <motion.div
       className={cn(
-        "sticky flex gap-4 items-center rounded-xl border border-borderSoft bg-gradientCardBg p-12 h-[560px]",
+        "sticky flex flex-col sm:flex-row gap-4 items-center rounded-xl border border-borderSoft bg-gradientCardBg p-12 mb-10 h-[400px] md:h-[450px] lg:h-[560px]",
         className
       )}
       style={{ scale, top: `calc(16vh + ${id * 35}px)` }}
     >
-      <div className="flex-1 flex justify-center overflow-hidden">
+      <div className="flex-1 flex sm:justify-center overflow-hidden">
         {thumbnail && (
           <Image
             src={thumbnail}
@@ -46,13 +46,16 @@ function WorkflowCard({
             width={400}
             height={400}
             priority
-            className={cn("w-[70%]", (id === 2 || id === 3) && "w-[90%]")}
+            className={cn(
+              "hidden sm:w-[70%]",
+              (id === 2 || id === 3) && "w-[90%]"
+            )}
           />
         )}
       </div>
 
       <div className="flex-1 ">
-        <div className="flex flex-col gap-3 w-[90%]">
+        <div className="flex flex-col gap-3 lg:w-[90%]">
           <span className="text-brand text-base uppercase font-semibold">
             {tag}
           </span>

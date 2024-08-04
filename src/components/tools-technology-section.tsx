@@ -11,13 +11,13 @@ function ToolsAndTechnologySection() {
       <div className="relative w-full">
         <ToolsDots className="w-full " />
 
-        <BlurryBlob className="w-full opacity-100 h-[700px] absolute top-[260px] left-[60%] -translate-x-1/2" />
-        <p className="text-3xl font-bold leading-[120%] absolute top-[24%] left-[50%] -translate-x-1/2 text-center text-transparent bg-textGradientDefault bg-clip-text">
+        <BlurryBlob className="w-full opacity-100 h-[500px] lg:h-[700px] absolute top-[260px] left-1/2 lg:left-[60%] -translate-x-1/2" />
+        <p className="w-full text-3xl font-bold leading-[120%] absolute top-[22%] lg:top-[24%] left-[50%] -translate-x-1/2 text-center text-transparent bg-textGradientDefault bg-clip-text">
           We use latest tools and <br />
           technologies to build <br /> top-notch products
         </p>
 
-        <div className="flex justify-center w-full relative">
+        <div className="flex justify-center w-full relative mt-6 lg:mt-0">
           <ToolsAnimatedBeam />
         </div>
       </div>
@@ -35,11 +35,11 @@ function TechCard({ icon: Icon, className, iconClassName }: TechCardProps) {
   return (
     <span
       className={cn(
-        "border border-borderSoft bg-[var(--brand-light)] grid z-30 place-items-center rounded-[12px] p-6 shadow-techCardShadow",
+        "border border-borderSoft bg-[var(--brand-light)] grid z-30 place-items-center rounded-[12px] p-5 lg:p-6 shadow-techCardShadow",
         className
       )}
     >
-      <Icon className={cn("size-10", iconClassName)} />
+      <Icon className={cn("size-8 2xl:size-10", iconClassName)} />
     </span>
   );
 }

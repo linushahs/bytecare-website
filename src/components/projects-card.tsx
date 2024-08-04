@@ -1,9 +1,7 @@
+import lightsImageUrl from "@/assets/lights.png";
 import Image from "next/image";
-import React from "react";
 import Badge from "./ui/badge";
 import Button from "./ui/button";
-import { ArrowRightIcon } from "@/assets";
-import lightsImageUrl from "@/assets/lights.png";
 
 function ProjectsCard() {
   return (
@@ -19,7 +17,7 @@ function ProjectsCard() {
             alt="karobar thumbnail"
             width={400}
             height={400}
-            className="w-full h-[250px] sm:h-[400px] lg:h-[450px] object-cover group-hover:scale-110 transition-transform duration-[350ms] ease-in-out"
+            className="w-full h-[220px] sm:h-[400px] lg:h-[450px] object-cover group-hover:scale-110 transition-transform duration-[350ms] ease-in-out"
           />
         </div>
 
@@ -51,10 +49,14 @@ function ProjectsCard() {
           </p>
 
           {/* Build with us and live view button ================================= */}
-          <div className="mt-4 mb-3 sm:mt-auto sm:mb-6 flex [&>button]:w-fit  gap-4">
-            <Button variant="default" color="primary" className="px-3 sm:px-6">
+          <div className="mt-10 mb-3 sm:mt-auto sm:mb-6 flex [&>button]:w-fit gap-2 sm:gap-4">
+            <Button
+              showRightArrowIcon
+              variant="default"
+              color="primary"
+              className="px-3 sm:px-6"
+            >
               Build With Us
-              <ArrowRightIcon className="size-5 sm:size-6 " />
             </Button>
 
             <Button
@@ -69,7 +71,7 @@ function ProjectsCard() {
       </div>
 
       {/* Stars displayed when hovered =============================== */}
-      <div className="opacity-0 group-hover:opacity-100 absolute transition-opacity duration-300 ease-in-out left-1/3 top-0 w-[1400px] h-[400px]">
+      <div className="opacity-0 group-hover:opacity-100 absolute transition-opacity duration-300 ease-in-out left-1/3 top-0 w-[1400px] h-[400px] pointer-events-none">
         <Image
           src="/stars.png"
           alt="stars"
@@ -80,7 +82,7 @@ function ProjectsCard() {
       </div>
 
       {/* Lights displayed when hovered ======================================= */}
-      <div className="opacity-0  absolute transition-all duration-300 ease-in-out left-1/3 top-0 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 w-full h-[200px]">
+      <div className="opacity-0 pointer-events-none  absolute transition-all duration-300 ease-in-out left-1/3 top-0 -translate-x-1/2 -translate-y-1/2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 w-full h-[200px]">
         <Image
           src={lightsImageUrl}
           alt="lights"

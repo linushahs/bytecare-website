@@ -22,7 +22,7 @@ function ClientFeedback({
   return (
     <div
       className={cn(
-        "bg-fill rounded-lg backdrop-blur p-8 flex flex-col gap-8 h-[400px] w-full ",
+        "bg-fill rounded-lg backdrop-blur p-8 flex flex-col gap-8  lg:h-[400px] w-full ",
         className
       )}
     >
@@ -31,18 +31,18 @@ function ClientFeedback({
         width={200}
         height={100}
         alt="company-logo"
-        className="w-[125px]"
+        className="w-[110px] sm:w-[125px]"
       />
 
       <p className="text-md text-textPrimary">{description}</p>
 
-      <div className="flex items-center gap-3 mt-auto">
+      <div className="flex items-center gap-3 mt-12 sm:mt-auto">
         <Image
           src={clientPictureUrl}
           alt="user-avatar"
           width={100}
           height={100}
-          className="size-14 rounded-full object-center object-cover"
+          className="size-12 sm:size-14 rounded-full object-center object-cover"
         />
 
         <span>

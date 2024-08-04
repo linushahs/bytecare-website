@@ -6,7 +6,7 @@ import Container from "./ui/container";
 function CtaCard({ children }: { children: React.ReactNode }) {
   return (
     <Container>
-      <div className="relative flex flex-col items-center gap-8 bg-gradientFillDefault rounded-xl py-20 overflow-hidden mb-16">
+      <div className="relative flex flex-col items-center gap-8 bg-gradientFillDefault rounded-xl py-12 sm:py-20 overflow-hidden mb-8 sm:mb-16">
         <Image
           src="/logo-short.png"
           alt="Logo Small"

@@ -7,6 +7,7 @@ import {
   YoutubeIcon,
 } from "@/assets/social-media";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function Footer() {
@@ -14,7 +15,7 @@ function Footer() {
     <footer className="bg-surface-secondary border-t border-borderSoft pt-14 pb-4 md:pb-8">
       <div className="container flex flex-col gap-10 md:gap-0 md:flex-row md:justify-between">
         {/* Logo, title and description ============================== */}
-        <div className="flex flex-1 flex-col gap-4">
+        <div className="w-[90%] flex flex-col gap-4">
           <Image
             src="/logo.png"
             alt="logo"
@@ -23,7 +24,7 @@ function Footer() {
             className="w-[130px] md:w-[160px] "
           />
 
-          <p className="text-md text-textSecondary w-full sm:w-3/4 md:w-full lg:w-2/3">
+          <p className="text-md text-textSecondary w-full sm:w-3/4 md:w-full lg:w-[80%]">
             Explore an innovative video meeting and teamwork software aimed to
             transform the landscape of distributed work. Bridge geographical
             gaps among teams, enrich dialogues. Remotio offers an easy-to-use
@@ -45,25 +46,25 @@ function Footer() {
         </div>
 
         {/* Links and contact =========================================  */}
-        <div className="w-full sm:w-2/3 md:w-1/2 lg:w-[40%] flex justify-between  md:justify-around">
+        <div className="w-full sm:w-2/3 md:w-1/2 lg:w-full flex justify-between  md:justify-around">
           {/* Company links =============== */}
           <div>
             <p className="text-textPrimary text-lg font-semibold">Company</p>
 
             <ul className="flex flex-col gap-4 mt-6">
-              {[
-                "about us",
-                "projects",
-                "our team",
-                "careers",
-                "contact us",
-                "blogs",
-              ].map((link, i) => (
+              {companyMenuLinks.map(({ title, link }, i) => (
                 <li
                   key={i}
                   className="capitalize cursor-pointer text-textSecondary text-md hover:text-textPrimary transition-colors duration-200 ease-in-out"
                 >
-                  {link}
+                  <Link href={link}>
+                    {title}
+                    {title === "careers" && (
+                      <span className="ml-2 py-1 px-3 rounded-full tracking-wider text-white bg-brand text-xs">
+                        Hiring
+                      </span>
+                    )}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -98,5 +99,32 @@ function Footer() {
     </footer>
   );
 }
+
+const companyMenuLinks = [
+  {
+    title: "about us",
+    link: "/about",
+  },
+  {
+    title: "projects",
+    link: "/projects",
+  },
+  {
+    title: "our team",
+    link: "/about/team",
+  },
+  {
+    title: "careers",
+    link: "/careers",
+  },
+  {
+    title: "contact us",
+    link: "/contact",
+  },
+  {
+    title: "blogs",
+    link: "/blogs",
+  },
+];
 
 export default Footer;

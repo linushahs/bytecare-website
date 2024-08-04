@@ -46,7 +46,7 @@ export function HeroParagraph({ children, className }: HeroElementProps) {
   return (
     <p
       className={cn(
-        "text-textSecondary text-lg w-[90%] sm:w-[60%] text-center",
+        "text-textSecondary text-lg w-[90%] sm:w-[50%] text-center",
         className
       )}
     >

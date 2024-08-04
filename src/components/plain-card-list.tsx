@@ -14,7 +14,7 @@ export default function PlainCardList({
   return (
     <ThreeColumnLayout
       as="ul"
-      className={cn("gap-10 md:gap-x-16 md:gap-y-[86px]", className)}
+      className={cn("gap-x-10 gap-y-16 md:gap-x-16 md:gap-y-[86px]", className)}
     >
       {children}
     </ThreeColumnLayout>

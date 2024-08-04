@@ -1,14 +1,21 @@
 import { cn } from "@/utils";
-import React from "react";
+import React, { forwardRef, HTMLAttributes } from "react";
 
-function Container({
-  children,
-  className,
-}: {
+interface ContainerProps extends HTMLAttributes<HTMLDivElement> {
   children: React.ReactNode;
   className?: string;
-}) {
-  return <div className={cn("container", className)}>{children}</div>;
 }
+
+const Container = forwardRef<HTMLDivElement, ContainerProps>(
+  ({ children, className }, ref) => {
+    return (
+      <div ref={ref} className={cn("container", className)}>
+        {children}
+      </div>
+    );
+  }
+);
+
+Container.displayName = "Container";
 
 export default Container;

@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  /* outline: 1px solid red; */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--text-primary);
+  overflow-x: hidden !important;
+}
+
 @layer base {
   :root {
     --brand: #39b98d;
@@ -43,83 +53,58 @@
       #fff 100%
     );
 
-    /* Font sizes ----------------------------> */
-    --text-sm: 11px;
-    --text-md: 13px;
-    --text-lg: 16px;
-    --text-xl: 18px;
-    --text-2xl: 24px;
-    --text-3xl: 26px;
-    --text-5xl: 32px;
-    --text-6xl: 64px;
+    --navbar-height: 75px;
+    --navbar-height-scrolled: 65px;
 
-    /* Navbar variables 
-     ---------------------------> */
-    --navbar-height: 65px;
-    --navbar-background: rgb(41, 48, 59);
-
-    --card-top-padding: calc(var(--navbar-height) + 20px);
+    --text-sm: 12px;
+    --text-md: clamp(15px, calc(8px + 0.5vw), 17px);
+    --text-base: clamp(15px, calc(8px + 0.5vw), 17px);
+    --text-lg: clamp(18px, calc(10px + 0.5vw), 19px);
+    --text-xl: clamp(20px, calc(16px + 0.5vw), 21px);
+    --text-2xl: clamp(24px, calc(24px + 0.8vw), 32px);
+    --text-3xl: clamp(36px, calc(32px + 0.7vw), 48px);
+    --text-4xl: clamp(40px, calc(40px + 0.5vw), 56px);
+    --text-5xl: clamp(48px, calc(48px + 0.5vw), 64px);
   }
+}
 
-  @screen sm {
-    :root {
-      --text-md: 14px;
-      --text-sm: 11px;
-      --text-2xl: 26px;
-      --text-5xl: 54px;
-    }
+@media (max-width: 840px) {
+  :root {
+    --text-base: 15px;
+    --text-md: 15px;
+    --text-lg: 17px;
+    --text-xl: 19px;
+    --text-2xl: 28px;
+    --text-3xl: 34px;
+    --text-5xl: 46px;
   }
+}
 
-  @screen lg {
-    :root {
-      --text-sm: 0.9rem;
-      --text-base: 1rem;
-      --text-md: 1.125rem;
-      --text-lg: 1.25rem;
-      --text-xl: 1.5rem;
-      --text-2xl: 2rem;
-      --text-3xl: 3rem;
-      --text-5xl: 4.4rem;
-      --text-6xl: 4.5rem;
-
-      --navbar-height: 85px;
-      --navbar-height-scrolled: 65px;
-    }
+@media (max-width: 480px) {
+  :root {
+    --text-base: 14px;
+    --text-md: 14px;
+    --text-lg: 15px;
+    --text-2xl: 27px;
+    --text-3xl: 30px;
+    --text-4xl: 38px;
+    --text-5xl: 42px;
   }
+}
 
-  @screen 2xl {
-    :root {
-      --text-lg: 1.5rem;
-      --text-xl: 1.75rem;
-      --text-6xl: 4.8rem;
-      --text-3xl: 3.35rem;
-
-      --navbar-height-scrolled: 70px;
-    }
-  }
-
-  @screen tall {
-    :root {
-      --text-5xl: 4.8rem;
-      --text-md: 1.32rem;
-      --text-lg: 1.35rem;
-    }
-  }
-
-  body {
-    background-color: var(--background);
-    color: var(--text-primary);
-    overflow-x: hidden;
+@media (max-height: 800px) {
+  :root {
+    /* --text-base: clamp(12px, calc(8px + 0.5vw), 17px); */
   }
 }
 
 @layer utilities {
   .container {
-    @apply w-[90%] sm:w-[95%] xl:max-w-[1300px] mx-auto;
+    @apply w-[90%] sm:w-[95%] xl:max-w-[1100px] 2xl:max-w-[1200px] mx-auto;
   }
 
   .hero-content {
-    @apply h-[45vh] min-h-[360px] tall:h-[56vh] tall:min-h-[500px] 2xl:min-h-[420px] 2xl:h-[50vh] 3xl:min-h-[500px] 3xl:h-[55vh];
+    @apply h-[50vh] min-h-[400px]  tall:min-h-[500px] 2xl:min-h-[420px] 2xl:h-[40vh] 3xl:min-h-[500px] 3xl:h-[55vh];
   }
 
   .prose p,
@@ -131,6 +116,12 @@
 
 @layer components {
   p {
+    @apply tracking-wide;
+  }
+
+  h1,
+  h2,
+  h3 {
     @apply tracking-wide;
   }
 }

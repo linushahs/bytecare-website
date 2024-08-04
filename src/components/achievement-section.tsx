@@ -23,7 +23,7 @@ function AchievementSection() {
             Our Workflow
           </p>
 
-          <p className="text-lg text-textSecondary w-1/2 text-center">
+          <p className="text-lg text-textSecondary sm:w-3/4 lg:w-1/2 text-center">
             At our core, we blend innovation and expertise to fuel every
             project, striving to pioneer digital solutions that redefine
             success.

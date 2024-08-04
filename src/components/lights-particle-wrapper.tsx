@@ -15,7 +15,7 @@ export function LightsParticleWrapper({
     <section className={cn("flex flex-col items-center", className)}>
       {/* Particles for (Table and desktop sizes) ============================= */}
       <Particles
-        className="hidden md:block absolute inset-0 opacity-60 h-[500px] w-screen pointer-events-none"
+        className="hidden md:block absolute inset-0 opacity-60 h-[500px] max-w-full pointer-events-none"
         quantity={140}
         ease={80}
         color={"#ffffff"}
@@ -23,11 +23,11 @@ export function LightsParticleWrapper({
       />
 
       {/* Particles for (Mobile sizes) ============================= */}
-      <div className="md:hidden absolute w-full h-[550px] pointer-events-none">
+      <div className="md:hidden absolute w-full h-[400px] pointer-events-none">
         <Particles
           className="absolute inset-0 opacity-50"
-          quantity={80}
-          ease={80}
+          quantity={70}
+          ease={20}
           color={"#ffffff"}
           refresh
         />

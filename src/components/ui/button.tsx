@@ -44,7 +44,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "group py-3 px-6 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in-out",
+        "group py-[9px] px-5 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in-out",
         buttonVariants[variant],
         buttonColors[color],
         className
@@ -55,7 +55,7 @@ const Button: FC<ButtonProps> = ({
 
       {showRightArrowIcon && (
         <span className="group-hover:translate-x-1.5 transition-all duration-300">
-          <ArrowRightIcon className="size-6" />
+          <ArrowRightIcon className="size-5 md:size-6" />
         </span>
       )}
     </button>

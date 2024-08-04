@@ -26,7 +26,10 @@ function ToolsAnimatedBeam() {
   const containerRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div ref={containerRef} className="w-[924px] relative flex flex-col gap-8">
+    <div
+      ref={containerRef}
+      className="w-[800px] lg:w-[924px] 2xl:w-[1000px] relative flex flex-col gap-8"
+    >
       <div className="flex justify-between">
         <div className="relative flex gap-8">
           <TechCard icon={TailwindIcon} />
@@ -34,12 +37,10 @@ function ToolsAnimatedBeam() {
 
           <LeftLinesSVG
             style={{
-              left: "50%",
+              left: "100%",
               top: "45%",
-              height: "350px",
-              width: "400px",
             }}
-            className="absolute z-0 opacity-15"
+            className="absolute z-0 opacity-15 h-[300px] lg:h-[350px] 2xl:h-[380px]"
           />
         </div>
         <div className="relative flex gap-8">
@@ -48,12 +49,10 @@ function ToolsAnimatedBeam() {
 
           <LeftLinesSVG
             style={{
-              right: "50%",
+              right: "100%",
               top: "45%",
-              height: "350px",
-              width: "400px",
             }}
-            className="absolute z-0 opacity-15 -rotate-180"
+            className="absolute z-0 opacity-15 -rotate-180 h-[300px] lg:h-[350px] 2xl:h-[380px]"
           />
         </div>
       </div>
@@ -94,8 +93,8 @@ function ToolsAnimatedBeam() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-[50]">
         <TechCard
           icon={Logo}
-          className="size-32 bg-[var(--brand-transparent)] rounded-xl border-0"
-          iconClassName="size-16"
+          className="size-28 2xl:size-32 bg-[var(--brand-transparent)] rounded-xl border-0"
+          iconClassName="size-14 2xl:size-16"
         />
       </div>
 
