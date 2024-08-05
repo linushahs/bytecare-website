@@ -48,7 +48,7 @@ function TeamPage() {
             <div className="w-full">
               <TeamList>
                 {new Array(12).fill(0).map((id) => (
-                  <TeamMember id={id} />
+                  <TeamMember key={id} id={id} />
                 ))}
               </TeamList>
             </div>
