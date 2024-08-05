@@ -10,19 +10,16 @@ import {
 } from "@/components/hero-content";
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import { MotionHeroDiv } from "@/components/motion/motion-hero-div";
-import MotionService from "@/components/motion/motion-service";
 import ProjectsCard from "@/components/projects-card";
-import ServiceCard from "@/components/service-card";
 import ServicesSection from "@/components/services-section";
 import ClientFeedback from "@/components/testimonials/client-feedback";
 import ClientVideo from "@/components/testimonials/client-video";
 import ToolsAndTechnologySection from "@/components/tools-technology-section";
 import Button from "@/components/ui/button";
-import { ThreeColumnLayout } from "@/components/ui/column-layout";
 import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
 import { cn } from "@/utils";
-import { companyStats, services } from "@/utils/constants";
+import { companyStats } from "@/utils/constants";
 import Image from "next/image";
 
 export default function Homepage() {

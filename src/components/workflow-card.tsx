@@ -47,8 +47,8 @@ function WorkflowCard({
             height={400}
             priority
             className={cn(
-              "hidden sm:w-[70%]",
-              (id === 2 || id === 3) && "w-[90%]"
+              "hidden sm:block sm:w-[70%]",
+              (id === 2 || id === 3) && "!w-[90%]"
             )}
           />
         )}

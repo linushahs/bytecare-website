@@ -110,7 +110,7 @@ function AboutPage() {
             <Heading
               as="h2"
               variant={HEADING_TYPES.heading}
-              className="text-center"
+              className="text-center sm:text-left"
             >
               Our Core Values
             </Heading>
@@ -131,7 +131,7 @@ function AboutPage() {
       <section className="pt-14">
         <Container>
           <div className="flex flex-col items-center max-w-xl mx-auto text-center py-6  sm:py-14">
-            <Heading as="h2" variant={HEADING_TYPES.heading}>
+            <Heading as="h2" variant={HEADING_TYPES.headline04}>
               Our Journey
             </Heading>
 

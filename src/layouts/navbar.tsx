@@ -16,7 +16,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) {
+      if (window.scrollY > 80) {
         setIsScrolled(true);
       } else {
         setIsScrolled(false);
@@ -36,7 +36,7 @@ export default function Navbar() {
         className={cn(
           "container rounded-lg transition-all border border-transparent duration-300 ease-in-out  relative flex items-center justify-between h-[var(--navbar-height)] ",
           isScrolled &&
-            "translate-y-6 outline-0 border-borderSoft py-3 pr-3 pl-6 !bg-fill lg:!w-[1000px] 2xl:!w-[1100px] !h-auto"
+            "translate-y-6 outline-0 border-borderSoft py-3 pr-3 pl-6 !bg-fill lg:!w-[940px] 2xl:!w-[1040px] !h-auto"
         )}
       >
         <Link href="/">
@@ -47,9 +47,8 @@ export default function Navbar() {
             height={200}
             priority
             className={cn(
-              "w-[120px] sm:w-[140px]  md:w-[160px] 3xl:w-[170px] transition-all duration-500 ease-in-out",
-              isScrolled &&
-                " sm:w-[130px] md:w-[130px] lg:w-[140px] 3xl:w-[150px]"
+              "w-[120px] sm:w-[140px] 3xl:w-[170px] transition-all duration-500 ease-in-out",
+              isScrolled && " sm:w-[130px] md:w-[130px] 3xl:w-[150px]"
             )}
           />
         </Link>
@@ -57,7 +56,7 @@ export default function Navbar() {
         <ul
           className={cn(
             "hidden lg:flex gap-12 2xl:gap-14 items-center text-lg text-textSecondary",
-            isScrolled && "gap-10"
+            isScrolled && "!gap-10 "
           )}
         >
           {navMenuItems.map((menu) => (
@@ -65,7 +64,7 @@ export default function Navbar() {
               key={menu.title}
               className={twMerge(
                 "capitalize cursor-pointer hover:text-textPrimary transition-colors duration-300 ease-in-out",
-                menu.path === pathName && "text-textPrimary font-semibold"
+                menu.path === pathName && "text-textPrimary font-medium"
               )}
             >
               <Link href={menu.path}>{menu.title}</Link>

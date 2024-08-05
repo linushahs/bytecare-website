@@ -1,15 +1,14 @@
-import { ArrowRightSmallIcon } from "@/assets";
 import BlogCard from "@/components/blog-card";
 import {
   HeroContent,
   HeroFooter,
   HeroHeading,
 } from "@/components/hero-content";
-import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import ShareOnSocialMedia from "@/components/share-on-social-media";
 import Button from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import { HEADING_TYPES } from "@/components/ui/heading";
+import Lights from "@/components/ui/lights";
 import Footer from "@/layouts/footer";
 import Image from "next/image";
 
@@ -42,8 +41,8 @@ function BlogDescriptionPage({ params }: { params: { slug: string } }) {
   return (
     <>
       <section>
-        <LightsParticleWrapper>
-          <HeroContent className="gap-5 mt-16">
+        <Container className="flex flex-col items-center">
+          <HeroContent className="gap-5 mt-10 sm:mt-16">
             <p className="mt-8 flex gap-3 text-md items-center text-textSecondary">
               Design{" "}
               <span className="size-1 bg-textSecondary rounded-full"></span> 5
@@ -52,8 +51,7 @@ function BlogDescriptionPage({ params }: { params: { slug: string } }) {
 
             {/* heading title, subtitle ================================ */}
             <HeroHeading className="" variant={HEADING_TYPES.headline04}>
-              From Figma to SwiftUI: Designers, {`Here’s`} <br /> Your Technical
-              Lowdown
+              The Silent Killer That Shoots Down Service-Based Companies For Fun
             </HeroHeading>
 
             <HeroFooter className="gap-10 mt-4">
@@ -65,7 +63,7 @@ function BlogDescriptionPage({ params }: { params: { slug: string } }) {
                   <Image
                     src={author.image}
                     alt={author.name}
-                    className="w-10 h-10 rounded-full object-cover"
+                    className="size-9 sm:size-10 rounded-full object-cover"
                     width={40}
                     height={40}
                   />
@@ -74,14 +72,16 @@ function BlogDescriptionPage({ params }: { params: { slug: string } }) {
               ))}
             </HeroFooter>
           </HeroContent>
-        </LightsParticleWrapper>
+
+          <Lights />
+        </Container>
       </section>
 
       <section>
         <Container>
-          <figure className="mt-16 relative w-full overflow-hidden bg-fill rounded-xl aspect-[4/2]"></figure>
+          <figure className="mt-16 relative w-full overflow-hidden bg-fill rounded-lg md:rounded-xl aspect-video md:aspect-[4/2]"></figure>
 
-          <div className="mt-4 max-w-4xl 2xl:max-w-5xl 2xl:w-[60rem] pb-16 mx-auto">
+          <div className=" sm:mt-4 max-w-4xl 2xl:max-w-5xl 2xl:w-[60rem] pb-16 mx-auto">
             <div className="py-8 border-b border-white/10">
               <ContentFromCMS />
             </div>
@@ -122,14 +122,11 @@ function RelatedBlogs() {
       <Container>
         <div className="py-12 space-y-12 border-t border-white/10">
           <div className="flex flex-col justify-between gap-6 items-start md:items-center md:flex-row">
-            <h2 className="text-white text-[32px] tracking-[0.5px] font-heading font-semibold leading-[150%]">
+            <h2 className="text-white text-2xl tracking-[0.5px] font-heading font-semibold leading-[150%]">
               You may also find these useful
             </h2>
-            <Button color="fill">
+            <Button showRightArrowIcon color="fill" className="hidden sm:flex">
               <span>View All</span>
-              <span>
-                <ArrowRightSmallIcon className="size-7" />
-              </span>
             </Button>
           </div>
           <div className=" grid grid-cols-1 gap-16 lg:grid-cols-3 md:grid-cols-2">
@@ -149,7 +146,7 @@ function RelatedBlogs() {
 
 function ContentFromCMS() {
   return (
-    <div className="prose md:prose-lg 2xl:prose-xl prose-img:rounded-lg prose-img:ml-auto prose-img:mr-auto max-w-none prose-figcaption:text-center">
+    <div className="prose md:prose-lg prose-img:rounded-lg prose-img:ml-auto prose-img:mr-auto max-w-none prose-figcaption:text-center">
       <p>
         Embark with us on a captivating exploration of the future of design
         systems! Our guide on this <a href="/">insightful</a> journey is Romina

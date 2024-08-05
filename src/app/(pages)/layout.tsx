@@ -1,25 +1,24 @@
-import { aeonik } from "@/utils/fonts";
+import GlobalModal from "@/components/ui/modal";
+import Navbar from "@/layouts/navbar";
 import type { Metadata } from "next";
-import "./globals.css";
 
 export const metadata: Metadata = {
   title: "ByteCare",
   description: "Best company in the nepal.",
 };
 
-export default function RootLayout({
+export default function PagesRootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
     <html lang="en">
-      <body className={aeonik.className + " relative"}>
-        <head>
-          <link rel="icon" href="/icon" type="image/png" sizes="any" />
-        </head>
-
+      <body>
+        <Navbar />
         {children}
+
+        <GlobalModal />
       </body>
     </html>
   );

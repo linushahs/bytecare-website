@@ -22,7 +22,8 @@
       "assets/*": ["./src/assets/*"],
       "components/*": ["./src/components/*"],
       "layouts/*": ["./src/layouts/*"]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "svgr.d.ts",

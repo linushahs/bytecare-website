@@ -44,7 +44,7 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "group py-[9px] px-5 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in-out",
+        "group py-[9px] px-5 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in focus:border-0",
         buttonVariants[variant],
         buttonColors[color],
         className

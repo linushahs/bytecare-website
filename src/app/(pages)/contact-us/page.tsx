@@ -62,7 +62,7 @@ function ContactUsPage() {
                     <Icon className="size-7 fill-white" />
                   </span>
                   <div className="flex flex-col gap-0.5 text-md">
-                    <h3 className=" text-white text-lg font-medium">{title}</h3>
+                    <h3 className=" text-white text-xl font-medium">{title}</h3>
                     <p className=" text-textSecondary">{description}</p>
                   </div>
                 </div>
@@ -71,16 +71,10 @@ function ContactUsPage() {
 
             <div className="flex-1 flex flex-col gap-4">
               {/* Connect us on =================== */}
-              <div className="flex-1 bg-fill rounded-xl p-8 ">
-                <h2
-                  className={headingVariants({
-                    variant: HEADING_TYPES.heading,
-                  })}
-                >
-                  Connect us on
-                </h2>
+              <div className="flex-1 bg-fill rounded-xl px-8 py-6 ">
+                <h2 className={"text-2xl font-medium"}>Connect us on</h2>
 
-                <div className="flex gap-12 mt-8">
+                <div className="flex gap-12 mt-6">
                   {socialLinks.map(({ icon: Icon, url }, idx) => (
                     <a key={idx} href={url}>
                       <Icon className="size-7" />
@@ -90,14 +84,14 @@ function ContactUsPage() {
               </div>
 
               {/* Looking for job opportunities ================== */}
-              <div className="flex-1 flex flex-col gap-4 justify-center rounded-xl p-8 bg-primaryBtnGradient">
-                <p className="text-xl font-semibold">
+              <div className="flex-1 flex flex-col gap-4 justify-center rounded-xl px-8 py-6 bg-primaryBtnGradient">
+                <p className="text-2xl font-semibold">
                   Looking for job opportunities?
                 </p>
 
                 <Link
                   href="/careers"
-                  className=" text-lg flex gap-2 items-center opacity-70"
+                  className=" text-md flex gap-2 items-center opacity-70"
                 >
                   Explore careers at bytecare{" "}
                   <ArrowRightSmallIcon className="size-6" />

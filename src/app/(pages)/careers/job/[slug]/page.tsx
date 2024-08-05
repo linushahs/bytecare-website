@@ -9,7 +9,7 @@ function JobDescriptionPage() {
     <>
       <Lights />
       <section className="mb-32">
-        <Container className="max-w-4xl 2xl:max-w-5xl 2xl:w-[60rem] mt-12">
+        <div className="mx-auto flex flex-col items-center w-[90%] sm:max-w-[50rem] 2xl:max-w-[56rem] mt-12">
           <div className="flex flex-col items-center">
             <p className="mt-8 mb-2 flex gap-3 text-md items-center text-textSecondary">
               Full time{" "}
@@ -22,7 +22,7 @@ function JobDescriptionPage() {
               UI UX Designer
             </h1>
           </div>
-          <div className="prose md:prose-lg max-w-none mb-12">
+          <div className="prose prose-sm sm:prose-base 2xl:prose-lg max-w-none mb-12">
             <article>
               <hr />
               <div>
@@ -167,7 +167,7 @@ function JobDescriptionPage() {
           </div>
 
           <ApplyNowButton />
-        </Container>
+        </div>
       </section>
 
       <Footer />

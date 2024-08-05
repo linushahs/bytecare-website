@@ -53,15 +53,15 @@ body {
       #fff 100%
     );
 
-    --navbar-height: 75px;
+    --navbar-height: 85px;
     --navbar-height-scrolled: 65px;
 
-    --text-sm: 12px;
+    --text-sm: clamp(13px, calc(0.2vw), 14px);
     --text-md: clamp(15px, calc(8px + 0.5vw), 17px);
     --text-base: clamp(15px, calc(8px + 0.5vw), 17px);
     --text-lg: clamp(18px, calc(10px + 0.5vw), 19px);
-    --text-xl: clamp(20px, calc(16px + 0.5vw), 21px);
-    --text-2xl: clamp(24px, calc(24px + 0.8vw), 32px);
+    --text-xl: clamp(20px, calc(14px + 0.5vw), 21px);
+    --text-2xl: clamp(24px, calc(16px + 0.6vw), 32px);
     --text-3xl: clamp(36px, calc(32px + 0.7vw), 48px);
     --text-4xl: clamp(40px, calc(40px + 0.5vw), 56px);
     --text-5xl: clamp(48px, calc(48px + 0.5vw), 64px);
@@ -70,6 +70,7 @@ body {
 
 @media (max-width: 840px) {
   :root {
+    --text-sm: 13px;
     --text-base: 15px;
     --text-md: 15px;
     --text-lg: 17px;
@@ -82,6 +83,7 @@ body {
 
 @media (max-width: 480px) {
   :root {
+    --text-sm: 13px;
     --text-base: 14px;
     --text-md: 14px;
     --text-lg: 15px;
@@ -115,7 +117,8 @@ body {
 }
 
 @layer components {
-  p {
+  p,
+  a {
     @apply tracking-wide;
   }
 
