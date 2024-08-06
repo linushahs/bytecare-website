@@ -6,7 +6,7 @@ import Badge from "./ui/badge";
 import { Blog } from "@/sanity/groq/interface";
 
 interface BlogCardProps {
-  blog: Blog;
+  blog: Omit<Blog, "relatedBlogs" | "body">;
   sizes: string;
 }
 
@@ -43,7 +43,7 @@ export default function BlogCard({ blog, sizes }: BlogCardProps) {
             {summary.slice(0, 90) + "..."}
           </Paragraph>
           <p className="text-md font-semibold text-textSecondary">
-            By {author.name}
+            By {author.map((author) => author.name).join(", ")}
           </p>
         </div>
       </Link>

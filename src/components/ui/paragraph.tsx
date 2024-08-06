@@ -11,7 +11,7 @@ const paragraphVariants = cva("", {
   variants: {
     variant: {
       [PARAGRAPH_TYPES.paragraph]:
-        "leading-[105%] text-md font-normal text-textSecondary",
+        "leading-6 text-md font-normal text-textSecondary",
       [PARAGRAPH_TYPES.paragraph01]:
         "leading-6 text-md xl:text-lg font-normal text-foreground",
     },

@@ -1,25 +1,12 @@
-"use client";
-
-import React, { useEffect, useState } from "react";
-import Pagination from "./ui/pagination";
-import Button from "./ui/button";
+import { fetchBlogPosts } from "@/sanity/service";
 import Image from "next/image";
 import BlogCard from "./blog-card";
+import Button from "./ui/button";
 import { ThreeColumnLayout } from "./ui/column-layout";
-import { sanityClient } from "@/sanity/lib/client";
-import { blogPostGroq } from "@/sanity/groq";
-import { Blog } from "@/sanity/groq/interface";
+import Pagination from "./ui/pagination";
 
-export default function BlogList() {
-  const [blogs, setBlogs] = useState<Blog[]>([]);
-
-  useEffect(() => {
-    sanityClient.fetch(blogPostGroq()).then(async (res) => {
-      setBlogs(res);
-    });
-  }, []);
-
-  console.log(blogs);
+export default async function BlogList() {
+  const blogs = await fetchBlogPosts();
 
   return blogs.length ? (
     <>

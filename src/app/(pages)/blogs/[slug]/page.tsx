@@ -1,3 +1,4 @@
+import RelatedBlogs from "@/components/blogs/related-blogs";
 import {
   HeroContent,
   HeroFooter,
@@ -12,13 +13,11 @@ import { BlogBody } from "@/sanity/groq/interface";
 import { sanityClient } from "@/sanity/lib/client";
 import { fetchBlogPost } from "@/sanity/service";
 import { formatDate } from "@/utils";
-import urlBuilder from "@sanity/image-url";
 import { getImageDimensions } from "@sanity/asset-utils";
+import urlBuilder from "@sanity/image-url";
 import {
   PortableText,
-  PortableTextComponent,
-  PortableTextComponents,
-  PortableTextReactComponents,
+  PortableTextComponents
 } from "next-sanity";
 import Image from "next/image";
 
@@ -55,8 +54,8 @@ async function BlogDescriptionPage({ params }: { params: { slug: string } }) {
     author,
     _createdAt,
     body,
-    _updatedAt,
     categories,
+    relatedBlogs,
   } = blogDesc;
 
   console.log(blogDesc);
@@ -127,7 +126,8 @@ async function BlogDescriptionPage({ params }: { params: { slug: string } }) {
         </Container>
       </section>
 
-      {/* <RelatedBlogs /> */}
+      {/* Related Blogs */}
+      {relatedBlogs.length > 0 && <RelatedBlogs blogs={relatedBlogs} />}
 
       <Footer />
     </>

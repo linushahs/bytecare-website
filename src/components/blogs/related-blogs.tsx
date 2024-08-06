@@ -1,8 +1,9 @@
+import { Blog } from "@/sanity/groq/interface";
 import BlogCard from "../blog-card";
 import Button from "../ui/button";
 import Container from "../ui/container";
 
-function RelatedBlogs() {
+function RelatedBlogs({ blogs }: { blogs: Blog["relatedBlogs"] }) {
   return (
     <section className="mb-12 mt-8">
       <Container>
@@ -16,10 +17,10 @@ function RelatedBlogs() {
             </Button>
           </div>
           <div className=" grid grid-cols-1 gap-16 lg:grid-cols-3 md:grid-cols-2">
-            {new Array(3).fill(0).map((slug) => (
+            {blogs.map((blog) => (
               <BlogCard
-                // slug={slug}
-                key={slug}
+                blog={blog}
+                key={blog._id}
                 sizes="(min-width: 768px) 50vw, (min-width:1024px: 33vw), 100vw"
               />
             ))}

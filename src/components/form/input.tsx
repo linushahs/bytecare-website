@@ -16,7 +16,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
           type={type}
           placeholder={placeholder}
           className={cn(
-            "p-3.5 text-white rounded-sm border text-md border-borderSoft focus-within:border-brand outline-none bg-transparent placeholder:text-surface-border leading-6",
+            "p-3.5 text-white rounded-sm border text-md border-borderSoft focus-within:border-brand outline-none bg-transparent placeholder:text-surface-border leading-6 tracking-wide",
             error && "border-red-400",
             className
           )}

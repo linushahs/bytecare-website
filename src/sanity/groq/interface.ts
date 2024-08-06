@@ -15,7 +15,7 @@ export type Blog = {
     author: {
         _type: string;
         _ref: string;
-        name?: string;
+        name: string;
         image: { asset: { url: string } };
     }[];
     body: BlogBody[];
@@ -33,4 +33,11 @@ export type Blog = {
     categories: {
         title: string;
     }[];
+    relatedBlogs: Omit<Blog, "relatedBlogs" | "body">[];
 };
+
+
+export type Category = {
+    _id: string;
+    title: string;
+}

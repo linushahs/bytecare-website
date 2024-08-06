@@ -28,7 +28,7 @@ export function ContactUsTabbedView() {
                     className="absolute inset-0 pointer-events-none bg-primaryBtnGradient"
                   />
                 )}
-                <span className="relative z-10">{tabTitle}</span>
+                <span className="relative z-10 tracking-wide">{tabTitle}</span>
               </button>
             );
           })}

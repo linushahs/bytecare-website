@@ -1,15 +1,14 @@
-import React from "react";
-import Button from "../ui/button";
-import { HEADING_TYPES, Heading, headingVariants } from "../ui/heading";
-import { PARAGRAPH_TYPES, Paragraph, paragraphVariants } from "../ui/paragraph";
 import { ArrowRightSmallIcon, ClockIcon } from "@/assets";
 import { GoogleMeetIcon } from "@/assets/social-media";
+import Button from "../ui/button";
+import { HEADING_TYPES, Heading } from "../ui/heading";
+import { PARAGRAPH_TYPES, Paragraph, paragraphVariants } from "../ui/paragraph";
 
 export default function ScheduleTimeCard() {
   return (
     <div className="p-4 space-y-8 shadow-inner md:p-8 rounded-xl bg-surface">
       <div className="flex items-center gap-3">
-        <figure className="bg-gray-700 rounded-full size-20 "></figure>
+        <figure className="bg-gray-700 rounded-full size-[74px] "></figure>
         <div className="space-y-1">
           <p className="text-xl font-bold">Samir Phuyal</p>
           <Paragraph variant={PARAGRAPH_TYPES.paragraph}>Founder</Paragraph>

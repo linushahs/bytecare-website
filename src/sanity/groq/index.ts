@@ -26,12 +26,12 @@ export const blogPostGroq = () => {
         categories[] -> {
             title
         },
-        summary 
+        summary
     }`;
 };
 
 export const blogPostSlugGroq = (slug: string | string[]) => {
-  return `*[slug.current == "${slug}"]{
+  return `*[_type == "post" && slug.current == "${slug}"]{
           title,
           slug,
           mainImage{
@@ -49,6 +49,16 @@ export const blogPostSlugGroq = (slug: string | string[]) => {
           _updatedAt,
           categories[] ->{
             title
+          },
+          "relatedBlogs": *[_type == "post" && slug.current != "${slug}" && count(categories[@._ref in ^.^.    categories[]._ref]) > 0]{
+             title,
+              slug,
+              mainImage{
+                asset->{url}
+              },
+              _createdAt,
+              categories[]->{title},
+              summary
           }
       }`;
 };
