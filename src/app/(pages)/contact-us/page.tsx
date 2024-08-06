@@ -74,7 +74,7 @@ function ContactUsPage() {
               <div className="flex-1 bg-fill rounded-xl px-8 py-6 ">
                 <h2 className={"text-2xl font-medium"}>Connect us on</h2>
 
-                <div className="flex gap-12 mt-6">
+                <div className="flex gap-12 mt-8">
                   {socialLinks.map(({ icon: Icon, url }, idx) => (
                     <a key={idx} href={url}>
                       <Icon className="size-7" />

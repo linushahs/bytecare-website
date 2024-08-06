@@ -1,6 +1,20 @@
-export const postGroq = () => {
-    return `*[_type == 'post']{
-        author -> {name},
+export const projectGroq = () => {
+  return `*[_type == 'project']{
+        _id,  
+        title,
+        description,
+        tags,
+        url,
+        thumbnail{
+            asset -> {url}
+        }
+    }`;
+}
+
+
+export const blogPostGroq = () => {
+  return `*[_type == 'post']{
+        author[] -> {name},
         _id,
         title,
         _createdAt,
@@ -8,18 +22,22 @@ export const postGroq = () => {
         slug,
         mainImage{
             asset -> {url}
-        }
+        },
+        categories[] -> {
+            title
+        },
+        summary 
     }`;
 };
 
-export const postSlugGroq = (slug: string | string[]) => {
-    return `*[slug.current == "${slug}"]{
+export const blogPostSlugGroq = (slug: string | string[]) => {
+  return `*[slug.current == "${slug}"]{
           title,
           slug,
           mainImage{
             asset->{url}
           },
-          author -> {
+          author[] -> {
             name,
             image{
               asset->{url}

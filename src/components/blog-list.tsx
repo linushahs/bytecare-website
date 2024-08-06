@@ -1,20 +1,34 @@
-import React from "react";
+"use client";
+
+import React, { useEffect, useState } from "react";
 import Pagination from "./ui/pagination";
 import Button from "./ui/button";
 import Image from "next/image";
 import BlogCard from "./blog-card";
 import { ThreeColumnLayout } from "./ui/column-layout";
+import { sanityClient } from "@/sanity/lib/client";
+import { blogPostGroq } from "@/sanity/groq";
+import { Blog } from "@/sanity/groq/interface";
 
 export default function BlogList() {
-  const showLists = true;
-  return showLists ? (
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+
+  useEffect(() => {
+    sanityClient.fetch(blogPostGroq()).then(async (res) => {
+      setBlogs(res);
+    });
+  }, []);
+
+  console.log(blogs);
+
+  return blogs.length ? (
     <>
       <div className="pt-8">
         <ThreeColumnLayout className="gap-16 pb-16 border-b border-white/10">
-          {new Array(12).fill(0).map((el) => (
+          {blogs.map((blog) => (
             <BlogCard
-              key={el}
-              slug={el}
+              key={blog._id}
+              blog={blog}
               sizes="(min-width: 768px) 50vw, (min-width:1024px: 33vw), 100vw"
             />
           ))}

@@ -1,7 +1,10 @@
+import { blogPostSlugGroq } from "../groq"
+import { Blog } from "../groq/interface"
+import { sanityClient } from "../lib/client"
 
 const BASE_URL = 'https://94zkm4p5.api.sanity.io/v2024-08-05/data/mutate/production'
 
-export default async function saveContactInfo() {
+export async function saveContactInfo() {
     const data = await fetch(BASE_URL, {
         method: 'POST',
         headers: {
@@ -21,4 +24,10 @@ export default async function saveContactInfo() {
     })
 
     return data.json()
+}
+
+export async function fetchBlogPost(slug: string): Promise<Blog> {
+    const response = await sanityClient.fetch<Blog[]>(blogPostSlugGroq(slug), {}, { cache: "no-store" })
+
+    return response[0];
 }

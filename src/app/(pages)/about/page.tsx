@@ -31,6 +31,11 @@ import Footer from "@/layouts/footer";
 import Link from "next/link";
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 
+export const metadata = {
+  title: "About",
+  description: "Learn more about Bytecare",
+};
+
 function AboutPage() {
   return (
     <>

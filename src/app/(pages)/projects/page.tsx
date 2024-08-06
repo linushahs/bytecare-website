@@ -8,6 +8,11 @@ import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
 import ProjectsSection from "@/layouts/projects-section";
 
+export const metadata = {
+  title: "Projects",
+  description: "Browse our projects",
+};
+
 export default function ProjectsPage() {
   return (
     <>

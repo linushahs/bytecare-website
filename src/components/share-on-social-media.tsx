@@ -18,6 +18,7 @@ export default function ShareOnSocialMedia({ slug }: { slug: string }) {
   const shareUrl = `https://bytecare-website.vercel.app/blog/${slug}/`;
   const shareButtonClassName =
     "flex items-center justify-center w-10 h-10 rounded-full";
+    
   return (
     <div className="flex items-center gap-x-3">
       <FacebookShareButton

@@ -1,10 +1,22 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../components/ui/button";
 import ProjectsCard from "../components/projects-card";
+import { sanityClient } from "@/sanity/lib/client";
+import { projectGroq } from "@/sanity/groq";
 
 function ProjectsSection() {
+  const [projects, setProjects] = useState<any[]>([]);
+
+  useEffect(() => {
+    sanityClient.fetch(projectGroq()).then(async (res) => {
+      setProjects(res);
+    });
+  }, []);
+
+  console.log(projects);
+
   const [selectedCategory, setSelectedCategory] = useState("all projects");
 
   return (
@@ -24,9 +36,15 @@ function ProjectsSection() {
         ))}
       </div>
 
-      <ProjectsCard />
-      <ProjectsCard />
-      <ProjectsCard />
+      {projects.map((project) => (
+        <ProjectsCard
+          key={project._id}
+          thumbnail={project.thumbnail}
+          title={project.title}
+          tags={project.tags}
+          description={project.description}
+        />
+      ))}
     </div>
   );
 }

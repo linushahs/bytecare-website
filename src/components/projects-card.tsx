@@ -3,7 +3,21 @@ import Image from "next/image";
 import Badge from "./ui/badge";
 import Button from "./ui/button";
 
-function ProjectsCard() {
+interface ProjectsCardProps {
+  thumbnail: {
+    asset: { url: string };
+  };
+  title: string;
+  description: string;
+  tags: string[];
+}
+
+function ProjectsCard({
+  thumbnail,
+  title,
+  description,
+  tags,
+}: ProjectsCardProps) {
   return (
     <div className="group relative w-full z-0 border border-borderLight rounded-3xl bg-gradientCardBg overflow-hidden">
       {/* show gradient when hovered ======================= */}
@@ -13,7 +27,7 @@ function ProjectsCard() {
         {/* Project thumbnail ============================= */}
         <div className="rounded-lg w-full sm:w-[40%] lg:w-1/3 overflow-hidden">
           <Image
-            src="/karobar_thumbnail.png"
+            src={thumbnail.asset.url}
             alt="karobar thumbnail"
             width={400}
             height={400}
@@ -32,20 +46,17 @@ function ProjectsCard() {
           />
 
           <div className="flex gap-2 my-2">
-            {["web", "mobile", "ui ux design"].map((title) => (
+            {tags.map((title) => (
               <Badge title={title} key={title} />
             ))}
           </div>
 
           <p className="text-2xl tracking-wide text-textPrimary font-bold">
-            Helping Agency to Become Digital
+            {title}
           </p>
 
           <p className="text-md  text-textSecondary w-full lg:w-3/4">
-            RSSI stands as a beacon of hope, dedicated to revitalising the Osho
-            movement, restoring its sanctity, and paving the way for a future
-            where {`Osho's`} transformative wisdom illuminates the hearts and
-            souls of seekers around the globe.
+            {description}
           </p>
 
           {/* Build with us and live view button ================================= */}

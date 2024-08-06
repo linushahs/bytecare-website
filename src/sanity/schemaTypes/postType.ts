@@ -1,4 +1,4 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
 export const postType = defineType({
   name: 'post',
@@ -17,11 +17,13 @@ export const postType = defineType({
         maxLength: 96,
       },
     }),
+
     defineField({
       name: 'author',
-      type: 'reference',
-      to: {type: 'author'},
+      type: 'array',
+      of: [{ type: 'reference', to: { type: 'author' } }],
     }),
+
     defineField({
       name: 'mainImage',
       type: 'image',
@@ -39,11 +41,16 @@ export const postType = defineType({
     defineField({
       name: 'categories',
       type: 'array',
-      of: [{type: 'reference', to: {type: 'category'}}],
+      of: [{ type: 'reference', to: { type: 'category' } }],
     }),
     defineField({
       name: 'publishedAt',
       type: 'datetime',
+    }),
+    defineField({
+      name: "summary",
+      title: "Short Description",
+      type: "text",
     }),
     defineField({
       name: 'body',
@@ -57,8 +64,8 @@ export const postType = defineType({
       media: 'mainImage',
     },
     prepare(selection) {
-      const {author} = selection
-      return {...selection, subtitle: author && `by ${author}`}
+      const { author } = selection
+      return { ...selection, subtitle: author && `by ${author}` }
     },
   },
 })
