@@ -29,7 +29,7 @@ export default function BlogCard({ blog, sizes }: BlogCardProps) {
           <div className="flex items-center justify-between">
             <div className="space-x-2">
               {categories.slice(0, 2).map((category) => (
-                <Badge title={category.title} />
+                <Badge key={category.title} title={category.title} />
               ))}
             </div>
             <p className="text-base font-normal text-textSecondary">

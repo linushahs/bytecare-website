@@ -1,13 +1,11 @@
-import { fetchBlogPosts } from "@/sanity/service";
+import { Blog } from "@/sanity/groq/interface";
 import Image from "next/image";
 import BlogCard from "./blog-card";
 import Button from "./ui/button";
 import { ThreeColumnLayout } from "./ui/column-layout";
 import Pagination from "./ui/pagination";
 
-export default async function BlogList() {
-  const blogs = await fetchBlogPosts();
-
+export default function BlogList({ blogs }: { blogs: Blog[] }) {
   return blogs.length ? (
     <>
       <div className="pt-8">

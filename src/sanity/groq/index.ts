@@ -62,3 +62,11 @@ export const blogPostSlugGroq = (slug: string | string[]) => {
           }
       }`;
 };
+
+export const categoryGroq = () => {
+  return `
+  *[_type == 'category']{
+    _id,
+    title
+  }`;
+}

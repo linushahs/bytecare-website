@@ -1,5 +1,4 @@
-import BlogList from "@/components/blog-list";
-import BlogFilters from "@/components/blogs/blog-filters";
+import BlogContainer from "@/components/blogs/blog-container";
 import {
   HeroContent,
   HeroHeading,
@@ -8,11 +7,21 @@ import {
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
-import { fetchBlogCategories } from "@/sanity/service";
+import { blogPostGroq, categoryGroq } from "@/sanity/groq";
+import { sanityClient } from "@/sanity/lib/client";
+import { Suspense } from "react";
+
+async function getInitialData() {
+  const [posts, categories] = await Promise.all([
+    sanityClient.fetch(blogPostGroq(), {}, { cache: "no-store" }),
+    sanityClient.fetch(categoryGroq(), {}, { cache: "no-store" }),
+  ]);
+
+  return { posts, categories };
+}
 
 async function BlogsPage() {
-  const categories = await fetchBlogCategories();
-  console.log(categories);
+  const { posts, categories } = await getInitialData();
 
   return (
     <>
@@ -29,13 +38,9 @@ async function BlogsPage() {
 
       <section className="pb-12">
         <Container>
-          {/* Blog filters ====================================== */}
-          <div className="flex flex-col gap-10 mt-16 relative z-[3]">
-            <BlogFilters categories={categories} />
-          </div>
-
-          {/* Blog posts ========================================== */}
-          <BlogList />
+          <Suspense fallback={<div>Loading...</div>}>
+            <BlogContainer initialPosts={posts} categories={categories} />
+          </Suspense>
         </Container>
       </section>
 

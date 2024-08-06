@@ -36,17 +36,24 @@ export async function fetchBlogPosts(): Promise<Blog[]> {
     return await sanityClient.fetch<Blog[]>(blogPostGroq(), {}, { cache: "no-store" });
 }
 
-export async function fetchBlogCategories(): Promise<Category[]> {
-    const response = await sanityClient.fetch<Category[]>(
-        `*[_type == "category"]{_id, title}`
-    );
-
-    return response;
-}
 
 export async function filterBlogPosts(categoryId: string): Promise<Blog[]> {
     const response = await sanityClient.fetch<Blog[]>(
-        `*[_type == "blog" && references(*[_type == "category" && _id == $categoryId]._id)]`,
+        `*[_type == "post" && references(*[_type == "category" && _id == $categoryId]._id)]{
+            author[] -> {name},
+            _id,
+            title,
+            _createdAt,
+            _updatedAt,
+            slug,
+            mainImage{
+                asset -> {url}
+            },
+            categories[] -> {
+                title
+            },
+            summary
+        }`,
         { categoryId },
         { cache: "no-store" }
     );
