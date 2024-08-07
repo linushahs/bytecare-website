@@ -18,6 +18,7 @@ import ToolsAndTechnologySection from "@/components/tools-technology-section";
 import Button from "@/components/ui/button";
 import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
+import ProjectsContainer from "@/layouts/projects-container";
 import { cn } from "@/utils";
 import { companyStats } from "@/utils/constants";
 import Image from "next/image";
@@ -82,7 +83,7 @@ export default function Homepage() {
         <Container>
           <div className="flex flex-col items-center mt-24 gap-4">
             <p className="text-3xl bg-gradientHeading bg-clip-text text-transparent font-bold">
-              Featured Services
+              Featured Projects
             </p>
 
             <p className="text-lg text-textSecondary md:w-1/2 text-center">
@@ -90,12 +91,9 @@ export default function Homepage() {
               build & launch their products.
             </p>
 
-            <div className="flex flex-col gap-12 mt-8 lg:mt-16">
-              <ProjectsCard />
-              <ProjectsCard />
-              <ProjectsCard />
+            <div className="mt-12">
+              <ProjectsContainer withFilters={false} />
             </div>
-
             <Button color="fill" className="mt-10">
               View More Projects <ArrowRightIcon className="size-6" />
             </Button>

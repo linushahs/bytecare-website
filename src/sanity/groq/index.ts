@@ -3,11 +3,20 @@ export const projectGroq = () => {
         _id,  
         title,
         description,
-        tags,
+        categories[] -> {
+            title
+        },
         url,
         thumbnail{
             asset -> {url}
         }
+    }`;
+}
+
+export const projectCategoriesGroq = () => {
+  return `*[_type == 'projectCategory']{
+        _id,
+        title
     }`;
 }
 

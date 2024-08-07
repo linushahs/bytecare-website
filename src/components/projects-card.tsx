@@ -19,11 +19,11 @@ function ProjectsCard({
   tags,
 }: ProjectsCardProps) {
   return (
-    <div className="group relative w-full z-0 border border-borderLight rounded-3xl bg-gradientCardBg overflow-hidden">
+    <div className="group relative w-full z-0 border border-borderLight rounded-3xl bg-gradientCardBg overflow-hidden h-[220px] sm:h-[400px] lg:h-[460px]">
       {/* show gradient when hovered ======================= */}
       <div className="absolute w-full -z-10 h-full bg-gradientFillCard opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"></div>
 
-      <div className="p-4 md:p-8 flex flex-col sm:flex-row gap-8">
+      <div className="p-4 md:p-8 flex flex-col sm:flex-row gap-8 h-full">
         {/* Project thumbnail ============================= */}
         <div className="rounded-lg w-full sm:w-[40%] lg:w-1/3 overflow-hidden">
           <Image
@@ -31,7 +31,7 @@ function ProjectsCard({
             alt="karobar thumbnail"
             width={400}
             height={400}
-            className="w-full h-[220px] sm:h-[400px] lg:h-[450px] object-cover group-hover:scale-110 transition-transform duration-[350ms] ease-in-out"
+            className="w-full h-full  object-cover group-hover:scale-110 transition-transform duration-[350ms] ease-in-out"
           />
         </div>
 
@@ -60,7 +60,7 @@ function ProjectsCard({
           </p>
 
           {/* Build with us and live view button ================================= */}
-          <div className="mt-10 mb-3 sm:mt-auto sm:mb-6 flex [&>button]:w-fit gap-2 sm:gap-4">
+          <div className="mt-10 mb-3 sm:mt-auto sm:mb-4 flex [&>button]:w-fit gap-2 sm:gap-4">
             <Button
               showRightArrowIcon
               variant="default"

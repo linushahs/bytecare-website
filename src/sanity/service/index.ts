@@ -1,5 +1,5 @@
 import { blogPostGroq, blogPostSlugGroq } from "../groq"
-import { Blog, Category } from "../groq/interface"
+import { Blog, Category, Project } from "../groq/interface"
 import { sanityClient } from "../lib/client"
 
 const BASE_URL = 'https://94zkm4p5.api.sanity.io/v2024-08-05/data/mutate/production'
@@ -39,7 +39,7 @@ export async function fetchBlogPosts(): Promise<Blog[]> {
 
 export async function filterBlogPosts(categoryId: string): Promise<Blog[]> {
     const response = await sanityClient.fetch<Blog[]>(
-        `*[_type == "post" && references(*[_type == "category" && _id == $categoryId]._id)]{
+        `*[_type == "post" && references(*[_type == "blogCategory" && _id == $categoryId]._id)]{
             author[] -> {name},
             _id,
             title,
@@ -53,6 +53,27 @@ export async function filterBlogPosts(categoryId: string): Promise<Blog[]> {
                 title
             },
             summary
+        }`,
+        { categoryId },
+        { cache: "no-store" }
+    );
+
+    return response;
+}
+
+export async function filterProjects(categoryId: string): Promise<Project[]> {
+    const response = await sanityClient.fetch<Project[]>(
+        `*[_type == "project" && references(*[_type == "projectCategory" && _id == $categoryId]._id)]{
+            _id,
+            title,
+            url,
+            thumbnail{
+                asset -> {url}
+            },
+            categories[] -> {
+                title
+            },
+            description
         }`,
         { categoryId },
         { cache: "no-store" }

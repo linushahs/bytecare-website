@@ -41,3 +41,14 @@ export type Category = {
     _id: string;
     title: string;
 }
+
+export type Project = {
+    _id: string;
+    title: string;
+    description: string;
+    categories: Category[];
+    url: string;
+    thumbnail: {
+        asset: { url: string };
+    };
+}

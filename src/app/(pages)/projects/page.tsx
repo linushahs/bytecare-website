@@ -6,7 +6,7 @@ import {
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import Container from "@/components/ui/container";
 import Footer from "@/layouts/footer";
-import ProjectsSection from "@/layouts/projects-section";
+import ProjectsContainer from "@/layouts/projects-container";
 
 export const metadata = {
   title: "Projects",
@@ -30,8 +30,8 @@ export default function ProjectsPage() {
 
       <section>
         <Container>
-          <div className="flex flex-col gap-10 my-12 relative z-[3]">
-            <ProjectsSection />
+          <div className="flex flex-col gap-10 mt-12 mb-20 relative z-[3]">
+            <ProjectsContainer />
           </div>
         </Container>
       </section>

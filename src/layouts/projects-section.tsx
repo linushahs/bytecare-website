@@ -1,47 +1,74 @@
 "use client";
 
+import { Category, Project } from "@/sanity/groq/interface";
 import { useEffect, useState } from "react";
-import Button from "../components/ui/button";
 import ProjectsCard from "../components/projects-card";
-import { sanityClient } from "@/sanity/lib/client";
-import { projectGroq } from "@/sanity/groq";
+import Button from "../components/ui/button";
+import { filterProjects } from "@/sanity/service";
 
-function ProjectsSection() {
-  const [projects, setProjects] = useState<any[]>([]);
+interface ProjectsSectionProps {
+  initialProjects: Project[];
+  withFilters?: boolean;
+  categories: Category[];
+}
+
+function ProjectsSection({
+  initialProjects,
+  withFilters,
+  categories,
+}: ProjectsSectionProps) {
+  const [projects, setProjects] = useState(initialProjects);
+  const [selectedCategory, setSelectedCategory] = useState("1");
 
   useEffect(() => {
-    sanityClient.fetch(projectGroq()).then(async (res) => {
+    const fetchprojects = async () => {
+      if (selectedCategory === "1") {
+        setProjects(initialProjects);
+        return;
+      }
+
+      const res = await filterProjects(selectedCategory);
       setProjects(res);
-    });
-  }, []);
+    };
+
+    fetchprojects();
+  }, [selectedCategory]);
+
+  const handleFilterChange = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+  };
 
   console.log(projects);
-
-  const [selectedCategory, setSelectedCategory] = useState("all projects");
 
   return (
     <div className="flex flex-col w-full items-center gap-16">
       {/* projects categories button =============================== */}
-      <div className="flex gap-8 mb-10 w-full flex-wrap justify-center sm:flex-nowrap">
-        {["all projects", "mobile app", "web development"].map((category) => (
-          <Button
-            key={category}
-            variant={category === selectedCategory ? "default" : "outline"}
-            color={category === selectedCategory ? "primary" : "fill"}
-            onClick={() => setSelectedCategory(category)}
-            className="py-3 rounded-full capitalize "
-          >
-            {category}
-          </Button>
-        ))}
-      </div>
+      {withFilters && (
+        <div className="flex gap-8 mb-10 w-full flex-wrap justify-center sm:flex-nowrap">
+          {[{ _id: "1", title: "all projects" }]
+            .concat(categories)
+            .map((category) => (
+              <Button
+                key={category._id}
+                variant={
+                  category._id === selectedCategory ? "default" : "outline"
+                }
+                color={category._id === selectedCategory ? "primary" : "fill"}
+                onClick={() => handleFilterChange(category._id)}
+                className="py-3 rounded-full capitalize "
+              >
+                {category.title}
+              </Button>
+            ))}
+        </div>
+      )}
 
       {projects.map((project) => (
         <ProjectsCard
           key={project._id}
           thumbnail={project.thumbnail}
           title={project.title}
-          tags={project.tags}
+          tags={project.categories.map((category) => category.title)}
           description={project.description}
         />
       ))}

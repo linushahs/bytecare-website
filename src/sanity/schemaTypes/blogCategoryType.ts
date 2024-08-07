@@ -1,7 +1,7 @@
-import {defineField, defineType} from 'sanity'
+import { defineField, defineType } from 'sanity'
 
-export const categoryType = defineType({
-  name: 'category',
+export const blogCategoryType = defineType({
+  name: 'blogCategory',
   type: 'document',
   fields: [
     defineField({

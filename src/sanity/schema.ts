@@ -1,13 +1,14 @@
 import { type SchemaTypeDefinition } from 'sanity'
 
-import { blockContentType } from './schemaTypes/blockContentType'
-import { categoryType } from './schemaTypes/categoryType'
-import { postType } from './schemaTypes/postType'
 import { authorType } from './schemaTypes/authorType'
+import { blockContentType } from './schemaTypes/blockContentType'
+import { blogCategoryType } from './schemaTypes/blogCategoryType'
+import { careerType } from './schemaTypes/careerType'
+import { postType } from './schemaTypes/postType'
+import { projectCategoryType } from './schemaTypes/projectCategoryType'
 import { projectType } from './schemaTypes/projectType'
 import { teamMemberType } from './schemaTypes/teamMemberType'
-import { careerType } from './schemaTypes/careerType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, categoryType, postType, authorType, projectType, teamMemberType, careerType],
+  types: [blockContentType, blogCategoryType, projectCategoryType, postType, authorType, projectType, teamMemberType, careerType],
 }

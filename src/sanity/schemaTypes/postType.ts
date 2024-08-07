@@ -41,7 +41,7 @@ export const postType = defineType({
     defineField({
       name: 'categories',
       type: 'array',
-      of: [{ type: 'reference', to: { type: 'category' } }],
+      of: [{ type: 'reference', to: { type: 'blogCategory' } }],
     }),
     defineField({
       name: 'publishedAt',
