@@ -30,6 +30,7 @@ const useModalStore = create<ModalState>((set) => ({
     set((state) => ({
       ...state,
       isOpen: false,
+      view: null,
     })),
 }));
 

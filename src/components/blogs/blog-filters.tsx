@@ -1,8 +1,7 @@
 "use client";
 
-import React, { useState } from "react";
-import Button from "../ui/button";
 import { Category } from "@/sanity/groq/interface";
+import Button from "../ui/button";
 
 function BlogFilters({
   categories,
@@ -15,7 +14,7 @@ function BlogFilters({
 }) {
   return (
     <div className="flex gap-6 mb-10 w-full flex-wrap justify-center sm:flex-nowrap">
-      {categories.map((category) => (
+      {[{ _id: "1", title: "All posts" },...categories].map((category) => (
         <Button
           key={category._id}
           variant={category._id === selectedCategory ? "default" : "outline"}

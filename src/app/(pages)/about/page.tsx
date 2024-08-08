@@ -198,9 +198,15 @@ function AboutPage() {
 
               <div className="w-full">
                 <TeamList>
-                  {new Array(4).fill(0).map((id) => (
-                    <TeamMember key={id} id={id} />
-                  ))}
+                  {({ teamMembers }) =>
+                    teamMembers.map((member) => (
+                      <TeamMember
+                        key={member._id}
+                        id={member._id}
+                        member={member}
+                      />
+                    ))
+                  }
                 </TeamList>
               </div>
             </div>

@@ -12,8 +12,8 @@ function ServicesSection() {
     <Container>
       <div className="flex flex-col items-center justify-center gap-4">
         <motion.div
-          initial={{ scale: 0.9, y: 60, opacity: 0 }}
-          whileInView={{ scale: 1, y: 0, opacity: 100 }}
+          initial={{  y: 60, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 100 }}
           transition={{
             type: "spring",
             ease: "easeIn",
@@ -37,8 +37,8 @@ function ServicesSection() {
             {services.map(({ title, description, icon }, index) => (
               <motion.div
                 key={title}
-                initial={{ scale: 0.9, y: 60, opacity: 0 }}
-                whileInView={{ scale: 1, y: 0, opacity: 100 }}
+                initial={{ y: 70, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 100 }}
                 transition={{
                   type: "spring",
                   ease: "easeIn",

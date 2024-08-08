@@ -14,10 +14,15 @@ function BlogContainer({
   categories: Category[];
 }) {
   const [posts, setPosts] = useState(initialPosts);
-  const [selectedCategory, setSelectedCategory] = useState(categories[0]._id);
+  const [selectedCategory, setSelectedCategory] = useState("1");
 
   useEffect(() => {
     const fetchPosts = async () => {
+      if (selectedCategory === "1") {
+        setPosts(initialPosts);
+        return;
+      }
+
       const res = await filterBlogPosts(selectedCategory);
       setPosts(res);
     };

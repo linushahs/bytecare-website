@@ -10,7 +10,7 @@ export function ContactUsTabbedView() {
   const [tab, setTab] = useState(tabOptions[0]);
 
   return (
-    <div className="mt-14 mb-16 max-w-[50rem] mx-auto space-y-16">
+    <div className="mt-14 mb-16 max-w-[42rem] mx-auto space-y-16">
       <div className="flex items-center justify-center">
         <div className="overflow-hidden bg-surface rounded-md">
           {tabOptions.map((tabTitle) => {

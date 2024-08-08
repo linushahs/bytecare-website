@@ -52,3 +52,24 @@ export type Project = {
         asset: { url: string };
     };
 }
+
+export type TeamMember = {
+    _id: string;
+    name: string;
+    role: string;
+    bio: string;
+    avatar: {
+        asset: { url: string };
+    };
+}
+
+export type JobType = {
+    _id: string;
+    title: string;
+    slug: { current: string };
+    jobType: string;
+    location: string;
+    description: string;
+    shortDescription: string;
+    tags: string[];
+}

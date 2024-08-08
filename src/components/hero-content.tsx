@@ -11,7 +11,7 @@ export function HeroContent({ children, className }: HeroElementProps) {
   return (
     <div
       className={cn(
-        "flex flex-col justify-center items-center max-w-[900px]",
+        "flex flex-col justify-center items-center max-w-[900px] md:!mt-[126px]",
         className
       )}
     >
@@ -46,7 +46,7 @@ export function HeroParagraph({ children, className }: HeroElementProps) {
   return (
     <p
       className={cn(
-        "text-textSecondary text-lg w-[90%] sm:w-[50%] text-center",
+        "text-textSecondary text-lg w-[90%] sm:w-[50%] xl:w-[60%] text-center",
         className
       )}
     >

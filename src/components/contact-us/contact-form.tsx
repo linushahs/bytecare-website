@@ -1,6 +1,5 @@
 import { MessageSentIcon } from "@/assets/filled";
 import { useModal } from "@/hooks/use-modal";
-import Link from "next/link";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
 import FormGroup from "../form/form-group";
 import { Input } from "../form/input";
@@ -34,9 +33,31 @@ export default function ContactUsForm() {
   });
 
   const onSubmit: SubmitHandler<any> = (values) => {
-    openModal({
-      view: <MessageSentModal />,
-    });
+    try {
+      const mailto =
+        "mailto:" +
+        "suniltraveler2004@gmail.com" +
+        "?subject=Inquiry from " +
+        values.fullName +
+        "&body=Phone Number: " +
+        values.phoneNumber +
+        "%0D%0A%0D%0A" +
+        values.email +
+        "%0D%0A%0D%0A" +
+        values.projectDetail +
+        "%0D%0A%0D%0A" +
+        values.work;
+
+      window.location.href = mailto;
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setTimeout(() => {
+        openModal({
+          view: <MessageSentModal />,
+        });
+      }, 5000);
+    }
   };
 
   const onError = (err: any) => {
@@ -46,7 +67,7 @@ export default function ContactUsForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit, onError)}
-      className="flex flex-col p-4 gap-y-8 md:p-8 bg-surface rounded-xl"
+      className="flex flex-col gap-y-8 p-8 bg-surface rounded-xl"
     >
       <FormGroup>
         <Label htmlFor="fullName">
@@ -160,25 +181,26 @@ export default function ContactUsForm() {
 }
 
 function MessageSentModal() {
+  const { closeModal } = useModal();
+
   return (
-    <div className="py-16">
+    <div className="py-16 flex flex-col items-center gap-2">
       <MessageSentIcon className="size-36" />
       <p className="text-xl font-semibold mt-2">Message sent successfully 🌟</p>
 
-      <p className="text-center text-textSecondary">
+      <p className="text-center text-textSecondary mt-2">
         Thanks for reaching out to bytecare! 🚀 <br /> {`We've`} received your
         message and will get back to you shortly.
       </p>
 
-      <Link href="/">
-        <Button
-          variant="outline"
-          color="transparent"
-          className="py-2.5 mt-4 text-base"
-        >
-          Back to Home
-        </Button>
-      </Link>
+      <Button
+        onClick={closeModal}
+        variant="outline"
+        color="transparent"
+        className="py-2.5 mt-8 text-base"
+      >
+        Back to Home
+      </Button>
     </div>
   );
 }

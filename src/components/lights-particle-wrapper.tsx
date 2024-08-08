@@ -1,5 +1,5 @@
 import { cn } from "@/utils";
-import Particles from "./ui/particles";
+import Particles from "./motion/particles";
 import Lights from "./ui/lights";
 
 interface LightsParticleWrapperProps {

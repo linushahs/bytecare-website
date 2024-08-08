@@ -1,3 +1,4 @@
+import { portableImageComponent } from "@/components/blogs/portable-text-component";
 import RelatedBlogs from "@/components/blogs/related-blogs";
 import {
   HeroContent,
@@ -15,10 +16,7 @@ import { fetchBlogPost } from "@/sanity/service";
 import { formatDate } from "@/utils";
 import { getImageDimensions } from "@sanity/asset-utils";
 import urlBuilder from "@sanity/image-url";
-import {
-  PortableText,
-  PortableTextComponents
-} from "next-sanity";
+import { PortableText, PortableTextComponents } from "next-sanity";
 import Image from "next/image";
 
 export const metadata = {
@@ -76,19 +74,19 @@ async function BlogDescriptionPage({ params }: { params: { slug: string } }) {
             </HeroHeading>
 
             <HeroFooter className="gap-10 mt-4">
-              {author.map((author) => (
+              {author.map(({ name, image }) => (
                 <div
-                  key={author.name}
+                  key={name}
                   className="flex items-center gap-2 text-md font-medium"
                 >
                   <Image
-                    src={author.image.asset.url}
+                    src={image.asset.url}
                     alt={title}
                     className="size-9 sm:size-10 rounded-full object-cover"
                     width={40}
                     height={40}
                   />
-                  <p>{author.name}</p>
+                  <p>{name}</p>
                 </div>
               ))}
             </HeroFooter>
@@ -135,28 +133,6 @@ async function BlogDescriptionPage({ params }: { params: { slug: string } }) {
 }
 
 function ContentFromCMS({ blogBody }: { blogBody: BlogBody[] }) {
-  const portableImageComponent: PortableTextComponents = {
-    types: {
-      image: ({ value, isInline }) => {
-        const { width, height } = getImageDimensions(value);
-        return (
-          <Image
-            src={urlBuilder(sanityClient)
-              .image(value)
-              .width(isInline ? 100 : 800)
-              .fit("max")
-              .auto("format")
-              .url()}
-            alt={value.alt}
-            loading="lazy"
-            width={width}
-            height={height}
-          />
-        );
-      },
-    },
-  };
-
   return (
     <div className="prose md:prose-lg prose-img:rounded-lg prose-img:ml-auto prose-img:mr-auto max-w-none prose-figcaption:text-center tracking-wide">
       <PortableText value={blogBody} components={portableImageComponent} />

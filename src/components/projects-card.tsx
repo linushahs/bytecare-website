@@ -19,7 +19,7 @@ function ProjectsCard({
   tags,
 }: ProjectsCardProps) {
   return (
-    <div className="group relative w-full z-0 border border-borderLight rounded-3xl bg-gradientCardBg overflow-hidden h-[220px] sm:h-[400px] lg:h-[460px]">
+    <div className="group relative w-full z-0 border border-borderLight rounded-3xl bg-gradientCardBg overflow-hidden h-[220px] sm:h-[400px] lg:h-[500px]">
       {/* show gradient when hovered ======================= */}
       <div className="absolute w-full -z-10 h-full bg-gradientFillCard opacity-0 group-hover:opacity-100 transition-opacity duration-300 ease-in-out"></div>
 

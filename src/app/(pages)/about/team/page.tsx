@@ -1,19 +1,18 @@
 import { ArrowRightIcon } from "@/assets";
-import Button from "@/components/ui/button";
-import Container from "@/components/ui/container";
 import CtaCard from "@/components/cta-card";
 import {
   HeroContent,
   HeroHeading,
   HeroParagraph,
 } from "@/components/hero-content";
+import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import TeamList from "@/components/team-list";
 import TeamMarquee from "@/components/team-marquee";
 import TeamMember from "@/components/team-member";
+import Button from "@/components/ui/button";
+import Container from "@/components/ui/container";
 import { Heading, HEADING_TYPES } from "@/components/ui/heading";
 import Footer from "@/layouts/footer";
-import React from "react";
-import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 
 function TeamPage() {
   return (
@@ -47,9 +46,15 @@ function TeamPage() {
 
             <div className="w-full">
               <TeamList>
-                {new Array(12).fill(0).map((id) => (
-                  <TeamMember key={id} id={id} />
-                ))}
+                {({ teamMembers }) =>
+                  teamMembers.map((member) => (
+                    <TeamMember
+                      key={member._id}
+                      id={member._id}
+                      member={member}
+                    />
+                  ))
+                }
               </TeamList>
             </div>
           </div>

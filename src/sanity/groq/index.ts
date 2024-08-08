@@ -65,17 +65,58 @@ export const blogPostSlugGroq = (slug: string | string[]) => {
               mainImage{
                 asset->{url}
               },
+              author[] -> {
+                name,
+                image{
+                   asset->{url}
+                }
+              },
               _createdAt,
               categories[]->{title},
               summary
-          }
+          }  
       }`;
 };
 
-export const categoryGroq = () => {
+export const blogCategoryGroq = () => {
   return `
-  *[_type == 'category']{
+  *[_type == 'blogCategory']{
     _id,
     title
   }`;
+}
+
+export const teamMemberGroq = () => {
+  return `*[_type == 'teamMember']{
+        _id,
+        name,
+        role, 
+        avatar{
+            asset -> {url}
+        },
+        bio
+    }`;
+}
+
+export const careersGroq = () => {
+  return `*[_type == 'career']{
+        _id,
+        slug,
+        title,
+        location,
+        jobType,
+        shortDescription,
+        tags[]
+    }`;
+}
+
+export const jobDetailsGroq = (slug: string | string[]) => {
+  return `*[_type == "career" && slug.current == "${slug}"]{
+        title,
+        location,
+        jobType,
+        shortDescription,
+        tags[],
+        description
+    }`;
 }

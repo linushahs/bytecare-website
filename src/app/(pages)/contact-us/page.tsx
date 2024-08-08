@@ -26,7 +26,7 @@ function ContactUsPage() {
       <section className="pb-14">
         <Container>
           <LightsParticleWrapper>
-            <HeroContent className="max-w-[49rem] mx-auto mt-24 md:mt-28">
+            <HeroContent className="max-w-[49rem] mx-auto mt-24">
               <HeroHeading className="pb-8">
                 Ready to launch your <br /> next project?
               </HeroHeading>
@@ -62,7 +62,7 @@ function ContactUsPage() {
                     <Icon className="size-7 fill-white" />
                   </span>
                   <div className="flex flex-col gap-0.5 text-md">
-                    <h3 className=" text-white text-xl font-medium">{title}</h3>
+                    <h3 className=" text-white text-lg font-medium">{title}</h3>
                     <p className=" text-textSecondary">{description}</p>
                   </div>
                 </div>
@@ -72,12 +72,12 @@ function ContactUsPage() {
             <div className="flex-1 flex flex-col gap-4">
               {/* Connect us on =================== */}
               <div className="flex-1 bg-fill rounded-xl px-8 py-6 ">
-                <h2 className={"text-2xl font-medium"}>Connect us on</h2>
+                <h2 className={"text-xl font-medium mt-2"}>Connect us on</h2>
 
                 <div className="flex gap-12 mt-8">
                   {socialLinks.map(({ icon: Icon, url }, idx) => (
                     <a key={idx} href={url}>
-                      <Icon className="size-7" />
+                      <Icon className="size-6" />
                     </a>
                   ))}
                 </div>
@@ -85,7 +85,7 @@ function ContactUsPage() {
 
               {/* Looking for job opportunities ================== */}
               <div className="flex-1 flex flex-col gap-4 justify-center rounded-xl px-8 py-6 bg-primaryBtnGradient">
-                <p className="text-2xl font-semibold">
+                <p className="text-xl font-semibold">
                   Looking for job opportunities?
                 </p>
 

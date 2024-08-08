@@ -15,6 +15,10 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
+    if (window.scrollY > 80) {
+      setIsScrolled(true);
+    }
+
     const handleScroll = () => {
       if (window.scrollY > 80) {
         setIsScrolled(true);
@@ -47,7 +51,7 @@ export default function Navbar() {
             height={200}
             priority
             className={cn(
-              "w-[120px] sm:w-[140px] 3xl:w-[170px] transition-all duration-500 ease-in-out",
+              "w-[120px] sm:w-[155px] 3xl:w-[170px] transition-all duration-500 ease-in-out",
               isScrolled && " sm:w-[130px] md:w-[130px] 3xl:w-[150px]"
             )}
           />
@@ -63,8 +67,8 @@ export default function Navbar() {
             <li
               key={menu.title}
               className={twMerge(
-                "capitalize cursor-pointer hover:text-textPrimary transition-colors duration-300 ease-in-out",
-                menu.path === pathName && "text-textPrimary font-medium"
+                "capitalize cursor-pointer tracking-tight hover:text-textPrimary transition-colors duration-300 ease-in-out",
+                menu.path === pathName && "text-textPrimary font-medium "
               )}
             >
               <Link href={menu.path}>{menu.title}</Link>

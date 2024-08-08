@@ -3,9 +3,11 @@
 import { DeleteIcon, DocumentIcon, UploadIcon } from "@/assets";
 import { ApplicationSubmittedIcon } from "@/assets/filled";
 import { useModal } from "@/hooks/use-modal";
+import { sanityClient } from "@/sanity/lib/client";
 import Link from "next/link";
-import { forwardRef, Fragment, useRef } from "react";
+import { forwardRef, useRef, useState } from "react";
 import { Controller, SubmitHandler, useForm } from "react-hook-form";
+import { v4 as uuidv4 } from "uuid";
 import FormGroup from "./form/form-group";
 import { Input } from "./form/input";
 import { Label } from "./form/label";
@@ -35,10 +37,17 @@ function JobApplyModal() {
   );
 }
 
+interface JobApplyFormType {
+  fullName: string;
+  email: string;
+  phone: string;
+  resume: File | null;
+}
+
 function JobApplyForm() {
   const { openModal } = useModal();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const uploadRef = useRef<HTMLInputElement>(null);
   const {
     handleSubmit,
     register,
@@ -53,10 +62,40 @@ function JobApplyForm() {
     },
   });
 
-  const onSubmit: SubmitHandler<any> = (data) => {
-    console.log(data);
+  const onSubmit: SubmitHandler<JobApplyFormType> = async (data) => {
+    try {
+      setIsSubmitting(true);
+      let resumeAsset = null;
+      let resumeFile = data.resume;
 
-    openModal({ view: <ApplicationSubmittedModal /> });
+      if (resumeFile) {
+        // Upload the file to Sanity
+        const fileAsset = await sanityClient.assets.upload("file", resumeFile, {
+          filename: resumeFile.name,
+        });
+        resumeAsset = fileAsset._id;
+      }
+
+      // Create a new document in Sanity
+      const newJobApplication = {
+        _id: uuidv4(),
+        _type: "jobApplication",
+        fullName: data.fullName,
+        email: data.email,
+        phoneNumber: data.phone,
+        resume: resumeAsset
+          ? { _type: "file", asset: { _ref: resumeAsset } }
+          : null,
+      };
+
+      await sanityClient.create(newJobApplication);
+
+      openModal({ view: <ApplicationSubmittedModal /> });
+    } catch (error) {
+      console.error("Error submitting job application:", error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -155,17 +194,18 @@ function JobApplyForm() {
             },
           }}
           render={({ field: { onChange, value } }) => (
-            <UploadResumeButton
-              ref={uploadRef}
-              onChange={onChange}
-              value={value}
-            />
+            <UploadResumeButton onChange={onChange} value={value} />
           )}
         />
       </div>
 
-      <Button type="submit" className="group" variant="default">
-        Submit Application
+      <Button
+        type="submit"
+        className="group"
+        variant="default"
+        isLoading={isSubmitting}
+      >
+        {isSubmitting ? "Submitting" : "Submit Application"}
       </Button>
     </form>
   );
@@ -181,10 +221,8 @@ interface UploadResumeButtonProps {
   onChange: (...event: any[]) => void;
 }
 
-const UploadResumeButton = forwardRef<
-  HTMLInputElement,
-  UploadResumeButtonProps
->(({ value, onChange }, ref) => {
+const UploadResumeButton = ({ value, onChange }: UploadResumeButtonProps) => {
+  const ref = useRef<HTMLInputElement>(null);
   let filePlaceholder: string = "Upload file";
   let FileIcon = value ? DocumentIcon : UploadIcon;
 
@@ -226,7 +264,7 @@ const UploadResumeButton = forwardRef<
       <Button
         variant="outline"
         color="transparent"
-        className="px-4 py-3 text-base w-fit"
+        className="px-4 py-3 text-base w-fit focus:border"
         onClick={handleButtonClick}
       >
         <FileIcon className="size-6" />
@@ -238,11 +276,11 @@ const UploadResumeButton = forwardRef<
       </Button>
     </label>
   );
-});
-
-UploadResumeButton.displayName = "UploadResumeButton";
+};
 
 function ApplicationSubmittedModal() {
+  const { closeModal } = useModal();
+
   return (
     <div className="py-16 flex flex-col gap-5 items-center">
       <ApplicationSubmittedIcon className="size-36" />
@@ -250,19 +288,18 @@ function ApplicationSubmittedModal() {
 
       <p className="text-center text-textSecondary w-2/3">
         Your application for UI UX Designer at Bytecare Technology has been
-        submitted. Thank you for considering a career with us. {`We'll`} review your
-        application and be in touch soon.
+        submitted. Thank you for considering a career with us. {`We'll`} review
+        your application and be in touch soon.
       </p>
 
-      <Link href="/">
-        <Button
-          variant="outline"
-          color="transparent"
-          className="py-2.5 mt-4 text-base"
-        >
-          Back to Home
-        </Button>
-      </Link>
+      <Button
+        onClick={closeModal}
+        variant="outline"
+        color="transparent"
+        className="py-2.5 mt-4 text-base"
+      >
+        Back to Home
+      </Button>
     </div>
   );
 }

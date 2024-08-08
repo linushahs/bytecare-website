@@ -24,6 +24,7 @@ import {
   HeroHeading,
   HeroParagraph,
 } from "@/components/hero-content";
+import JobCards from "@/components/job-card";
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
 import { PlainCard } from "@/components/plain-card";
 import PlainCardList from "@/components/plain-card-list";
@@ -148,52 +149,8 @@ function CareerPage() {
           </div>
 
           <div className="space-y-12">
-            <ul className="space-y-4 md:space-y-8">
-              {new Array(3).fill(0).map((id) => (
-                <li
-                  key={id}
-                  className="group flex flex-col justify-between gap-8 p-4 transition-all ease-in-out duration-300 bg-fill border border-borderSoft md:hover:bg-fill-tertiary lg:items-center lg:flex-row md:p-12 rounded-xl cursor-pointer"
-                >
-                  <div className="max-w-2xl">
-                    <h3 className="text-xl font-bold leading-8 text-white md:text-2xl">
-                      UI UX Designer
-                    </h3>
-                    <p
-                      className={cn(
-                        "mt-5 mb-8 truncate-to-3-lines",
-                        paragraphVariants({
-                          variant: PARAGRAPH_TYPES.paragraph,
-                        })
-                      )}
-                    >
-                      {"We’re hiring a versatile UI/UX Designer to join our team.                      In addition to creating intuitive interfaces and                      conducting user research, you’ll also have the opportunity                      to work on graphic design, logo design, banners, and other                      creative projects. If you’re passionate about                      user-centered design and have a knack for visual                      aesthetics, let’s connect!".slice(
-                        0,
-                        200
-                      ) + "..."}
-                    </p>
-                    <ul className="flex flex-wrap items-center gap-3">
-                      {["full time", "on site"].map((title, id) => (
-                        <Badge
-                          key={id}
-                          title={title}
-                          className="font-semibold bg-fill-tertiary capitalize group-hover:bg-borderSoft"
-                        />
-                      ))}
-                    </ul>
-                  </div>
-                  <Link href={`/careers/job/${id}`}>
-                    <Button
-                      showRightArrowIcon
-                      variant="outline"
-                      color="transparent"
-                      className="hover:bg-fill-secondary"
-                    >
-                      <span>Apply Now</span>
-                    </Button>
-                  </Link>
-                </li>
-              ))}
-            </ul>
+            <JobCards />
+
             <Button showRightArrowIcon className="mx-auto" color="fill">
               <span>View All Openings</span>
             </Button>

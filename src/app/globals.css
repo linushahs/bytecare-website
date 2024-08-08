@@ -57,14 +57,14 @@ body {
     --navbar-height-scrolled: 65px;
 
     --text-sm: clamp(13px, calc(0.2vw), 14px);
-    --text-md: clamp(15px, calc(8px + 0.5vw), 17px);
+    --text-md: clamp(15px, calc(9px + 0.5vw), 17px);
     --text-base: clamp(15px, calc(8px + 0.5vw), 17px);
-    --text-lg: clamp(18px, calc(10px + 0.5vw), 19px);
-    --text-xl: clamp(20px, calc(14px + 0.5vw), 21px);
-    --text-2xl: clamp(24px, calc(16px + 0.6vw), 32px);
-    --text-3xl: clamp(36px, calc(32px + 0.7vw), 48px);
+    --text-lg: clamp(18px, calc(10px + 0.6vw), 19px);
+    --text-xl: clamp(20px, calc(16px + 0.5vw), 24px);
+    --text-2xl: clamp(24px, calc(18px + 0.9vw), 36px);
+    --text-3xl: clamp(36px, calc(32px + 0.9vw), 48px);
     --text-4xl: clamp(40px, calc(40px + 0.5vw), 56px);
-    --text-5xl: clamp(48px, calc(48px + 0.5vw), 64px);
+    --text-5xl: clamp(48px, calc(48px + 1.4vw), 72px);
   }
 }
 
@@ -102,7 +102,7 @@ body {
 
 @layer utilities {
   .container {
-    @apply w-[90%] sm:w-[95%] xl:max-w-[1100px] 2xl:max-w-[1200px] mx-auto;
+    @apply w-[90%] sm:w-[95%] xl:max-w-[1200px] 2xl:max-w-[1200px] mx-auto;
   }
 
   .hero-content {

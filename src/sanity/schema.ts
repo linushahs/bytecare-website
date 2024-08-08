@@ -8,7 +8,8 @@ import { postType } from './schemaTypes/postType'
 import { projectCategoryType } from './schemaTypes/projectCategoryType'
 import { projectType } from './schemaTypes/projectType'
 import { teamMemberType } from './schemaTypes/teamMemberType'
+import jobApplicationType from './schemaTypes/jobApplicationType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, blogCategoryType, projectCategoryType, postType, authorType, projectType, teamMemberType, careerType],
+  types: [blockContentType, blogCategoryType, projectCategoryType, postType, authorType, projectType, teamMemberType, careerType, jobApplicationType],
 }

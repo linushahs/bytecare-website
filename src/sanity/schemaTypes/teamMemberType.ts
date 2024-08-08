@@ -14,7 +14,8 @@ export const teamMemberType = defineType({
             type: "string"
         },
         {
-            name: "description",
+            name: "bio",
+            title: "Bio",
             type: "text"
         },
         {

@@ -9,8 +9,8 @@ import {
   HeroParagraph,
 } from "@/components/hero-content";
 import { LightsParticleWrapper } from "@/components/lights-particle-wrapper";
+import Counter from "@/components/motion/counter";
 import { MotionHeroDiv } from "@/components/motion/motion-hero-div";
-import ProjectsCard from "@/components/projects-card";
 import ServicesSection from "@/components/services-section";
 import ClientFeedback from "@/components/testimonials/client-feedback";
 import ClientVideo from "@/components/testimonials/client-video";
@@ -27,7 +27,7 @@ export default function Homepage() {
   return (
     <>
       <LightsParticleWrapper>
-        <HeroContent className="relative mt-24 hero-content">
+        <HeroContent className="relative mt-32 hero-content">
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             <div className="w-[85%] h-[85%] relative">
               <Image
@@ -177,9 +177,10 @@ export default function Homepage() {
             key={stats.title}
             className="bg-borderLight rounded-lg p-6 md:p-8 flex flex-col justify-between gap-6"
           >
-            <p className="text-3xl leading-[120%] font-bold text-textPrimary">
-              {stats.count}+
-            </p>
+            <Counter
+              value={stats.count}
+              className="text-3xl leading-[120%] font-bold text-textPrimary"
+            />
             <p className="text-textSecondary text-md tracking-wide">
               {stats.title}
             </p>

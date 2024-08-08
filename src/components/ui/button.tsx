@@ -1,4 +1,4 @@
-import { ArrowRightIcon } from "@/assets";
+import { ArrowRightIcon, LoaderIcon } from "@/assets";
 import React, { FC } from "react";
 import { twMerge } from "tailwind-merge";
 
@@ -44,13 +44,17 @@ const Button: FC<ButtonProps> = ({
   return (
     <button
       className={twMerge(
-        "group py-[9px] px-5 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in focus:border-0",
+        "group py-[9px] px-5 rounded-md text-md flex items-center gap-2.5 cursor-pointer transition-colors duration-300 ease-in focus:border-0 disabled:contrast-75",
         buttonVariants[variant],
         buttonColors[color],
+        isLoading && "pointer-events-none",
         className
       )}
       onClick={onClick}
+      disabled={isLoading}
     >
+      {isLoading && <LoaderIcon className="size-7 text-white animate-spin" />}
+
       {children}
 
       {showRightArrowIcon && (
