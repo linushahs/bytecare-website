@@ -9,7 +9,8 @@ import { projectCategoryType } from './schemaTypes/projectCategoryType'
 import { projectType } from './schemaTypes/projectType'
 import { teamMemberType } from './schemaTypes/teamMemberType'
 import jobApplicationType from './schemaTypes/jobApplicationType'
+import { contactFormType } from './schemaTypes/contactFormType'
 
 export const schema: { types: SchemaTypeDefinition[] } = {
-  types: [blockContentType, blogCategoryType, projectCategoryType, postType, authorType, projectType, teamMemberType, careerType, jobApplicationType],
+  types: [blockContentType, blogCategoryType, projectCategoryType, postType, authorType, projectType, teamMemberType, careerType, jobApplicationType, contactFormType],
 }

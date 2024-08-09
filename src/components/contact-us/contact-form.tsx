@@ -13,9 +13,21 @@ import {
 } from "../form/select";
 import { TextArea } from "../form/textarea";
 import Button from "../ui/button";
+import { useState } from "react";
+import { v4 as uuidv4 } from "uuid";
+import { sanityClient } from "@/sanity/lib/client";
+
+interface ContactFormDataType {
+  fullName: string;
+  phoneNumber: string;
+  email: string;
+  projectDetail: string;
+  work: string;
+}
 
 export default function ContactUsForm() {
   const { openModal } = useModal();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const {
     handleSubmit,
@@ -32,31 +44,27 @@ export default function ContactUsForm() {
     },
   });
 
-  const onSubmit: SubmitHandler<any> = (values) => {
+  const onSubmit: SubmitHandler<ContactFormDataType> = async (data) => {
     try {
-      const mailto =
-        "mailto:" +
-        "suniltraveler2004@gmail.com" +
-        "?subject=Inquiry from " +
-        values.fullName +
-        "&body=Phone Number: " +
-        values.phoneNumber +
-        "%0D%0A%0D%0A" +
-        values.email +
-        "%0D%0A%0D%0A" +
-        values.projectDetail +
-        "%0D%0A%0D%0A" +
-        values.work;
+      setIsSubmitting(true);
 
-      window.location.href = mailto;
-    } catch (err) {
-      console.log(err);
+      const newContactFormData = {
+        _id: uuidv4(),
+        _type: "contactForm",
+        fullName: data.fullName,
+        email: data.email,
+        phoneNumber: data.phoneNumber,
+        projectDetail: data.projectDetail,
+        work: data.work,
+      };
+
+      await sanityClient.create(newContactFormData);
+
+      openModal({ view: <MessageSentModal /> });
+    } catch (error) {
+      console.error("Error submitting job application:", error);
     } finally {
-      setTimeout(() => {
-        openModal({
-          view: <MessageSentModal />,
-        });
-      }, 5000);
+      setIsSubmitting(false);
     }
   };
 
@@ -150,13 +158,13 @@ export default function ContactUsForm() {
                 />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="newProject">
+                <SelectItem value="I have a new project to build">
                   I have a new projects to build
                 </SelectItem>
-                <SelectItem value="dedicatedTeam">
+                <SelectItem value="I want a dedicated team for my projet">
                   I want a dedicated team for my project
                 </SelectItem>
-                <SelectItem value="others">Others</SelectItem>
+                <SelectItem value="Others">Others</SelectItem>
               </SelectContent>
             </Select>
           )}
@@ -173,8 +181,8 @@ export default function ContactUsForm() {
         <TextArea placeholder="Message/Project Details" id="projectDetail" />
       </FormGroup>
 
-      <Button type="submit" className="w-fit">
-        Submit Inquiry
+      <Button isLoading={isSubmitting} type="submit" className="w-fit">
+        {isSubmitting ? "Submitting" : "Submit Inquiry"}
       </Button>
     </form>
   );

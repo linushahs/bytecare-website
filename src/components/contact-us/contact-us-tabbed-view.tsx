@@ -18,7 +18,7 @@ export function ContactUsTabbedView() {
               <button
                 key={tabTitle}
                 onClick={() => setTab(tabTitle)}
-                className="relative px-4 py-4 text-md font-medium text-white md:px-8"
+                className="relative px-6 py-4 text-md font-medium text-white md:px-8"
               >
                 {tab === tabTitle && (
                   <motion.div

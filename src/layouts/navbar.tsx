@@ -51,7 +51,7 @@ export default function Navbar() {
             height={200}
             priority
             className={cn(
-              "w-[120px] sm:w-[155px] 3xl:w-[170px] transition-all duration-500 ease-in-out",
+              "w-[140px] sm:w-[155px] 3xl:w-[170px] transition-all duration-500 ease-in-out",
               isScrolled && " sm:w-[130px] md:w-[130px] 3xl:w-[150px]"
             )}
           />
@@ -111,12 +111,12 @@ function MobileMenu() {
         onClick={() => openMenu(!isMenuOpen)}
         variant="outline"
         color="surface"
-        className="relative px-2.5 py-1.5 md:py-2.5 z-40 ml-4"
+        className="relative px-2.5 py-1.5 lg:py-2.5 z-40 ml-4"
       >
         {isMenuOpen ? (
-          <CrossIcon className="size-6 sm:size-7 text-textPrimary" />
+          <CrossIcon className="size-7 text-textPrimary" />
         ) : (
-          <BarIcon className="size-6 sm:size-7 text-textPrimary" />
+          <BarIcon className="size-7 text-textPrimary" />
         )}
       </Button>
 

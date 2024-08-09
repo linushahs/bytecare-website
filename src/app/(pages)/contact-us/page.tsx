@@ -54,12 +54,12 @@ function ContactUsPage() {
             More ways to reach us
           </h2>
 
-          <div className="flex gap-10 mt-10">
-            <div className="flex-1 bg-fill rounded-xl p-8 flex flex-col gap-14">
+          <div className="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-10">
+            <div className="flex-1 bg-fill rounded-xl p-7 sm:p-8 flex flex-col gap-14">
               {contactDetails.map(({ icon: Icon, title, description }) => (
                 <div key={title} className="flex gap-6 items-center">
-                  <span className="rounded-full p-4 bg-surface">
-                    <Icon className="size-7 fill-white" />
+                  <span className="rounded-full p-3 sm:p-4 bg-surface">
+                    <Icon className="size-6 sm:size-7 fill-white" />
                   </span>
                   <div className="flex flex-col gap-0.5 text-md">
                     <h3 className=" text-white text-lg font-medium">{title}</h3>
@@ -69,10 +69,10 @@ function ContactUsPage() {
               ))}
             </div>
 
-            <div className="flex-1 flex flex-col gap-4">
+            <div className="flex-1 flex flex-col gap-6 sm:gap-4">
               {/* Connect us on =================== */}
-              <div className="flex-1 bg-fill rounded-xl px-8 py-6 ">
-                <h2 className={"text-xl font-medium mt-2"}>Connect us on</h2>
+              <div className="flex-1 bg-fill rounded-xl p-7 sm:px-8 sm:py-6 ">
+                <h2 className={"text-xl font-medium sm:mt-2"}>Connect us on</h2>
 
                 <div className="flex gap-12 mt-8">
                   {socialLinks.map(({ icon: Icon, url }, idx) => (
@@ -84,7 +84,7 @@ function ContactUsPage() {
               </div>
 
               {/* Looking for job opportunities ================== */}
-              <div className="flex-1 flex flex-col gap-4 justify-center rounded-xl px-8 py-6 bg-primaryBtnGradient">
+              <div className="flex-1 flex flex-col gap-4 justify-center rounded-xl p-7 sm:px-8 sm:py-6 bg-primaryBtnGradient">
                 <p className="text-xl font-semibold">
                   Looking for job opportunities?
                 </p>
